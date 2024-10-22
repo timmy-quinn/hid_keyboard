@@ -3,7 +3,4 @@
         "app_nfc.h": "c",
         "stddef.h": "c"
     }
-    "includePath": {
-        "C:\\ncs\\v2.6.1\\nrf\\**"
-    }
 }
