@@ -938,7 +938,7 @@ int main(void)
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
-	configure_gpio();
+	//configure_gpio();
 
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
@@ -977,9 +977,9 @@ int main(void)
 
 	for (;;) {
 		if (is_adv) {
-			dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
+			//dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
 		} else {
-			dk_set_led_off(ADV_STATUS_LED);
+			//dk_set_led_off(ADV_STATUS_LED);
 		}
 		k_sleep(K_MSEC(ADV_LED_BLINK_INTERVAL));
 		/* Battery level simulation */
