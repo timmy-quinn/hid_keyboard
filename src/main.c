@@ -171,9 +171,9 @@ static void advertising_start(void)
 	int err;
 	struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
 						BT_LE_ADV_OPT_CONNECTABLE |
-						BT_LE_ADV_OPT_ONE_TIME,
-						BT_GAP_ADV_FAST_INT_MIN_2,
-						BT_GAP_ADV_FAST_INT_MAX_2,
+						BT_LE_ADV_OPT_ONE_TIME, // test this: will not start advertising after disconnect. 
+						BT_GAP_ADV_FAST_INT_MIN_2, // 160*0.625ms=100ms minimal interval for fast advertising
+						BT_GAP_ADV_FAST_INT_MAX_2, // maximum interval for fast adertising
 						NULL);
 
 	err = bt_le_adv_start(adv_param, ad, ARRAY_SIZE(ad), sd,
@@ -938,7 +938,7 @@ int main(void)
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
-	//configure_gpio();
+	configure_gpio();
 
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
