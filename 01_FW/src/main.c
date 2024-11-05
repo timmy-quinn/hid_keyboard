@@ -139,6 +139,7 @@ static const uint8_t hello_world_str[] = {
 	0x0f,	/* Key l */
 	0x0f,	/* Key l */
 	0x12,	/* Key o */
+		
 	0x28,	/* Key Return */
 };
 
@@ -977,9 +978,9 @@ int main(void)
 
 	for (;;) {
 		if (is_adv) {
-			//dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
+			dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
 		} else {
-			//dk_set_led_off(ADV_STATUS_LED);
+			dk_set_led_off(ADV_STATUS_LED);
 		}
 		k_sleep(K_MSEC(ADV_LED_BLINK_INTERVAL));
 		/* Battery level simulation */
