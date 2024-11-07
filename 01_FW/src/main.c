@@ -139,7 +139,7 @@ static const uint8_t hello_world_str[] = {
 	0x0f,	/* Key l */
 	0x0f,	/* Key l */
 	0x12,	/* Key o */
-		
+	0x1E,   /* Key 1/! */	
 	0x28,	/* Key Return */
 };
 
@@ -806,6 +806,7 @@ static void button_text_changed(bool down)
 		hid_buttons_release(chr, 1);
 		if (++chr == (hello_world_str + sizeof(hello_world_str))) {
 			chr = hello_world_str;
+			printk("!\n");
 		}
 	}
 }
