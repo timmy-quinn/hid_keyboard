@@ -55,35 +55,51 @@ void initKeyMatrix() {
     const struct device *gpio0_dev = device_get_binding(GPIO_NAME_0);
     const struct device *gpio1_dev = device_get_binding(GPIO_NAME_1);
 
+// GPIO outputs
     keyMatrixOut[0].device = gpio0_dev;
     keyMatrixOut[0].pinNum = 13;
+
     keyMatrixOut[1].device = gpio0_dev;
     keyMatrixOut[1].pinNum = 15; 
+
     keyMatrixOut[2].device = gpio0_dev;
     keyMatrixOut[2].pinNum = 17; 
+
     keyMatrixOut[3].device = gpio0_dev;
     keyMatrixOut[3].pinNum = 20; 
+
     keyMatrixOut[4].device = gpio0_dev;
     keyMatrixOut[4].pinNum = 22; 
+
     keyMatrixOut[5].device = gpio1_dev;
     keyMatrixOut[5].pinNum = 24; 
+
     keyMatrixOut[6].device = gpio1_dev;
     keyMatrixOut[6].pinNum = 00; 
+
     keyMatrixOut[7].device = gpio0_dev;
     keyMatrixOut[7].pinNum = 9; 
 
+
+// GPIO inputs 
     keyMatrixIn[0].device = gpio0_dev;
     keyMatrixIn[0].pinNum = 10; 
+
     keyMatrixIn[1].device = gpio1_dev;
     keyMatrixIn[1].pinNum = 10; 
+
     keyMatrixIn[2].device = gpio1_dev;
     keyMatrixIn[2].pinNum = 13; 
+
     keyMatrixIn[3].device = gpio1_dev;
     keyMatrixIn[3].pinNum = 15; 
+
     keyMatrixIn[4].device = gpio0_dev;
     keyMatrixIn[4].pinNum = 02; 
+
     keyMatrixIn[5].device = gpio0_dev;
     keyMatrixIn[5].pinNum = 29; 
+
     keyMatrixIn[6].device = gpio0_dev;
     keyMatrixIn[6].pinNum = 31; 
 
