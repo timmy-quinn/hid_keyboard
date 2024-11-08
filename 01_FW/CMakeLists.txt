@@ -13,4 +13,6 @@ FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE ${app_sources})
 # NORDIC SDK APP END
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 zephyr_library_include_directories(${ZEPHYR_BASE}/samples/bluetooth)
