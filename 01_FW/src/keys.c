@@ -57,67 +57,79 @@ void initKeyMatrix() {
 
 // GPIO outputs
     keyMatrixOut[0].device = gpio0_dev;
-    keyMatrixOut[0].pinNum = 13;
+    keyMatrixOut[0].pinNum = 0;
 
     keyMatrixOut[1].device = gpio0_dev;
-    keyMatrixOut[1].pinNum = 15; 
+    keyMatrixOut[1].pinNum = 1;
 
     keyMatrixOut[2].device = gpio0_dev;
-    keyMatrixOut[2].pinNum = 17; 
+    keyMatrixOut[2].pinNum = 2;
 
     keyMatrixOut[3].device = gpio0_dev;
-    keyMatrixOut[3].pinNum = 20; 
+    keyMatrixOut[3].pinNum = 3;
 
     keyMatrixOut[4].device = gpio0_dev;
-    keyMatrixOut[4].pinNum = 22; 
+    keyMatrixOut[4].pinNum = 4;
 
-    keyMatrixOut[5].device = gpio1_dev;
-    keyMatrixOut[5].pinNum = 24; 
+    keyMatrixOut[5].device = gpio0_dev;
+    keyMatrixOut[5].pinNum = 5;
 
-    keyMatrixOut[6].device = gpio1_dev;
-    keyMatrixOut[6].pinNum = 00; 
+    keyMatrixOut[6].device = gpio0_dev;
+    keyMatrixOut[6].pinNum = 6;
 
     keyMatrixOut[7].device = gpio0_dev;
-    keyMatrixOut[7].pinNum = 9; 
+    keyMatrixOut[7].pinNum = 7;
 
+// // GPIO inputs 
+//     keyMatrixIn[0].device = gpio0_dev;
+//     keyMatrixIn[0].pinNum = 10; 
 
-// GPIO inputs 
-    keyMatrixIn[0].device = gpio0_dev;
-    keyMatrixIn[0].pinNum = 10; 
+//     keyMatrixIn[1].device = gpio1_dev;
+//     keyMatrixIn[1].pinNum = 10; 
 
-    keyMatrixIn[1].device = gpio1_dev;
-    keyMatrixIn[1].pinNum = 10; 
+//     keyMatrixIn[2].device = gpio1_dev;
+//     keyMatrixIn[2].pinNum = 13; 
 
-    keyMatrixIn[2].device = gpio1_dev;
-    keyMatrixIn[2].pinNum = 13; 
+//     keyMatrixIn[3].device = gpio1_dev;
+//     keyMatrixIn[3].pinNum = 15; 
 
-    keyMatrixIn[3].device = gpio1_dev;
-    keyMatrixIn[3].pinNum = 15; 
+//     keyMatrixIn[4].device = gpio0_dev;
+//     keyMatrixIn[4].pinNum = 02; 
 
-    keyMatrixIn[4].device = gpio0_dev;
-    keyMatrixIn[4].pinNum = 02; 
+//     keyMatrixIn[5].device = gpio0_dev;
+//     keyMatrixIn[5].pinNum = 29; 
 
-    keyMatrixIn[5].device = gpio0_dev;
-    keyMatrixIn[5].pinNum = 29; 
+//     keyMatrixIn[6].device = gpio0_dev;
+//     keyMatrixIn[6].pinNum = 31; 
 
-    keyMatrixIn[6].device = gpio0_dev;
-    keyMatrixIn[6].pinNum = 31; 
-
-    for(uint16_t i = 0; i < sizeof(keyMatrixOut); i++) {
-        gpio_pin_configure(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, GPIO_OUTPUT);
+    for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
+        gpio_pin_configure(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, GPIO_OUTPUT  );
     }
-    for(uint16_t i = 0; i < sizeof(keyMatrixOut); i++) {
-        gpio_pin_configure(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, GPIO_INPUT);
-    }
+    // for(uint17_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
+    //     gpio_pin_configure(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, GPIO_INPUT);
+    // }
 }
 
+#define MY_LED_NODE        DT_NODELABEL(leds4)
+
+
 void keyMatrixTask() {
-    initKeyMatrix(); 
+    // initKeyMatrix(); 
+    // while(1) {
+    //     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++){
+    //         gpio_pin_set(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, 1); 
+    //         k_msleep(1000); 
+    //         gpio_pin_set(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, 0); 
+    //     }
+    // }
+
+    static const struct gpio_dt_spec myLed_spec = GPIO_DT_SPEC_GET(MY_LED_NODE, gpios);
+    gpio_pin_configure_dt(&myLed_spec, GPIO_OUTPUT); 
+
     while(1) {
-        for(uint16_t i = 0; i < sizeof(keyMatrixOut); i++){
-            gpio_pin_set(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, 1); 
-            k_msleep(SLEEP_TIME_MS); 
-            gpio_pin_set(keyMatrixOut[i].device, keyMatrixOut[i].pinNum, 0); 
-        }
+        gpio_pin_set_dt(&myLed_spec, 1); 
+        k_msleep(SLEEP_TIME_MS); 
+        gpio_pin_set_dt(&myLed_spec, 0); 
+        k_msleep(SLEEP_TIME_MS); 
     }
 }
