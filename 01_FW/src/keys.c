@@ -37,15 +37,16 @@
 typedef struct pin {
     const struct device *device; 
     uint16_t pinNum; 
-} gpioPin_t; 
+} gpio_pin_t; 
 
 #define KEY_MATRIX_OUT_COUNT 8
 #define KEY_MATRIX_IN_COUNT 7
 #define SLEEP_TIME_MS 2 
 
-static const struct gpio_dt_spec *keyMatrixOut[KEY_MATRIX_OUT_COUNT];
-static const struct gpio_dt_spec *keyMatrixIn[KEY_MATRIX_IN_COUNT];
-static const struct gpio_dt_spec *testLED; 
+static const struct gpio_dt_spec *key_mtrx_out[KEY_MATRIX_OUT_COUNT];
+static const struct gpio_dt_spec *key_mtrx_in[KEY_MATRIX_IN_COUNT];
+static struct k_work_delayable key_mtrx_scan;
+static const struct gpio_dt_spec *test_led; 
 uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT]; 
 
 #define EXT_LED_0        DT_NODELABEL(ledx0)
@@ -57,7 +58,7 @@ uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT];
 #define EXT_LED_6        DT_NODELABEL(ledx6)
 #define EXT_LED_7        DT_NODELABEL(ledx7)
 
-#define TEST_LED        DT_NODELABEL(testled)
+#define TEST_LED        DT_NODELABEL(test_led)
 
 #define BTN_MATRIX_0    DT_NODELABEL(btnmtrx0)
 #define BTN_MATRIX_1    DT_NODELABEL(btnmtrx1)
@@ -67,7 +68,7 @@ uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT];
 #define BTN_MATRIX_5    DT_NODELABEL(btnmtrx5)
 #define BTN_MATRIX_6    DT_NODELABEL(btnmtrx6)
 
-void initKeyMatrix() {
+void key_gpios_init() {
     static const struct gpio_dt_spec ledx0_spec = GPIO_DT_SPEC_GET(EXT_LED_0, gpios);
     static const struct gpio_dt_spec ledx1_spec = GPIO_DT_SPEC_GET(EXT_LED_1, gpios);
     static const struct gpio_dt_spec ledx2_spec = GPIO_DT_SPEC_GET(EXT_LED_2, gpios);
@@ -77,7 +78,7 @@ void initKeyMatrix() {
     static const struct gpio_dt_spec ledx6_spec = GPIO_DT_SPEC_GET(EXT_LED_6, gpios);
     static const struct gpio_dt_spec ledx7_spec = GPIO_DT_SPEC_GET(EXT_LED_7, gpios);
 
-    static const struct gpio_dt_spec testLed_spec = GPIO_DT_SPEC_GET(TEST_LED, gpios);
+    static const struct gpio_dt_spec test_led_spec = GPIO_DT_SPEC_GET(TEST_LED, gpios);
 
     static const struct gpio_dt_spec btnMtrx0_spec = GPIO_DT_SPEC_GET(BTN_MATRIX_0, gpios);  
     static const struct gpio_dt_spec btnMtrx1_spec = GPIO_DT_SPEC_GET(BTN_MATRIX_1, gpios);  
@@ -87,57 +88,67 @@ void initKeyMatrix() {
     static const struct gpio_dt_spec btnMtrx5_spec = GPIO_DT_SPEC_GET(BTN_MATRIX_5, gpios);  
     static const struct gpio_dt_spec btnMtrx6_spec = GPIO_DT_SPEC_GET(BTN_MATRIX_6, gpios);  
 
-    keyMatrixOut[0] = &ledx0_spec;
-    keyMatrixOut[1] = &ledx1_spec;
-    keyMatrixOut[2] = &ledx2_spec;
-    keyMatrixOut[3] = &ledx3_spec;
-    keyMatrixOut[4] = &ledx4_spec;
-    keyMatrixOut[5] = &ledx5_spec;
-    keyMatrixOut[6] = &ledx6_spec;
-    keyMatrixOut[7] = &ledx7_spec;
+    key_mtrx_out[0] = &ledx0_spec;
+    key_mtrx_out[1] = &ledx1_spec;
+    key_mtrx_out[2] = &ledx2_spec;
+    key_mtrx_out[3] = &ledx3_spec;
+    key_mtrx_out[4] = &ledx4_spec;
+    key_mtrx_out[5] = &ledx5_spec;
+    key_mtrx_out[6] = &ledx6_spec;
+    key_mtrx_out[7] = &ledx7_spec;
 
-    testLED = &testLed_spec; 
+    test_led = &test_led_spec; 
 
-    keyMatrixIn[0] = &btnMtrx0_spec; 
-    keyMatrixIn[1] = &btnMtrx1_spec; 
-    keyMatrixIn[2] = &btnMtrx2_spec; 
-    keyMatrixIn[3] = &btnMtrx3_spec; 
-    keyMatrixIn[4] = &btnMtrx4_spec; 
-    keyMatrixIn[5] = &btnMtrx5_spec; 
-    keyMatrixIn[6] = &btnMtrx6_spec; 
+    key_mtrx_in[0] = &btnMtrx0_spec; 
+    key_mtrx_in[1] = &btnMtrx1_spec; 
+    key_mtrx_in[2] = &btnMtrx2_spec; 
+    key_mtrx_in[3] = &btnMtrx3_spec; 
+    key_mtrx_in[4] = &btnMtrx4_spec; 
+    key_mtrx_in[5] = &btnMtrx5_spec; 
+    key_mtrx_in[6] = &btnMtrx6_spec; 
     
-    gpio_pin_configure_dt(testLED, GPIO_OUTPUT); 
+    gpio_pin_configure_dt(test_led, GPIO_OUTPUT); 
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
-        gpio_pin_configure_dt(keyMatrixOut[i], GPIO_OUTPUT);
+        gpio_pin_configure_dt(key_mtrx_out[i], GPIO_OUTPUT);
     }
 
     for(uint16_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
-        gpio_pin_configure_dt(keyMatrixIn[i], GPIO_INPUT);
+        gpio_pin_configure_dt(key_mtrx_in[i], GPIO_INPUT);
     }
 
 
-    // for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
-    //     gpio_pin_set_dt(keyMatrixOut[i], 1);
-    // }
 }
 
-void keyMatrixTask() {
-    initKeyMatrix(); 
-    int isPressed = 0; 
+#define CIRCULAR_INC(i, min, max) do{if(i < max) {i++;} else {i = min;}}while(0)
+static uint8_t mtrx_row_active; 
 
+static void key_mtrx_scan_fn() {
+    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 0);
+    if(mtrx_row_active)
+    // CIRCULAR_INC(mtrx_row_active, 0, ARRAY_SIZE(key_mtrx_out) - 1);
+    if(mtrx_row_active < ARRAY_SIZE(key_mtrx_out)) {
+        mtrx_row_active++; 
+    }
+    else {
+        mtrx_row_active = 0; 
+    }
 
-    while(1) {
-        for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
-            gpio_pin_set_dt(keyMatrixOut[i], 1);
-            for(uint16_t j = 0; j < KEY_MATRIX_IN_COUNT; j++) {
-                isPressed = gpio_pin_get(keyMatrixIn[j]->port, keyMatrixIn[j]->pin);
-                if(isPressed) {
-                    gpio_pin_set_dt(testLED, 1); 
-                }
-            }
-            k_msleep(SLEEP_TIME_MS); 
-            gpio_pin_set_dt(keyMatrixOut[i], 0);
-            gpio_pin_set_dt(testLED, 0); 
+    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 1);
+
+    for(uint16_t j = 0; j < KEY_MATRIX_IN_COUNT; j++) {
+        if(gpio_pin_get(key_mtrx_in[j]->port, key_mtrx_in[j]->pin)) {
+            gpio_pin_set_dt(test_led, 1); 
+        }
+        else {
+            gpio_pin_set_dt(test_led, 0); 
         }
     }
+
+	k_work_reschedule(&buttons_scan, K_MSEC(CONFIG_DK_LIBRARY_BUTTON_SCAN_INTERVAL));
+}
+
+void key_mtrx_init() {
+    key_gpios_init(); 
+	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);
+	k_work_schedule(&key_mtrx_scan, K_NO_WAIT);
 }
