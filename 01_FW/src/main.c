@@ -29,8 +29,6 @@
 #include <zephyr/bluetooth/services/dis.h>
 #include <dk_buttons_and_leds.h>
 
-#include "app_nfc.h"
-
 #include "keys.h"
 
 #define DEVICE_NAME     CONFIG_BT_DEVICE_NAME
@@ -154,9 +152,6 @@ static struct keyboard_state {
 	uint8_t keys_state[KEY_PRESS_MAX];
 } hid_keyboard_state;
 
-#if CONFIG_NFC_OOB_PAIRING
-static struct k_work adv_work;
-#endif
 
 static struct k_work pairing_work;
 struct pairing_data_mitm {
@@ -194,33 +189,6 @@ static void advertising_start(void)
 	is_adv = true;
 	printk("Advertising successfully started\n");
 }
-
-
-#if CONFIG_NFC_OOB_PAIRING
-static void delayed_advertising_start(struct k_work *work)
-{
-	advertising_start();
-}
-
-
-void nfc_field_detected(void)
-{
-	dk_set_led_on(NFC_LED);
-
-	for (int i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
-		if (!conn_mode[i].conn) {
-			k_work_submit(&adv_work);
-			break;
-		}
-	}
-}
-
-
-void nfc_field_lost(void)
-{
-	dk_set_led_off(NFC_LED);
-}
-#endif
 
 
 static void pairing_process(struct k_work *work)
@@ -272,14 +240,6 @@ static void connected(struct bt_conn *conn, uint8_t err)
 		}
 	}
 
-#if CONFIG_NFC_OOB_PAIRING == 0
-	for (size_t i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
-		if (!conn_mode[i].conn) {
-			advertising_start();
-			return;
-		}
-	}
-#endif
 	is_adv = false;
 }
 
@@ -314,15 +274,7 @@ static void disconnected(struct bt_conn *conn, uint8_t reason)
 		dk_set_led_off(CON_STATUS_LED);
 	}
 
-#if CONFIG_NFC_OOB_PAIRING
-	if (is_adv) {
-		printk("Advertising stopped after disconnect\n");
-		bt_le_adv_stop();
-		is_adv = false;
-	}
-#else
 	advertising_start();
-#endif
 }
 
 
@@ -558,36 +510,6 @@ static void auth_cancel(struct bt_conn *conn)
 }
 
 
-#if CONFIG_NFC_OOB_PAIRING
-static void auth_oob_data_request(struct bt_conn *conn,
-				  struct bt_conn_oob_info *info)
-{
-	int err;
-	struct bt_le_oob *oob_local = app_nfc_oob_data_get();
-
-	printk("LESC OOB data requested\n");
-
-	if (info->type != BT_CONN_OOB_LE_SC) {
-		printk("Only LESC pairing supported\n");
-		return;
-	}
-
-	if (info->lesc.oob_config != BT_CONN_OOB_LOCAL_ONLY) {
-		printk("LESC OOB config not supported\n");
-		return;
-	}
-
-	/* Pass only local OOB data. */
-	err = bt_le_oob_set_sc_data(conn, &oob_local->le_sc_data, NULL);
-	if (err) {
-		printk("Error while setting OOB data: %d\n", err);
-	} else {
-		printk("Successfully provided LESC OOB data\n");
-	}
-}
-#endif
-
-
 static void pairing_complete(struct bt_conn *conn, bool bonded)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
@@ -622,9 +544,6 @@ static struct bt_conn_auth_cb conn_auth_callbacks = {
 	.passkey_display = auth_passkey_display,
 	.passkey_confirm = auth_passkey_confirm,
 	.cancel = auth_cancel,
-#if CONFIG_NFC_OOB_PAIRING
-	.oob_data_request = auth_oob_data_request,
-#endif
 };
 
 static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
@@ -887,21 +806,6 @@ static void button_changed(uint32_t button_state, uint32_t has_changed)
 	if (has_changed & KEY_SHIFT_MASK) {
 		button_shift_changed((button_state & KEY_SHIFT_MASK) != 0);
 	}
-#if CONFIG_NFC_OOB_PAIRING
-	if (has_changed & KEY_ADV_MASK) {
-		size_t i;
-
-		for (i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
-			if (!conn_mode[i].conn) {
-				advertising_start();
-				return;
-			}
-		}
-
-		printk("Cannot start advertising, all connections slots are"
-		       " taken\n");
-	}
-#endif
 }
 
 
@@ -937,7 +841,8 @@ static void bas_notify(void)
 
 int main(void)
 {
-	keyMatrixTask(); 
+	key_mtrx_init(); 
+	while(1){k_yield();};
 // 	int err;
 // 	int blink_status = 0;
 
@@ -971,12 +876,7 @@ int main(void)
 // 		settings_load();
 // 	}
 
-// #if CONFIG_NFC_OOB_PAIRING
-// 	k_work_init(&adv_work, delayed_advertising_start);
-// 	app_nfc_init();
-// #else
-// 	advertising_start();
-// #endif
+//	advertising_start();
 
 // 	k_work_init(&pairing_work, pairing_process);
 
