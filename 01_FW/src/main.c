@@ -842,7 +842,6 @@ static void bas_notify(void)
 int main(void)
 {
 	key_mtrx_init(); 
-	while(1){k_yield();};
 // 	int err;
 // 	int blink_status = 0;
 

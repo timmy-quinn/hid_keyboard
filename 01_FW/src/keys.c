@@ -42,16 +42,16 @@ static const struct gpio_dt_spec *key_mtrx_out[KEY_MATRIX_OUT_COUNT];
 static const struct gpio_dt_spec *key_mtrx_in[KEY_MATRIX_IN_COUNT];
 static struct k_work_delayable key_mtrx_scan;
 static const struct gpio_dt_spec *test_led; 
-uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-    {}, 
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-} 
+// uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
+//     {}, 
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+//     {},
+// } 
 
 #define EXT_LED_0        DT_NODELABEL(ledx0)
 #define EXT_LED_1        DT_NODELABEL(ledx1)
@@ -72,9 +72,8 @@ uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
 #define BTN_MATRIX_5    DT_NODELABEL(btnmtrx5)
 #define BTN_MATRIX_6    DT_NODELABEL(btnmtrx6)
 
+static void key_gpios_init() {
 
-
-void key_gpios_init() {
     static const struct gpio_dt_spec ledx0_spec = GPIO_DT_SPEC_GET(EXT_LED_0, gpios);
     static const struct gpio_dt_spec ledx1_spec = GPIO_DT_SPEC_GET(EXT_LED_1, gpios);
     static const struct gpio_dt_spec ledx2_spec = GPIO_DT_SPEC_GET(EXT_LED_2, gpios);
@@ -122,8 +121,8 @@ void key_gpios_init() {
         gpio_pin_configure_dt(key_mtrx_in[i], GPIO_INPUT);
     }
 
-    for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT, i++) {
-        gpio_pin_set_dt(key_mtrx_out[i], 1);
+    for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
+        gpio_pin_set_dt(key_mtrx_out[i], 0);
     }
 }
 
@@ -131,7 +130,7 @@ void key_gpios_init() {
 static uint8_t mtrx_row_active; 
 
 static void key_mtrx_scan_fn() {
-    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 1);
+    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 0);
     // CIRCULAR_INC(mtrx_row_active, 0, ARRAY_SIZE(key_mtrx_out) - 1);
     if(mtrx_row_active < ARRAY_SIZE(key_mtrx_out) - 1) {
         mtrx_row_active++; 
@@ -140,7 +139,7 @@ static void key_mtrx_scan_fn() {
         mtrx_row_active = 0; 
     }
 
-    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 0);
+    gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 1);
 
     for(uint16_t j = 0; j < KEY_MATRIX_IN_COUNT; j++) {
         if(gpio_pin_get(key_mtrx_in[j]->port, key_mtrx_in[j]->pin)) {
