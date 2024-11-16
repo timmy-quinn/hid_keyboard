@@ -842,51 +842,51 @@ static void bas_notify(void)
 int main(void)
 {
 	key_mtrx_init(); 
-// 	int err;
-// 	int blink_status = 0;
+	int err;
+	int blink_status = 0;
 
-// 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
+	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
-// 	configure_gpio();
+	configure_gpio();
 
-// 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-// 	if (err) {
-// 		printk("Failed to register authorization callbacks.\n");
-// 		return 0;
-// 	}
+	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
+	if (err) {
+		printk("Failed to register authorization callbacks.\n");
+		return 0;
+	}
 
-// 	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-// 	if (err) {
-// 		printk("Failed to register authorization info callbacks.\n");
-// 		return 0;
-// 	}
+	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
+	if (err) {
+		printk("Failed to register authorization info callbacks.\n");
+		return 0;
+	}
 
-// 	hid_init();
+	hid_init();
 
-// 	err = bt_enable(NULL);
-// 	if (err) {
-// 		printk("Bluetooth init failed (err %d)\n", err);
-// 		return 0;
-// 	}
+	err = bt_enable(NULL);
+	if (err) {
+		printk("Bluetooth init failed (err %d)\n", err);
+		return 0;
+	}
 
-// 	printk("Bluetooth initialized\n");
+	printk("Bluetooth initialized\n");
 
-// 	if (IS_ENABLED(CONFIG_SETTINGS)) {
-// 		settings_load();
-// 	}
+	if (IS_ENABLED(CONFIG_SETTINGS)) {
+		settings_load();
+	}
 
-//	advertising_start();
+	advertising_start();
 
-// 	k_work_init(&pairing_work, pairing_process);
+	k_work_init(&pairing_work, pairing_process);
 
-// 	for (;;) {
-// 		if (is_adv) {
-// 			dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
-// 		} else {
-// 			dk_set_led_off(ADV_STATUS_LED);
-// 		}
-// 		k_sleep(K_MSEC(ADV_LED_BLINK_INTERVAL));
-// 		/* Battery level simulation */
-// 		bas_notify();
-// 	}
+	for (;;) {
+		if (is_adv) {
+			dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
+		} else {
+			dk_set_led_off(ADV_STATUS_LED);
+		}
+		k_sleep(K_MSEC(ADV_LED_BLINK_INTERVAL));
+		/* Battery level simulation */
+		bas_notify();
+	}
 }
