@@ -3,6 +3,7 @@
 #include <zephyr/sys/printk.h>
 #include <hal/nrf_gpio.h>
 #include "keys.h"
+#include "scan_codes.h"
 
 /* 
 * NRF dongle pins
@@ -41,17 +42,25 @@
 static const struct gpio_dt_spec *key_mtrx_out[KEY_MATRIX_OUT_COUNT];
 static const struct gpio_dt_spec *key_mtrx_in[KEY_MATRIX_IN_COUNT];
 static struct k_work_delayable key_mtrx_scan;
-static const struct gpio_dt_spec *test_led; 
-// uint8_t scanCodeMatrix[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-//     {}, 
-//     {},
-//     {},
-//     {},
-//     {},
-//     {},
-//     {},
-//     {},
-// } 
+static const struct gpio_dt_spec *test_led;
+
+typedef struct _kybrd_key_{
+    uint8_t scan_code; 
+    int state; 
+}kybrd_key_t; 
+
+#define KEY_RELEASED 1
+#define KEY_PRESSED 1
+kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}} 
+}; 
 
 #define EXT_LED_0        DT_NODELABEL(ledx0)
 #define EXT_LED_1        DT_NODELABEL(ledx1)
@@ -124,10 +133,12 @@ static void key_gpios_init() {
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
         gpio_pin_set_dt(key_mtrx_out[i], 0);
     }
+    gpio_pin_set_dt(test_led, 0);
 }
 
 #define CIRCULAR_INC(i, min, max) do{if(i < max) {i++;} else {i = min;}}while(0)
 static uint8_t mtrx_row_active; 
+static key_change_cb key_cb; 
 
 static void key_mtrx_scan_fn() {
     gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 0);
@@ -140,22 +151,27 @@ static void key_mtrx_scan_fn() {
     }
 
     gpio_pin_set_dt(key_mtrx_out[mtrx_row_active], 1);
+    int btn_pressed; 
 
     for(uint16_t j = 0; j < KEY_MATRIX_IN_COUNT; j++) {
-        if(gpio_pin_get(key_mtrx_in[j]->port, key_mtrx_in[j]->pin)) {
-            // test pin
-            gpio_pin_set_dt(test_led, 1); 
-            break; 
+        btn_pressed = gpio_pin_get(key_mtrx_in[j]->port, key_mtrx_in[j]->pin); 
+        // test pin
+        if(scan_code_mtrx[mtrx_row_active][j].state != btn_pressed) {
+            scan_code_mtrx[mtrx_row_active][j].state = btn_pressed;
+            gpio_pin_set_dt(test_led, btn_pressed); 
+            if(key_cb) {
+                key_cb(&scan_code_mtrx[mtrx_row_active][j].scan_code, btn_pressed);
+            }
+            scan_code_mtrx[mtrx_row_active][j].state = btn_pressed;    
         }
-        else {
-            gpio_pin_set_dt(test_led, 0); 
-        }
+        
     }
 
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(10));
 }
 
-void key_mtrx_init() {
+void key_mtrx_init(key_change_cb callback) {
+    key_cb = callback; 
     key_gpios_init(); 
 	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);
 	k_work_schedule(&key_mtrx_scan, K_NO_WAIT);

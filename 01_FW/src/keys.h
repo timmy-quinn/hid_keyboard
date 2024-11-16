@@ -12,5 +12,7 @@ typedef struct _keyBrdKey_ {
     uint8_t scanCode; 
 } KB_key_t;
 
-void keyMatrixTask(); 
+typedef void (*key_change_cb)(const uint8_t *, int);
+
+void key_mtrx_init(key_change_cb callback); 
 #endif

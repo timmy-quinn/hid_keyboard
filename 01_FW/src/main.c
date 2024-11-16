@@ -838,10 +838,18 @@ static void bas_notify(void)
 	bt_bas_set_battery_level(battery_level);
 }
 
+static void key_mtrx_cb(const uint8_t *chr, int is_down) {
+	if (is_down) {
+		hid_buttons_press(chr, 1);
+	} else {
+		hid_buttons_release(chr, 1);
+	}
+}
+
 
 int main(void)
 {
-	key_mtrx_init(); 
+	key_mtrx_init(key_mtrx_cb); 
 	int err;
 	int blink_status = 0;
 
