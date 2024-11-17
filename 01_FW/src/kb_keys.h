@@ -9,6 +9,7 @@
 * 1.10, 1.13, 1.15, 0.02, 0.29, 0.31
 * If all pins are used, we have 56 keys available
 */
+#include <stdint.h>
 
 typedef enum {
     KEY_PRESSED, 
@@ -23,5 +24,5 @@ typedef struct _keyBrdKey_ {
 
 typedef void (*key_change_cb)(const uint8_t *, int);
 
-void key_mtrx_init(key_change_cb callback); 
+void kb_keys_init(key_change_cb callback); 
 #endif

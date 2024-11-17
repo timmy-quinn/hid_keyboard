@@ -4,7 +4,7 @@
 #include <hal/nrf_gpio.h>
 #include "utils.h"
 #include "scan_codes.h"
-#include "keys.h"
+#include "kb_keys.h"
 
 #define GPIO_NODE_0 DT_NODELABEL(gpio0)
 #define GPIO_NAME_0 DEVICE_DT_NAME(GPIO_NODE_0) 
@@ -116,7 +116,7 @@ static void key_mtrx_scan_fn() {
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));
 }
 
-void key_mtrx_init(key_change_cb callback) {
+void kb_keys_init(key_change_cb callback) {
     key_cb = callback; 
     key_gpios_init(); 
 	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);
