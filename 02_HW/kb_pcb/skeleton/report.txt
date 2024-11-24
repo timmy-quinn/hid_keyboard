@@ -1,0 +1,674 @@
+Info: Processing symbol 'D14:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW26:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW17:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D26:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D5:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D19:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D8:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW3:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW9:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW11:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW27:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D21:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D11:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D23:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D27:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW16:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW22:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D24:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D7:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW24:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D12:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D20:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW5:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW10:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW18:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D25:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D4:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW25:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D6:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW19:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D13:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW4:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW6:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW23:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D29:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW29:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW15:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW1:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW2:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW13:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D2:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D17:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW30:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D1:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW8:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D16:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW21:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D22:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW14:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D30:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D10:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW20:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW12:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'SW28:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D18:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D9:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D15:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'D3:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Info: Processing symbol 'SW7:PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u'.
+Info: Processing symbol 'D28:Diode_SMD:Nexperia_CFP3_SOD-123W'.
+Updated SW8 sheetname to 'Root'.
+Updated SW8 fields.
+Connected SW7 pin 1 to Net-(SW10-Pad1).
+Changed REF** reference designator to SW9.
+Connected SW8 pin 2 to Net-(D8-A).
+Added SW9 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Connected SW10 pin 1 to Net-(SW10-Pad1).
+Updated SW9 sheetfile to 'skeleton.kicad_sch'.
+Updated SW8 sheetfile to 'skeleton.kicad_sch'.
+Updated SW9 sheetname to 'Root'.
+Changed REF** reference designator to SW8.
+Updated SW8 symbol association from  to /ba5d1a9e-8f6b-448d-a0df-25d132a5f75d.
+Changed SW9 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW9 fields.
+Updated SW9 symbol association from  to /78da8d6a-cc62-4717-b1d0-7002df2028f6.
+Added SW8 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Connected SW8 pin 1 to Net-(SW10-Pad1).
+Changed SW8 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW12 sheetfile to 'skeleton.kicad_sch'.
+Connected SW11 pin 1 to Net-(SW11-Pad1).
+Connected SW11 pin 2 to Net-(D11-A).
+Added SW12 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW12.
+Changed SW12 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW12 symbol association from  to /c9a6876d-ae1f-48c7-9767-73539e7ebfab.
+Updated SW12 fields.
+Updated SW12 sheetname to 'Root'.
+Add net Net-(SW11-Pad1).
+Connected SW12 pin 1 to Net-(SW11-Pad1).
+Connected SW12 pin 2 to Net-(D12-A).
+Added SW13 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW13.
+Changed SW13 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW13 symbol association from  to /c3f71044-944d-4496-ac71-07f19cbc01c3.
+Updated SW13 fields.
+Updated SW13 sheetname to 'Root'.
+Connected SW10 pin 2 to Net-(D10-A).
+Connected SW9 pin 1 to Net-(SW10-Pad1).
+Added SW10 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW10.
+Changed SW10 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW10 symbol association from  to /a1f0e251-7941-40ae-a0b8-874e9654c8cc.
+Updated SW10 fields.
+Updated SW10 sheetname to 'Root'.
+Updated SW10 sheetfile to 'skeleton.kicad_sch'.
+Connected SW9 pin 2 to Net-(D9-A).
+Updated SW6 sheetfile to 'skeleton.kicad_sch'.
+Added SW11 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW11.
+Changed SW11 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW11 symbol association from  to /ee0dd09d-a15d-49a2-94fa-255ed81a7c2c.
+Updated SW11 fields.
+Updated SW11 sheetname to 'Root'.
+Updated SW11 sheetfile to 'skeleton.kicad_sch'.
+Updated SW2 sheetname to 'Root'.
+Updated SW1 sheetfile to 'skeleton.kicad_sch'.
+Add net Net-(SW1-Pad1).
+Connected SW1 pin 1 to Net-(SW1-Pad1).
+Connected SW1 pin 2 to Net-(D1-A).
+Added SW2 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW2.
+Changed SW2 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW2 symbol association from  to /01603a59-e3f5-4825-aa3f-deb4f2c1a504.
+Updated SW2 fields.
+Updated SW1 sheetname to 'Root'.
+Updated SW2 sheetfile to 'skeleton.kicad_sch'.
+Connected SW2 pin 1 to Net-(SW1-Pad1).
+Connected SW2 pin 2 to Net-(D2-A).
+Added SW3 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW3.
+Changed SW3 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW3 symbol association from  to /7e6908c9-7853-4c8d-a5e7-932d0ca941d8.
+Updated SW3 fields.
+Updated SW3 sheetname to 'Root'.
+Updated D30 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D29-A).
+Connected D29 pin 2 to Net-(D29-A).
+Added D30 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D30.
+Changed D30 value from Nexperia_CFP3_SOD-123W to D.
+Updated D30 symbol association from  to /9c70fe0c-92d8-4c22-8a28-e32e92b89145.
+Updated D30 fields.
+Updated D30 sheetname to 'Root'.
+Updated D30 sheetfile to 'skeleton.kicad_sch'.
+Updated SW3 sheetfile to 'skeleton.kicad_sch'.
+Add net Net-(D30-A).
+Connected D30 pin 2 to Net-(D30-A).
+Connected D30 pin 1 to Net-(D10-K).
+Added SW1 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW1.
+Changed SW1 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW1 symbol association from  to /78dd1ed0-8468-47f3-9131-9355bbfafe9e.
+Updated SW1 fields.
+Add net Net-(SW10-Pad1).
+Connected SW5 pin 1 to Net-(SW1-Pad1).
+Added SW6 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW6.
+Changed SW6 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW6 symbol association from  to /e0d34504-6854-4591-b4fa-01fddb877679.
+Updated SW6 fields.
+Updated SW6 sheetname to 'Root'.
+Changed REF** reference designator to SW15.
+Connected SW6 pin 2 to Net-(D6-A).
+Connected SW5 pin 2 to Net-(D5-A).
+Connected SW6 pin 1 to Net-(SW10-Pad1).
+Added SW7 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW7.
+Changed SW7 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW7 symbol association from  to /9a923417-6522-447f-b12a-614dcaa0c2b2.
+Updated SW7 fields.
+Updated SW7 sheetname to 'Root'.
+Updated SW7 sheetfile to 'skeleton.kicad_sch'.
+Connected SW4 pin 2 to Net-(D4-A).
+Connected SW3 pin 1 to Net-(SW1-Pad1).
+Connected SW3 pin 2 to Net-(D3-A).
+Added SW4 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW4.
+Changed SW4 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW4 symbol association from  to /2a4070ac-c38a-4e5c-b499-2c0ef38ee772.
+Updated SW4 fields.
+Updated SW4 sheetname to 'Root'.
+Updated SW4 sheetfile to 'skeleton.kicad_sch'.
+Connected SW7 pin 2 to Net-(D7-A).
+Connected SW4 pin 1 to Net-(SW1-Pad1).
+Added SW5 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW5.
+Changed SW5 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW5 symbol association from  to /38890924-817e-4810-b72c-0ce3365308b1.
+Updated SW5 fields.
+Updated SW5 sheetname to 'Root'.
+Updated SW5 sheetfile to 'skeleton.kicad_sch'.
+Updated SW25 sheetname to 'Root'.
+Updated SW24 sheetname to 'Root'.
+Updated SW24 sheetfile to 'skeleton.kicad_sch'.
+Connected SW24 pin 1 to Net-(SW21-Pad1).
+Connected SW24 pin 2 to Net-(D24-A).
+Added SW25 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW25.
+Changed SW25 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW25 symbol association from  to /6689cc8e-0e08-4785-ba4a-aacff47008f8.
+Updated SW25 fields.
+Updated SW24 fields.
+Updated SW25 sheetfile to 'skeleton.kicad_sch'.
+Connected SW25 pin 1 to Net-(SW21-Pad1).
+Connected SW25 pin 2 to Net-(D25-A).
+Added SW26 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW26.
+Changed SW26 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW26 symbol association from  to /84d27534-a645-49e6-ab78-65f7867201fc.
+Updated SW26 fields.
+Updated SW26 sheetname to 'Root'.
+Updated SW23 symbol association from  to /5c9c73b3-0ee6-46a9-8e93-e989539ac4ea.
+Updated SW22 symbol association from  to /02870bac-a896-48a4-a8e5-7c7a16339196.
+Updated SW22 fields.
+Updated SW22 sheetname to 'Root'.
+Updated SW22 sheetfile to 'skeleton.kicad_sch'.
+Connected SW22 pin 2 to Net-(D22-A).
+Connected SW22 pin 1 to Net-(SW21-Pad1).
+Added SW23 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW23.
+Changed SW23 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW26 sheetfile to 'skeleton.kicad_sch'.
+Updated SW23 fields.
+Updated SW23 sheetname to 'Root'.
+Updated SW23 sheetfile to 'skeleton.kicad_sch'.
+Connected SW23 pin 1 to Net-(SW21-Pad1).
+Connected SW23 pin 2 to Net-(D23-A).
+Added SW24 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW24.
+Changed SW24 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW24 symbol association from  to /ba9cabd2-71dd-4c68-8354-0db0b19b7a2a.
+Connected SW29 pin 1 to Net-(SW26-Pad1).
+Connected SW28 pin 1 to Net-(SW26-Pad1).
+Added SW29 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW29.
+Changed SW29 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW29 symbol association from  to /5218203a-4900-455e-a3a4-a91b0f9617cc.
+Updated SW29 fields.
+Updated SW29 sheetname to 'Root'.
+Updated SW29 sheetfile to 'skeleton.kicad_sch'.
+Connected SW29 pin 2 to Net-(D29-A).
+Connected SW28 pin 2 to Net-(D28-A).
+Added SW30 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW30.
+Changed SW30 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW30 symbol association from  to /735b2cf7-f2c0-4888-8928-4e9eb0eb85e8.
+Updated SW30 fields.
+Updated SW30 sheetname to 'Root'.
+Updated SW30 sheetfile to 'skeleton.kicad_sch'.
+Connected SW30 pin 1 to Net-(SW26-Pad1).
+Connected SW30 pin 2 to Net-(D30-A).
+Updated SW27 sheetfile to 'skeleton.kicad_sch'.
+Connected SW26 pin 2 to Net-(D26-A).
+Add net Net-(SW26-Pad1).
+Connected SW26 pin 1 to Net-(SW26-Pad1).
+Added SW27 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW27.
+Changed SW27 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW27 symbol association from  to /2910a072-6542-4b8c-bcac-235df9cc19b4.
+Updated SW27 fields.
+Updated SW27 sheetname to 'Root'.
+Changed SW22 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Connected SW27 pin 1 to Net-(SW26-Pad1).
+Connected SW27 pin 2 to Net-(D27-A).
+Added SW28 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW28.
+Changed SW28 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW28 symbol association from  to /67889284-0d16-4ef7-9497-ac292066208c.
+Updated SW28 fields.
+Updated SW28 sheetname to 'Root'.
+Updated SW28 sheetfile to 'skeleton.kicad_sch'.
+Connected SW16 pin 2 to Net-(D16-A).
+Added SW16 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW16.
+Changed SW16 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW16 symbol association from  to /5adf2f3f-e047-4c6a-b0e6-ef0235a607b3.
+Updated SW16 fields.
+Updated SW16 sheetname to 'Root'.
+Updated SW16 sheetfile to 'skeleton.kicad_sch'.
+Add net Net-(SW16-Pad1).
+Connected SW16 pin 1 to Net-(SW16-Pad1).
+Connected SW15 pin 1 to Net-(SW11-Pad1).
+Added SW17 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW17.
+Changed SW17 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW17 symbol association from  to /c25d31ae-506e-4d1f-a160-f89e9fd2addb.
+Updated SW17 fields.
+Updated SW17 sheetname to 'Root'.
+Updated SW17 sheetfile to 'skeleton.kicad_sch'.
+Connected SW17 pin 2 to Net-(D17-A).
+Connected SW17 pin 1 to Net-(SW16-Pad1).
+Connected SW14 pin 2 to Net-(D14-A).
+Connected SW13 pin 1 to Net-(SW11-Pad1).
+Connected SW13 pin 2 to Net-(D13-A).
+Added SW14 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW14.
+Changed SW14 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW14 symbol association from  to /dc9c84a1-8e3d-44e3-b3ba-c99d74f998f6.
+Updated SW14 fields.
+Updated SW14 sheetname to 'Root'.
+Updated SW14 sheetfile to 'skeleton.kicad_sch'.
+Added SW18 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Connected SW14 pin 1 to Net-(SW11-Pad1).
+Added SW15 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Updated D28 sheetname to 'Root'.
+Changed SW15 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW15 symbol association from  to /461b6b3b-11a6-4aff-9657-8282547d107b.
+Updated SW15 fields.
+Updated SW15 sheetname to 'Root'.
+Updated SW15 sheetfile to 'skeleton.kicad_sch'.
+Connected SW15 pin 2 to Net-(D15-A).
+Changed SW21 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Changed SW20 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW20 symbol association from  to /29bb3322-db1a-4b7f-92da-b8aa2d8543f7.
+Updated SW20 fields.
+Updated SW20 sheetname to 'Root'.
+Updated SW20 sheetfile to 'skeleton.kicad_sch'.
+Connected SW20 pin 2 to Net-(D20-A).
+Connected SW20 pin 1 to Net-(SW16-Pad1).
+Added SW21 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW21.
+Changed REF** reference designator to SW20.
+Updated SW21 symbol association from  to /43a0296a-320b-4973-b284-2e09e2676f1b.
+Updated SW21 fields.
+Updated SW21 sheetname to 'Root'.
+Updated SW21 sheetfile to 'skeleton.kicad_sch'.
+Connected SW21 pin 2 to Net-(D21-A).
+Add net Net-(SW21-Pad1).
+Connected SW21 pin 1 to Net-(SW21-Pad1).
+Added SW22 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Changed REF** reference designator to SW22.
+Changed REF** reference designator to SW19.
+Changed REF** reference designator to SW18.
+Changed SW18 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW18 symbol association from  to /3e7434e8-26d2-44e6-84d4-3ce7a0b119c9.
+Updated SW18 fields.
+Updated SW18 sheetname to 'Root'.
+Updated SW18 sheetfile to 'skeleton.kicad_sch'.
+Connected SW18 pin 1 to Net-(SW16-Pad1).
+Connected SW18 pin 2 to Net-(D18-A).
+Added SW19 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Updated SW13 sheetfile to 'skeleton.kicad_sch'.
+Changed SW19 value from SW_Cherry_MX_PCB_1.25u to SW_Push.
+Updated SW19 symbol association from  to /7e623680-167a-43f1-969c-813f5fe8b01f.
+Updated SW19 fields.
+Updated SW19 sheetname to 'Root'.
+Updated SW19 sheetfile to 'skeleton.kicad_sch'.
+Connected SW19 pin 1 to Net-(SW16-Pad1).
+Connected SW19 pin 2 to Net-(D19-A).
+Added SW20 (footprint 'PCM_Switch_Keyboard_Cherry_MX:SW_Cherry_MX_PCB_1.25u').
+Updated D10 sheetfile to 'skeleton.kicad_sch'.
+Updated D9 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D9-A).
+Connected D9 pin 2 to Net-(D9-A).
+Connected D9 pin 1 to Net-(D14-K).
+Added D10 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D10.
+Changed D10 value from Nexperia_CFP3_SOD-123W to D.
+Updated D10 symbol association from  to /1d1e68e1-7868-48f8-9a6c-b5277b39fdc4.
+Updated D10 fields.
+Updated D10 sheetname to 'Root'.
+Updated D9 sheetfile to 'skeleton.kicad_sch'.
+Updated D10 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D10 pin 1 to Net-(D10-K).
+Add net Net-(D10-A).
+Connected D10 pin 2 to Net-(D10-A).
+Added D11 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D11.
+Changed D11 value from Nexperia_CFP3_SOD-123W to D.
+Updated D11 symbol association from  to /e6df766e-53cb-44e8-b2c6-6e34931728cd.
+Updated D11 fields.
+Updated D8 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D7 pin 2 to Net-(D7-A).
+Connected D7 pin 1 to Net-(D12-K).
+Added D8 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D8.
+Changed D8 value from Nexperia_CFP3_SOD-123W to D.
+Updated D8 symbol association from  to /07c884c1-2730-4857-a187-e09ca6e0cd60.
+Updated D8 fields.
+Updated D8 sheetname to 'Root'.
+Updated D8 sheetfile to 'skeleton.kicad_sch'.
+Updated D11 sheetname to 'Root'.
+Add net Net-(D8-A).
+Connected D8 pin 2 to Net-(D8-A).
+Connected D8 pin 1 to Net-(D13-K).
+Added D9 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D9.
+Changed D9 value from Nexperia_CFP3_SOD-123W to D.
+Updated D9 symbol association from  to /95b6c81e-100f-4a1d-a3a0-a1689a546037.
+Updated D9 fields.
+Updated D9 sheetname to 'Root'.
+Changed D14 value from Nexperia_CFP3_SOD-123W to D.
+Updated D13 fields.
+Updated D13 sheetname to 'Root'.
+Updated D13 sheetfile to 'skeleton.kicad_sch'.
+Updated D13 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D13-A).
+Connected D13 pin 2 to Net-(D13-A).
+Connected D13 pin 1 to Net-(D13-K).
+Added D14 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D14.
+Updated D13 symbol association from  to /9504c730-1cdd-4cef-b357-4c92840d5d69.
+Updated D14 symbol association from  to /f002bac3-d118-4a0a-8f29-2d5c83b66203.
+Updated D14 fields.
+Updated D14 sheetname to 'Root'.
+Updated D14 sheetfile to 'skeleton.kicad_sch'.
+Updated D14 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D14-A).
+Connected D14 pin 2 to Net-(D14-A).
+Connected D14 pin 1 to Net-(D14-K).
+Added D15 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Updated D12 fields.
+Updated D11 sheetfile to 'skeleton.kicad_sch'.
+Updated D11 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D11-A).
+Connected D11 pin 2 to Net-(D11-A).
+Connected D11 pin 1 to Net-(D1-K).
+Added D12 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D12.
+Changed D12 value from Nexperia_CFP3_SOD-123W to D.
+Updated D12 symbol association from  to /c7c586f5-7e9c-4ee1-b068-d6229fb7b671.
+Add net Net-(D7-A).
+Updated D12 sheetname to 'Root'.
+Updated D12 sheetfile to 'skeleton.kicad_sch'.
+Updated D12 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D12-A).
+Connected D12 pin 2 to Net-(D12-A).
+Connected D12 pin 1 to Net-(D12-K).
+Added D13 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D13.
+Changed D13 value from Nexperia_CFP3_SOD-123W to D.
+Updated D3 sheetname to 'Root'.
+Add net Net-(D2-A).
+Connected D2 pin 2 to Net-(D2-A).
+Add net Net-(D12-K).
+Connected D2 pin 1 to Net-(D12-K).
+Added D3 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D3.
+Changed D3 value from Nexperia_CFP3_SOD-123W to D.
+Updated D3 symbol association from  to /1bd8f619-de87-43f7-a416-ddc9d03850f5.
+Updated D3 fields.
+Updated D2 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Updated D3 sheetfile to 'skeleton.kicad_sch'.
+Updated D3 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D13-K).
+Connected D3 pin 1 to Net-(D13-K).
+Add net Net-(D3-A).
+Connected D3 pin 2 to Net-(D3-A).
+Added D4 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D4.
+Changed D4 value from Nexperia_CFP3_SOD-123W to D.
+Connected D1 pin 2 to Net-(D1-A).
+Added D1 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D1.
+Changed D1 value from Nexperia_CFP3_SOD-123W to D.
+Updated D1 symbol association from  to /e48c4635-45cd-47ad-a6de-facc17141dea.
+Updated D1 fields.
+Updated D1 sheetname to 'Root'.
+Updated D1 sheetfile to 'skeleton.kicad_sch'.
+Updated D1 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D1-A).
+Updated D4 symbol association from  to /45759244-4826-4dc9-a12f-b533c1a5f8c4.
+Add net Net-(D1-K).
+Connected D1 pin 1 to Net-(D1-K).
+Added D2 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D2.
+Changed D2 value from Nexperia_CFP3_SOD-123W to D.
+Updated D2 symbol association from  to /bd8f7193-c72f-472a-be3c-08a70130f622.
+Updated D2 fields.
+Updated D2 sheetname to 'Root'.
+Updated D2 sheetfile to 'skeleton.kicad_sch'.
+Connected D6 pin 2 to Net-(D6-A).
+Added D6 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D6.
+Changed D6 value from Nexperia_CFP3_SOD-123W to D.
+Updated D6 symbol association from  to /3eee5801-a606-4a0c-a8fa-6d527238b190.
+Updated D6 fields.
+Updated D6 sheetname to 'Root'.
+Updated D6 sheetfile to 'skeleton.kicad_sch'.
+Updated D6 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D6-A).
+Connected D5 pin 1 to Net-(D10-K).
+Connected D6 pin 1 to Net-(D1-K).
+Added D7 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D7.
+Changed D7 value from Nexperia_CFP3_SOD-123W to D.
+Updated D7 symbol association from  to /d1e589d1-5948-4c2d-ae22-145da8a1bdb3.
+Updated D7 fields.
+Updated D7 sheetname to 'Root'.
+Updated D7 sheetfile to 'skeleton.kicad_sch'.
+Updated D7 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Changed REF** reference designator to D5.
+Updated D4 fields.
+Updated D4 sheetname to 'Root'.
+Updated D4 sheetfile to 'skeleton.kicad_sch'.
+Updated D4 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D14-K).
+Connected D4 pin 1 to Net-(D14-K).
+Add net Net-(D4-A).
+Connected D4 pin 2 to Net-(D4-A).
+Added D5 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D15.
+Changed D5 value from Nexperia_CFP3_SOD-123W to D.
+Updated D5 symbol association from  to /8a84df9d-ac27-4c8c-abe1-2735b2722ead.
+Updated D5 fields.
+Updated D5 sheetname to 'Root'.
+Updated D5 sheetfile to 'skeleton.kicad_sch'.
+Updated D5 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D5-A).
+Connected D5 pin 2 to Net-(D5-A).
+Add net Net-(D10-K).
+Changed REF** reference designator to D25.
+Updated D24 symbol association from  to /3e7762e6-428a-4c1e-988a-5030ddf31e7a.
+Updated D24 fields.
+Updated D24 sheetname to 'Root'.
+Updated D24 sheetfile to 'skeleton.kicad_sch'.
+Updated D24 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D24 pin 1 to Net-(D14-K).
+Add net Net-(D24-A).
+Connected D24 pin 2 to Net-(D24-A).
+Added D25 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed D24 value from Nexperia_CFP3_SOD-123W to D.
+Changed D25 value from Nexperia_CFP3_SOD-123W to D.
+Updated D25 symbol association from  to /28a41885-2c2b-4885-8be5-9339fe9f149a.
+Updated D25 fields.
+Updated D25 sheetname to 'Root'.
+Updated D25 sheetfile to 'skeleton.kicad_sch'.
+Updated D25 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D25-A).
+Connected D25 pin 2 to Net-(D25-A).
+Connected D25 pin 1 to Net-(D10-K).
+Updated D23 symbol association from  to /604b1ddf-1e27-45fa-9b80-0d669fd1f91e.
+Updated D22 sheetname to 'Root'.
+Updated D22 sheetfile to 'skeleton.kicad_sch'.
+Updated D22 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D22-A).
+Connected D22 pin 2 to Net-(D22-A).
+Connected D22 pin 1 to Net-(D12-K).
+Added D23 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D23.
+Changed D23 value from Nexperia_CFP3_SOD-123W to D.
+Added D26 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Updated D23 fields.
+Updated D23 sheetname to 'Root'.
+Updated D23 sheetfile to 'skeleton.kicad_sch'.
+Updated D23 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D23-A).
+Connected D23 pin 2 to Net-(D23-A).
+Connected D23 pin 1 to Net-(D13-K).
+Added D24 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D24.
+Add net Net-(D28-A).
+Connected D27 pin 2 to Net-(D27-A).
+Added D28 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D28.
+Changed D28 value from Nexperia_CFP3_SOD-123W to D.
+Updated D28 symbol association from  to /27690b8f-125d-437e-88bf-546fffefcaec.
+Updated D28 fields.
+Updated D28 sheetfile to 'skeleton.kicad_sch'.
+Updated D28 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D28 pin 1 to Net-(D13-K).
+Add net Net-(D27-A).
+Connected D28 pin 2 to Net-(D28-A).
+Added D29 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D29.
+Changed D29 value from Nexperia_CFP3_SOD-123W to D.
+Updated D29 symbol association from  to /011b00eb-3d54-4512-ab40-768211cce2eb.
+Updated D29 fields.
+Updated D29 sheetname to 'Root'.
+Updated D29 sheetfile to 'skeleton.kicad_sch'.
+Updated D29 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D26 pin 1 to Net-(D1-K).
+Changed REF** reference designator to D26.
+Changed D26 value from Nexperia_CFP3_SOD-123W to D.
+Updated D26 symbol association from  to /8d0cbe5c-8309-49c1-aa34-546c78a87391.
+Updated D26 fields.
+Updated D26 sheetname to 'Root'.
+Updated D26 sheetfile to 'skeleton.kicad_sch'.
+Updated D26 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D26-A).
+Connected D26 pin 2 to Net-(D26-A).
+Updated D22 fields.
+Added D27 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D27.
+Changed D27 value from Nexperia_CFP3_SOD-123W to D.
+Updated D27 symbol association from  to /ae498322-b8db-4bc8-b067-2509330c2240.
+Updated D27 fields.
+Updated D27 sheetname to 'Root'.
+Updated D27 sheetfile to 'skeleton.kicad_sch'.
+Updated D27 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D27 pin 1 to Net-(D12-K).
+Add net Net-(D17-A).
+Added D17 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D17.
+Changed D17 value from Nexperia_CFP3_SOD-123W to D.
+Updated D17 symbol association from  to /b4cebaac-2066-433f-aa74-6a34f1b95f45.
+Updated D17 fields.
+Updated D17 sheetname to 'Root'.
+Updated D17 sheetfile to 'skeleton.kicad_sch'.
+Updated D17 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D17 pin 1 to Net-(D12-K).
+Connected D16 pin 2 to Net-(D16-A).
+Connected D17 pin 2 to Net-(D17-A).
+Added D18 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D18.
+Changed D18 value from Nexperia_CFP3_SOD-123W to D.
+Updated D18 symbol association from  to /fed7d090-ee54-4aee-9f55-8ad9697e551f.
+Updated D18 fields.
+Updated D18 sheetname to 'Root'.
+Updated D18 sheetfile to 'skeleton.kicad_sch'.
+Updated D18 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Added D16 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed D15 value from Nexperia_CFP3_SOD-123W to D.
+Updated D15 symbol association from  to /5ea1c4db-d27a-4cbd-96e9-c39e8f3e5d7f.
+Updated D15 fields.
+Updated D15 sheetname to 'Root'.
+Updated D15 sheetfile to 'skeleton.kicad_sch'.
+Updated D15 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D15-A).
+Connected D15 pin 2 to Net-(D15-A).
+Connected D15 pin 1 to Net-(D10-K).
+Add net Net-(D18-A).
+Changed REF** reference designator to D16.
+Changed D16 value from Nexperia_CFP3_SOD-123W to D.
+Updated D16 symbol association from  to /1541a3a8-60a3-43f4-9e4a-3bc29666eb15.
+Updated D16 fields.
+Updated D16 sheetname to 'Root'.
+Updated D16 sheetfile to 'skeleton.kicad_sch'.
+Updated D16 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D16 pin 1 to Net-(D1-K).
+Add net Net-(D16-A).
+Updated D21 sheetname to 'Root'.
+Updated D20 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D20-A).
+Connected D20 pin 2 to Net-(D20-A).
+Connected D20 pin 1 to Net-(D10-K).
+Added D21 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D21.
+Changed D21 value from Nexperia_CFP3_SOD-123W to D.
+Updated D21 symbol association from  to /72f73cda-601a-40d4-8dd3-b64f51aab902.
+Updated D21 fields.
+Updated D20 sheetfile to 'skeleton.kicad_sch'.
+Updated D21 sheetfile to 'skeleton.kicad_sch'.
+Updated D21 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Add net Net-(D21-A).
+Connected D21 pin 2 to Net-(D21-A).
+Connected D21 pin 1 to Net-(D1-K).
+Added D22 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D22.
+Changed D22 value from Nexperia_CFP3_SOD-123W to D.
+Updated D22 symbol association from  to /4f7be651-8997-4580-9c19-314d97293fc6.
+Updated D19 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D18 pin 2 to Net-(D18-A).
+Connected D18 pin 1 to Net-(D13-K).
+Added D19 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D19.
+Changed D19 value from Nexperia_CFP3_SOD-123W to D.
+Updated D19 symbol association from  to /8036f67d-709f-4bb9-b744-b6d08d5591f8.
+Updated D19 fields.
+Updated D19 sheetname to 'Root'.
+Updated D19 sheetfile to 'skeleton.kicad_sch'.
+Connected D29 pin 1 to Net-(D14-K).
+Connected D19 pin 1 to Net-(D14-K).
+Add net Net-(D19-A).
+Connected D19 pin 2 to Net-(D19-A).
+Added D20 (footprint 'Diode_SMD:Nexperia_CFP3_SOD-123W').
+Changed REF** reference designator to D20.
+Changed D20 value from Nexperia_CFP3_SOD-123W to D.
+Updated D20 symbol association from  to /ee030e05-d495-45cf-993a-52249405716f.
+Updated D20 fields.
+Updated D20 sheetname to 'Root'.
+
+
+Info: Total warnings: 0, errors: 0.
