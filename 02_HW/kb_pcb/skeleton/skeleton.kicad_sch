@@ -3801,7 +3801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 195.326 90.424 90)
 			(effects
 				(font
@@ -4247,7 +4247,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 195.326 125.984 90)
 			(effects
 				(font
@@ -5624,7 +5624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 195.326 54.864 90)
 			(effects
 				(font
@@ -6075,7 +6075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 195.326 108.204 90)
 			(effects
 				(font
@@ -7438,7 +7438,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 195.326 72.644 90)
 			(effects
 				(font
