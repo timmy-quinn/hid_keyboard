@@ -1,0 +1,72 @@
+/ {
+    leds {
+        compatible = "gpio-leds";
+        ledx0: ledx_0{
+            gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+            label = "External LED 0"; 
+        };
+        ledx1: ledx_1{
+            gpios = <&gpio0 25 GPIO_ACTIVE_LOW>;
+            label = "External LED 1"; 
+        };
+        ledx2: ledx_2{
+            gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+            label = "External LED 2"; 
+        };
+        ledx3: ledx_3{
+            gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
+            label = "External LED 3"; 
+        };
+        ledx4: ledx_4{
+            gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
+            label = "External LED 4"; 
+        };
+        ledx5: ledx_5{
+            gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+            label = "External LED 5"; 
+        };
+        ledx6: ledx_6{
+            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+            label = "External LED 6"; 
+        };
+        ledx7: ledx_7{
+            gpios = <&gpio0 7 GPIO_ACTIVE_LOW>;
+            label = "External LED 7"; 
+        };
+        testled: led_test{
+            gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
+            label = "External LED 7"; 
+        };
+    };
+
+    buttons {
+        btnmtrx0: btnmtrx_0 {
+            gpios = <&gpio1 4 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 0"; 
+        };
+        btnmtrx1: btnmtrx_1 {
+            gpios = <&gpio1 5 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 1"; 
+        };
+        btnmtrx2: btnmtrx_2 {
+            gpios = <&gpio1 6 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 2"; 
+        };
+        btnmtrx3: btnmtrx_3 {
+            gpios = <&gpio1 7 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 3"; 
+        };
+        btnmtrx4: btnmtrx_4 {
+            gpios = <&gpio1 8 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 4"; 
+        };
+        btnmtrx5: btnmtrx_5 {
+            gpios = <&gpio1 9 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 5"; 
+        };
+        btnmtrx6: btnmtrx_6 {
+            gpios = <&gpio1 10 GPIO_ACTIVE_LOW>; 
+            label = "button matrix 6"; 
+        };
+    };
+};
