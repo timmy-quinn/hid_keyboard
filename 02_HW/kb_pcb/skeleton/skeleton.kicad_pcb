@@ -41,6 +41,7 @@
 	(setup
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
+		(grid_origin 135 120)
 		(pcbplotparams
 			(layerselection 0x00010fc_ffffffff)
 			(plot_on_all_layers_selection 0x0000000_00000000)
@@ -88,76 +89,75 @@
 	(net 6 "Net-(D3-A)")
 	(net 7 "Net-(D14-K)")
 	(net 8 "Net-(D4-A)")
-	(net 9 "Net-(D5-A)")
-	(net 10 "Net-(D10-K)")
-	(net 11 "Net-(D6-A)")
-	(net 12 "Net-(D7-A)")
-	(net 13 "Net-(D8-A)")
-	(net 14 "Net-(D9-A)")
-	(net 15 "Net-(D10-A)")
-	(net 16 "Net-(D11-A)")
-	(net 17 "Net-(D12-A)")
-	(net 18 "Net-(D13-A)")
-	(net 19 "Net-(D14-A)")
-	(net 20 "Net-(D15-A)")
-	(net 21 "Net-(D16-A)")
-	(net 22 "Net-(D17-A)")
-	(net 23 "Net-(D18-A)")
-	(net 24 "Net-(D19-A)")
-	(net 25 "Net-(D20-A)")
-	(net 26 "Net-(D21-A)")
-	(net 27 "Net-(D22-A)")
-	(net 28 "Net-(D23-A)")
-	(net 29 "Net-(D24-A)")
-	(net 30 "Net-(D25-A)")
-	(net 31 "Net-(D26-A)")
-	(net 32 "Net-(D27-A)")
-	(net 33 "Net-(D28-A)")
-	(net 34 "Net-(D29-A)")
-	(net 35 "Net-(D30-A)")
-	(net 36 "Net-(SW1-Pad1)")
-	(net 37 "Net-(SW10-Pad1)")
-	(net 38 "Net-(SW11-Pad1)")
-	(net 39 "Net-(SW16-Pad1)")
-	(net 40 "Net-(SW21-Pad1)")
-	(net 41 "Net-(SW26-Pad1)")
-	(net 42 "unconnected-(J1-Pin_1-Pad1)")
-	(net 43 "unconnected-(J1-Pin_2-Pad2)")
-	(net 44 "unconnected-(J2-Pin_2-Pad2)")
-	(net 45 "unconnected-(J2-Pin_1-Pad1)")
-	(net 46 "+3.3V")
-	(net 47 "unconnected-(J1-Pin_6-Pad6)")
-	(net 48 "unconnected-(J1-Pin_14-Pad14)")
-	(net 49 "unconnected-(J1-Pin_12-Pad12)")
-	(net 50 "unconnected-(J1-Pin_8-Pad8)")
-	(net 51 "unconnected-(J1-Pin_5-Pad5)")
-	(net 52 "unconnected-(J1-Pin_3-Pad3)")
-	(net 53 "unconnected-(J1-Pin_16-Pad16)")
-	(net 54 "unconnected-(J1-Pin_15-Pad15)")
-	(net 55 "unconnected-(J1-Pin_9-Pad9)")
-	(net 56 "unconnected-(J1-Pin_13-Pad13)")
-	(net 57 "unconnected-(J1-Pin_4-Pad4)")
-	(net 58 "unconnected-(J1-Pin_7-Pad7)")
-	(net 59 "unconnected-(J1-Pin_10-Pad10)")
-	(net 60 "unconnected-(J1-Pin_11-Pad11)")
-	(net 61 "unconnected-(J2-Pin_4-Pad4)")
-	(net 62 "unconnected-(J2-Pin_6-Pad6)")
-	(net 63 "unconnected-(J2-Pin_8-Pad8)")
-	(net 64 "unconnected-(J2-Pin_5-Pad5)")
-	(net 65 "unconnected-(J2-Pin_12-Pad12)")
-	(net 66 "unconnected-(J2-Pin_10-Pad10)")
-	(net 67 "unconnected-(J2-Pin_11-Pad11)")
-	(net 68 "unconnected-(J2-Pin_9-Pad9)")
-	(net 69 "unconnected-(J2-Pin_3-Pad3)")
-	(net 70 "unconnected-(J2-Pin_7-Pad7)")
+	(net 9 "Net-(D10-K)")
+	(net 10 "Net-(D6-A)")
+	(net 11 "Net-(D7-A)")
+	(net 12 "Net-(D8-A)")
+	(net 13 "Net-(D9-A)")
+	(net 14 "Net-(D10-A)")
+	(net 15 "Net-(D11-A)")
+	(net 16 "Net-(D12-A)")
+	(net 17 "Net-(D13-A)")
+	(net 18 "Net-(D14-A)")
+	(net 19 "Net-(D15-A)")
+	(net 20 "Net-(D16-A)")
+	(net 21 "Net-(D17-A)")
+	(net 22 "Net-(D18-A)")
+	(net 23 "Net-(D19-A)")
+	(net 24 "Net-(D20-A)")
+	(net 25 "Net-(D21-A)")
+	(net 26 "Net-(D22-A)")
+	(net 27 "Net-(D23-A)")
+	(net 28 "Net-(D24-A)")
+	(net 29 "Net-(D25-A)")
+	(net 30 "Net-(D26-A)")
+	(net 31 "Net-(D27-A)")
+	(net 32 "Net-(D28-A)")
+	(net 33 "Net-(D29-A)")
+	(net 34 "Net-(D30-A)")
+	(net 35 "Net-(SW1-Pad1)")
+	(net 36 "Net-(SW10-Pad1)")
+	(net 37 "Net-(SW11-Pad1)")
+	(net 38 "Net-(SW16-Pad1)")
+	(net 39 "Net-(SW21-Pad1)")
+	(net 40 "Net-(SW26-Pad1)")
+	(net 41 "unconnected-(J1-Pin_1-Pad1)")
+	(net 42 "unconnected-(J1-Pin_2-Pad2)")
+	(net 43 "unconnected-(J2-Pin_2-Pad2)")
+	(net 44 "unconnected-(J2-Pin_1-Pad1)")
+	(net 45 "+3.3V")
+	(net 46 "unconnected-(J1-Pin_6-Pad6)")
+	(net 47 "unconnected-(J1-Pin_14-Pad14)")
+	(net 48 "unconnected-(J1-Pin_12-Pad12)")
+	(net 49 "unconnected-(J1-Pin_8-Pad8)")
+	(net 50 "unconnected-(J1-Pin_5-Pad5)")
+	(net 51 "unconnected-(J1-Pin_3-Pad3)")
+	(net 52 "unconnected-(J1-Pin_16-Pad16)")
+	(net 53 "unconnected-(J1-Pin_15-Pad15)")
+	(net 54 "unconnected-(J1-Pin_9-Pad9)")
+	(net 55 "unconnected-(J1-Pin_13-Pad13)")
+	(net 56 "unconnected-(J1-Pin_4-Pad4)")
+	(net 57 "unconnected-(J1-Pin_7-Pad7)")
+	(net 58 "unconnected-(J1-Pin_10-Pad10)")
+	(net 59 "unconnected-(J1-Pin_11-Pad11)")
+	(net 60 "unconnected-(J2-Pin_4-Pad4)")
+	(net 61 "unconnected-(J2-Pin_6-Pad6)")
+	(net 62 "unconnected-(J2-Pin_8-Pad8)")
+	(net 63 "unconnected-(J2-Pin_5-Pad5)")
+	(net 64 "unconnected-(J2-Pin_12-Pad12)")
+	(net 65 "unconnected-(J2-Pin_10-Pad10)")
+	(net 66 "unconnected-(J2-Pin_11-Pad11)")
+	(net 67 "unconnected-(J2-Pin_9-Pad9)")
+	(net 68 "unconnected-(J2-Pin_3-Pad3)")
+	(net 69 "unconnected-(J2-Pin_7-Pad7)")
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "00b4665e-568c-4ff8-848f-cccf9f025858")
-		(at 49.9 102.975 180)
+		(at 49.275 112.38 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D7"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "667fb6d6-4ef7-4a71-8ff0-1ab3c85e620c")
 			(effects
@@ -168,7 +168,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "b5df259e-f341-4b49-adc9-cf0dcf4b39cc")
 			(effects
@@ -419,7 +419,7 @@
 			(uuid "e693216e-2932-4b19-90ac-bb51f5c6ae53")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "d9d0beed-4d1b-49f8-a432-5c1213045677")
 			(effects
@@ -442,7 +442,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 12 "Net-(D7-A)")
+			(net 11 "Net-(D7-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "1cbe94aa-d51e-4c68-bd7a-91b816eedc1f")
@@ -460,10 +460,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "098131d8-8f73-4a0c-8ab4-6474876b9eaf")
-		(at 33.39 88.37)
+		(at 32.765 97.775)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW3"
@@ -729,7 +728,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 36 "Net-(SW1-Pad1)")
+			(net 35 "Net-(SW1-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "748b0426-f8b3-4257-af0a-08a217ba91ef")
@@ -760,11 +759,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "0db23bcc-bbef-4c15-ae57-4b707300d19d")
-		(at 88 64.875 180)
+		(at 87.375 54.9125 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D19"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "4ffc34e6-19b6-4c9d-9f1b-d5b4ad0707ea")
 			(effects
@@ -775,7 +774,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "de3e0a70-c83a-4478-9964-36e8b2247433")
 			(effects
@@ -1026,7 +1025,7 @@
 			(uuid "ac6ea037-3d93-4e32-a8e7-eb3bc994b552")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "d80783df-d2b4-4f0d-954f-44cbff8ea82d")
 			(effects
@@ -1049,7 +1048,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 24 "Net-(D19-A)")
+			(net 23 "Net-(D19-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "f8f362fa-b051-4635-8719-5a3677782b82")
@@ -1067,10 +1066,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "14be6502-8280-4a89-b333-9c102e31aece")
-		(at 128.64 88.37)
+		(at 128.015 86.345)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW28"
@@ -1336,7 +1334,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 41 "Net-(SW26-Pad1)")
+			(net 40 "Net-(SW26-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "435ae133-8fa9-4b9c-902c-04f510f68fc1")
@@ -1347,7 +1345,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 33 "Net-(D28-A)")
+			(net 32 "Net-(D28-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "41aba396-df88-4dff-b172-42af2e9e95a0")
@@ -1367,11 +1365,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "16c48a6b-498c-4ee0-808a-ba084cd0c0a2")
-		(at 68.95 45.825 180)
+		(at 68.325 41.26 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D15"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "8e75d66f-ada3-4bef-b336-5f2505c26ecd")
 			(effects
@@ -1382,7 +1380,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "2a5993fb-4c02-4ec0-a322-6799c4038764")
 			(effects
@@ -1633,7 +1631,7 @@
 			(uuid "a5b5af53-6a61-4ee5-8dd3-c0cfbe89d8ca")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "b2eb004c-ea41-47d9-a401-7383fdf4c8ee")
 			(effects
@@ -1647,7 +1645,7 @@
 			(at -1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pinfunction "K")
 			(pintype "passive")
 			(uuid "5f29084a-84a7-4a01-8b13-92f8b1b2f0f6")
@@ -1656,7 +1654,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 20 "Net-(D15-A)")
+			(net 19 "Net-(D15-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "fbbd95fc-b0fb-47e2-8a5a-afbea75c920e")
@@ -1674,10 +1672,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "1a700950-9321-41a4-8ffe-7f31ea279ea6")
-		(at 52.44 69.32)
+		(at 51.815 78.725)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW9"
@@ -1943,7 +1940,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 37 "Net-(SW10-Pad1)")
+			(net 36 "Net-(SW10-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "92fef96b-82c9-4862-a478-ec5f61ed97de")
@@ -1954,7 +1951,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 14 "Net-(D9-A)")
+			(net 13 "Net-(D9-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "cbe72eea-bcb0-4424-85ed-f01a091da712")
@@ -1974,11 +1971,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "1cdcbc69-9026-4db5-aec1-4cd0958d16f6")
-		(at 88 102.975 180)
+		(at 87.375 93.0125 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D17"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "adc3ca4b-ce5e-4068-b617-da002546960e")
 			(effects
@@ -1989,7 +1986,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "afbc736d-7179-4a1b-a7aa-9240189808b8")
 			(effects
@@ -2240,7 +2237,7 @@
 			(uuid "0fa34f0d-e1f5-495f-9fb7-8b04bcca3ec9")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "68a7ce11-c107-4537-80ac-6c8098d6f581")
 			(effects
@@ -2263,7 +2260,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 22 "Net-(D17-A)")
+			(net 21 "Net-(D17-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "24bbb555-fdb8-4dd6-89ee-499708eb81b5")
@@ -2283,11 +2280,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "20bb69e0-c4e3-469b-b11b-edc731f332b7")
-		(at 107.05 64.875 180)
+		(at 106.425 62.85 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D24"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "4c5d33df-dce4-4d07-b4cb-29ee720fa3ef")
 			(effects
@@ -2298,7 +2295,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "aa319ab9-9dc1-4049-861c-870ea0f72c16")
 			(effects
@@ -2549,7 +2546,7 @@
 			(uuid "fa2dce5f-b492-4549-b1d8-d4bc014466e2")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "cd8cbe35-31de-4a5b-aba4-b488ebe90b79")
 			(effects
@@ -2572,7 +2569,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 29 "Net-(D24-A)")
+			(net 28 "Net-(D24-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "5392513f-ce4b-4484-b17f-5869305bbf75")
@@ -2592,11 +2589,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "24341d2a-7e16-4fb5-a209-5a674ba8126d")
-		(at 107.05 45.825 180)
+		(at 106.425 43.8 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D25"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "19168fb3-6fc6-4ff0-a97b-54979dc2fd0b")
 			(effects
@@ -2607,7 +2604,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "f422f5d2-091d-4ae8-8dcc-796b510061e7")
 			(effects
@@ -2858,7 +2855,7 @@
 			(uuid "0c3bf40d-47b5-48af-b49d-ad643432410f")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "9e5c4be7-4ee1-48e8-9171-4d20b26ade54")
 			(effects
@@ -2872,7 +2869,7 @@
 			(at -1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pinfunction "K")
 			(pintype "passive")
 			(uuid "53b27765-d127-4624-941c-830f14b69b3d")
@@ -2881,7 +2878,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 30 "Net-(D25-A)")
+			(net 29 "Net-(D25-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "e4ad3db5-4507-4edb-89a1-ce8c19ebb3e8")
@@ -2899,10 +2896,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "2434a640-62d5-4b28-a3f3-df585c442431")
-		(at 128.64 107.42)
+		(at 128.015 105.395)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW27"
@@ -3168,7 +3164,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 41 "Net-(SW26-Pad1)")
+			(net 40 "Net-(SW26-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "efeb14dd-6547-40d0-872a-a26eb4c8ea38")
@@ -3179,7 +3175,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 32 "Net-(D27-A)")
+			(net 31 "Net-(D27-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "9d5e7103-053f-49cd-b292-9bd760b802cb")
@@ -3199,7 +3195,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "26f76192-8c98-41ed-bb7a-1277e3a22cdc")
-		(at 115.95 131.45)
+		(at 112.09 130.395)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW26"
@@ -3465,7 +3461,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 41 "Net-(SW26-Pad1)")
+			(net 40 "Net-(SW26-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "4439c130-d1a5-4232-a98b-c5fac21fcf3a")
@@ -3476,7 +3472,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 31 "Net-(D26-A)")
+			(net 30 "Net-(D26-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "f25e1433-e5b6-47db-8b4f-ee6f4d301266")
@@ -3496,11 +3492,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "27ec5e66-3500-43d9-848e-3e1bf5222216")
-		(at 49.9 64.875 180)
+		(at 49.275 74.28 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D9"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "7ba0cb5a-3842-4b6a-92c0-a6846bc7cbc1")
 			(effects
@@ -3511,7 +3507,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "4ff6d710-8d49-4f54-8988-5dc78eaf30ef")
 			(effects
@@ -3762,7 +3758,7 @@
 			(uuid "28d9bd2c-496c-4153-b268-5f83a4210355")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "d42457ea-2f72-4881-baad-81146628bbf6")
 			(effects
@@ -3785,7 +3781,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 14 "Net-(D9-A)")
+			(net 13 "Net-(D9-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "72f3409a-acea-4284-a9d8-cc8fbc99edf3")
@@ -3805,11 +3801,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "31f37e5b-b197-4d1f-a05d-621a621ae17b")
-		(at 49.9 45.825 180)
+		(at 49.275 55.23 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D10"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "b07a50df-1c08-4565-a593-0f86f0ab5aec")
 			(effects
@@ -3820,7 +3816,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "5b97f5b3-d9f2-4ae1-9bf3-5b107b9838ff")
 			(effects
@@ -4071,7 +4067,7 @@
 			(uuid "4bd13bb3-a0d2-4c05-b98b-50bb2b5b8f25")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "c94eb06d-67a3-4047-ab31-edd24e0c4a44")
 			(effects
@@ -4085,7 +4081,7 @@
 			(at -1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pinfunction "K")
 			(pintype "passive")
 			(uuid "8a711ead-38bf-4ee0-906d-3f55dc27179c")
@@ -4094,7 +4090,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 15 "Net-(D10-A)")
+			(net 14 "Net-(D10-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "ede8030c-c5a7-4f50-a981-65fe1b40fcdd")
@@ -4114,11 +4110,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "3768b1d8-79d5-4887-8ff2-1f2e879e3e12")
-		(at 68.95 102.975 180)
+		(at 68.325 98.41 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D12"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "908efae6-6315-4efa-b5fd-848b0c3e35d4")
 			(effects
@@ -4129,7 +4125,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "e261aeef-4422-459d-baef-fc5cf4e2c703")
 			(effects
@@ -4380,7 +4376,7 @@
 			(uuid "c7ae74d7-2dd9-4d92-8ad0-8ba8ca57549e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "45bf4844-44fb-41d4-b5a6-9fa9e19b5e28")
 			(effects
@@ -4403,7 +4399,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 17 "Net-(D12-A)")
+			(net 16 "Net-(D12-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "02d35910-dfc8-4955-9ba0-9745dbc7e67d")
@@ -4421,10 +4417,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "39f2120e-5e8a-40e8-8887-fde5f9a3e6a0")
-		(at 90.54 88.37)
+		(at 89.915 78.4075)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW18"
@@ -4690,7 +4685,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 39 "Net-(SW16-Pad1)")
+			(net 38 "Net-(SW16-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "7e98a6bb-0061-4417-a070-d1c1d3bd10dc")
@@ -4701,7 +4696,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 23 "Net-(D18-A)")
+			(net 22 "Net-(D18-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "25b80bf8-b958-4d22-b3fa-997b180a8d38")
@@ -4719,10 +4714,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "3fdfc753-d678-4d6d-9440-402903c85dc8")
-		(at 109.59 107.42)
+		(at 108.965 105.395)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW22"
@@ -4988,7 +4982,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(SW21-Pad1)")
+			(net 39 "Net-(SW21-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "9ea1a866-6a8b-4ce6-8b4a-d8f4a49d085d")
@@ -4999,7 +4993,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 27 "Net-(D22-A)")
+			(net 26 "Net-(D22-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "6f1e8d1c-e0bb-4d97-abb4-218c385e6329")
@@ -5019,11 +5013,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "410066d4-921e-4ad4-a70f-5837a2bf32b1")
-		(at 30.85 83.925 180)
+		(at 30.225 93.33 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D3"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "f35ffc57-c3e9-4fe6-9eb4-25ec1e2db64d")
 			(effects
@@ -5034,7 +5028,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "7639917b-fcb5-488a-821c-4b87ef1408f4")
 			(effects
@@ -5285,7 +5279,7 @@
 			(uuid "0edcb278-9d3f-45ba-9fff-fdb9f129086e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "42c9c804-65bf-4180-a181-77b561982812")
 			(effects
@@ -5326,10 +5320,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "46da40ef-440f-4f58-85aa-4b4bdbe3e0d7")
-		(at 71.49 107.42)
+		(at 70.865 102.855)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW12"
@@ -5595,7 +5588,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 38 "Net-(SW11-Pad1)")
+			(net 37 "Net-(SW11-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "160e8b41-4f54-4a03-a195-335386eccfc6")
@@ -5606,7 +5599,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 17 "Net-(D12-A)")
+			(net 16 "Net-(D12-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "f8304260-31f5-4dcf-8cd5-c86ac7495a37")
@@ -5626,11 +5619,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "4952394c-b3f7-4e2c-9bf6-18482d06af88")
-		(at 132.46 146.055 180)
+		(at 128.6 145 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D16"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "192f671a-5361-412d-9004-ff15230e8ef1")
 			(effects
@@ -5641,7 +5634,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "142fd874-bacf-44c5-8b93-d9c5b079dc58")
 			(effects
@@ -5892,7 +5885,7 @@
 			(uuid "f6cfef3a-ed9c-4486-a5f2-fd817561e8e5")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "cf668cb1-cc3e-4c04-85d7-57a332e95b97")
 			(effects
@@ -5915,7 +5908,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 21 "Net-(D16-A)")
+			(net 20 "Net-(D16-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "955c51e5-850b-4f90-a41a-b14294e77b83")
@@ -5933,10 +5926,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "5102a716-bb85-47b5-8be1-0f43f706ccc4")
-		(at 109.59 69.32)
+		(at 108.965 67.295)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW24"
@@ -6202,7 +6194,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(SW21-Pad1)")
+			(net 39 "Net-(SW21-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "a7bee5f8-edda-4285-b17f-04dd20769f43")
@@ -6213,7 +6205,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 29 "Net-(D24-A)")
+			(net 28 "Net-(D24-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "9f881d5d-2a5f-4ec5-a5cd-1ec8439306e4")
@@ -6233,11 +6225,11 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "525c245e-c874-46e2-a14b-dd4f2271d3c0")
-		(at 190.745 114.82)
+		(at 177.64 127.67 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R3"
-			(at 0 -1.43 0)
+			(at 0 -1.43 90)
 			(layer "F.SilkS")
 			(uuid "b4c6fcda-ffb7-4437-acc2-c468300e0d9b")
 			(effects
@@ -6248,7 +6240,7 @@
 			)
 		)
 		(property "Value" "R_US"
-			(at 0 1.43 0)
+			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "9e5c445e-4dc4-4ca0-92a2-9880567bb40c")
 			(effects
@@ -6259,7 +6251,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6272,7 +6264,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6285,7 +6277,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6323,26 +6315,6 @@
 			(uuid "5edede43-79a8-4c5a-a4dd-504820e2693a")
 		)
 		(fp_line
-			(start -1.48 -0.73)
-			(end 1.48 -0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "9c0c054c-2476-4d53-b1f1-9534df0cdf30")
-		)
-		(fp_line
-			(start -1.48 0.73)
-			(end -1.48 -0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "d0ee3f3c-610f-427c-b621-53f8148e175a")
-		)
-		(fp_line
 			(start 1.48 -0.73)
 			(end 1.48 0.73)
 			(stroke
@@ -6351,6 +6323,16 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "85c429d2-9eb3-45db-aafc-39b1388de7bb")
+		)
+		(fp_line
+			(start -1.48 -0.73)
+			(end 1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "9c0c054c-2476-4d53-b1f1-9534df0cdf30")
 		)
 		(fp_line
 			(start 1.48 0.73)
@@ -6363,24 +6345,14 @@
 			(uuid "9d962673-c9bb-45ae-8bdc-93486f1266ea")
 		)
 		(fp_line
-			(start -0.8 -0.4125)
-			(end 0.8 -0.4125)
+			(start -1.48 0.73)
+			(end -1.48 -0.73)
 			(stroke
-				(width 0.1)
+				(width 0.05)
 				(type solid)
 			)
-			(layer "F.Fab")
-			(uuid "50b2a8e4-e180-4746-b968-64c7536b41b3")
-		)
-		(fp_line
-			(start -0.8 0.4125)
-			(end -0.8 -0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "a80f91e8-44df-4da0-b575-bdc934423c86")
+			(layer "F.CrtYd")
+			(uuid "d0ee3f3c-610f-427c-b621-53f8148e175a")
 		)
 		(fp_line
 			(start 0.8 -0.4125)
@@ -6393,6 +6365,16 @@
 			(uuid "ad261d14-bc95-4f49-9566-411ad0eeb121")
 		)
 		(fp_line
+			(start -0.8 -0.4125)
+			(end 0.8 -0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "50b2a8e4-e180-4746-b968-64c7536b41b3")
+		)
+		(fp_line
 			(start 0.8 0.4125)
 			(end -0.8 0.4125)
 			(stroke
@@ -6402,8 +6384,18 @@
 			(layer "F.Fab")
 			(uuid "c0d7a11a-1478-4154-a875-fba4fb9680be")
 		)
+		(fp_line
+			(start -0.8 0.4125)
+			(end -0.8 -0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "a80f91e8-44df-4da0-b575-bdc934423c86")
+		)
 		(fp_text user "${REFERENCE}"
-			(at 0.45 -0.41 0)
+			(at 0.45 -0.41 90)
 			(layer "F.Fab")
 			(uuid "3ecbb1af-4e2b-45c4-96a9-e3a3f8f0b58d")
 			(effects
@@ -6414,16 +6406,16 @@
 			)
 		)
 		(pad "1" smd roundrect
-			(at -0.825 0)
+			(at -0.825 0 90)
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 46 "+3.3V")
+			(net 45 "+3.3V")
 			(pintype "passive")
 			(uuid "c4c9e761-fda3-4396-b8e5-7ee9f8e52300")
 		)
 		(pad "2" smd roundrect
-			(at 0.825 0)
+			(at 0.825 0 90)
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
@@ -6446,11 +6438,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "5a7d0666-42e6-48e5-81fd-653b25d7ab94")
-		(at 126.1 102.975 180)
+		(at 125.475 100.95 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D27"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "381ae0cc-f538-43f9-9f2e-e4c561932e0c")
 			(effects
@@ -6461,7 +6453,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "3b563c04-8ae3-466c-ab88-7d04bc5642ef")
 			(effects
@@ -6712,7 +6704,7 @@
 			(uuid "cb1691f5-8b30-4e7c-a4fb-6564b4aaaf7d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "0f12d07a-b67a-4e91-b8f7-190694225c82")
 			(effects
@@ -6735,7 +6727,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 32 "Net-(D27-A)")
+			(net 31 "Net-(D27-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "c41f5ae7-81cb-4b02-987b-f6eb7295670b")
@@ -6753,10 +6745,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "5ac8fbdd-1083-429a-a199-e0b384058170")
-		(at 71.49 88.37)
+		(at 70.865 83.805)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW13"
@@ -7022,7 +7013,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 38 "Net-(SW11-Pad1)")
+			(net 37 "Net-(SW11-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "fafa1128-0280-40ce-ae3f-3254a7c54895")
@@ -7033,7 +7024,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 18 "Net-(D13-A)")
+			(net 17 "Net-(D13-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "d3055a7f-069f-4a1c-b904-dc391766395a")
@@ -7053,11 +7044,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "5b89ac54-aa38-4879-9ccc-8c0967ed2c32")
-		(at 68.95 83.925 180)
+		(at 68.325 79.36 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D13"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "d6da3501-520c-4870-8077-07bdf0cbcb2e")
 			(effects
@@ -7068,7 +7059,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "39c550f1-544f-48a3-a697-8e9ed24202f8")
 			(effects
@@ -7319,7 +7310,7 @@
 			(uuid "5112b014-274d-4c90-85de-da5daef23798")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "e1086c21-f062-4e63-a124-57fb3ec54dfd")
 			(effects
@@ -7342,7 +7333,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 18 "Net-(D13-A)")
+			(net 17 "Net-(D13-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "9b9cdd49-e2a2-41f7-86f2-6800ef4d9be1")
@@ -7360,10 +7351,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "5bdebcc2-01ca-473b-b8d2-5a703472dbee")
-		(at 90.54 50.27)
+		(at 89.915 40.3075)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW20"
@@ -7629,7 +7619,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 39 "Net-(SW16-Pad1)")
+			(net 38 "Net-(SW16-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "ab8baf76-a34d-4a03-a131-33ae26662aa1")
@@ -7640,7 +7630,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 25 "Net-(D20-A)")
+			(net 24 "Net-(D20-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "b3fb801a-16a4-4799-855f-9350dad1169b")
@@ -7660,11 +7650,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "5d161d64-9cd9-4572-9e1c-725267eeb76d")
-		(at 126.1 64.875 180)
+		(at 125.475 62.85 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D29"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "e73d0de4-421b-46ac-8ed0-5955088369c1")
 			(effects
@@ -7675,7 +7665,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "dab8e6c3-1f49-4063-9aeb-d55fa87afebf")
 			(effects
@@ -7926,7 +7916,7 @@
 			(uuid "401a92fc-264d-4d2a-8e7c-8b49f2734579")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "69ce0f16-965b-44ff-ba0c-c1dcab5bfa78")
 			(effects
@@ -7949,7 +7939,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 34 "Net-(D29-A)")
+			(net 33 "Net-(D29-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "57708f0b-6f70-4f24-b1ff-eeba6b77e825")
@@ -7967,10 +7957,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "5df41927-9d85-4f80-87ad-fe64d94aff95")
-		(at 128.64 69.32)
+		(at 128.015 67.295)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW29"
@@ -8236,7 +8225,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 41 "Net-(SW26-Pad1)")
+			(net 40 "Net-(SW26-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "467b0e2d-5420-4b2c-9ac5-cb607e044876")
@@ -8247,7 +8236,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 34 "Net-(D29-A)")
+			(net 33 "Net-(D29-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "7e88b877-0076-45d5-aebd-065b248ce58a")
@@ -8267,11 +8256,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "5f468526-1530-4aea-82d0-cff29be73e13")
-		(at 88 45.825 180)
+		(at 87.375 35.8625 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D20"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "921bc990-6f75-4f55-9e7d-1bc3324cd64b")
 			(effects
@@ -8282,7 +8271,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "2c612587-4149-442f-b3f4-c148efc4d468")
 			(effects
@@ -8533,7 +8522,7 @@
 			(uuid "0bce8527-d644-4528-97dc-b0d02028b600")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "1bd49559-9d72-4b49-953b-041887e875e5")
 			(effects
@@ -8547,7 +8536,7 @@
 			(at -1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pinfunction "K")
 			(pintype "passive")
 			(uuid "98354906-0678-4153-b615-5ef88b080786")
@@ -8556,7 +8545,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 25 "Net-(D20-A)")
+			(net 24 "Net-(D20-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "a9b71469-94db-404d-94d1-f22fdea413cf")
@@ -8574,10 +8563,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "5f7392a4-7b96-4b8d-84ff-6828ddf0b02f")
-		(at 52.44 50.27)
+		(at 51.815 59.675)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW10"
@@ -8843,7 +8831,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 37 "Net-(SW10-Pad1)")
+			(net 36 "Net-(SW10-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "12220a1b-26b9-48d3-8f62-816062936d99")
@@ -8854,7 +8842,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 15 "Net-(D10-A)")
+			(net 14 "Net-(D10-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "41d1d2e9-acaa-49ee-8299-1a6524d4b2f7")
@@ -8874,7 +8862,7 @@
 	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "63a21d24-e518-4897-bdbc-bcf2d2308ba1")
-		(at 152.025 70.45)
+		(at 144.5 78.06)
 		(descr "Through hole straight socket strip, 1x16, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x16 2.54mm single row")
 		(property "Reference" "J1"
@@ -9110,7 +9098,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 42 "unconnected-(J1-Pin_1-Pad1)")
+			(net 41 "unconnected-(J1-Pin_1-Pad1)")
 			(pinfunction "Pin_1")
 			(pintype "passive+no_connect")
 			(uuid "7818fbbe-1e16-49b2-a95d-f01426910577")
@@ -9121,7 +9109,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 43 "unconnected-(J1-Pin_2-Pad2)")
+			(net 42 "unconnected-(J1-Pin_2-Pad2)")
 			(pinfunction "Pin_2")
 			(pintype "passive+no_connect")
 			(uuid "3f43fd2d-c217-431b-bce9-91d43ab35aca")
@@ -9132,7 +9120,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 52 "unconnected-(J1-Pin_3-Pad3)")
+			(net 51 "unconnected-(J1-Pin_3-Pad3)")
 			(pinfunction "Pin_3")
 			(pintype "passive+no_connect")
 			(uuid "9e7f7254-625d-4371-9ee6-146b3ec1f6cb")
@@ -9143,7 +9131,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 57 "unconnected-(J1-Pin_4-Pad4)")
+			(net 56 "unconnected-(J1-Pin_4-Pad4)")
 			(pinfunction "Pin_4")
 			(pintype "passive+no_connect")
 			(uuid "e2da5e28-08aa-48ab-8533-4df9d527e831")
@@ -9154,7 +9142,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 51 "unconnected-(J1-Pin_5-Pad5)")
+			(net 50 "unconnected-(J1-Pin_5-Pad5)")
 			(pinfunction "Pin_5")
 			(pintype "passive+no_connect")
 			(uuid "74f3c662-e1cf-4b18-8517-8cb41c619008")
@@ -9165,7 +9153,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 47 "unconnected-(J1-Pin_6-Pad6)")
+			(net 46 "unconnected-(J1-Pin_6-Pad6)")
 			(pinfunction "Pin_6")
 			(pintype "passive+no_connect")
 			(uuid "07fa083e-2120-4132-a292-05d625c375b8")
@@ -9176,7 +9164,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 58 "unconnected-(J1-Pin_7-Pad7)")
+			(net 57 "unconnected-(J1-Pin_7-Pad7)")
 			(pinfunction "Pin_7")
 			(pintype "passive+no_connect")
 			(uuid "e9067b7f-b021-4ed2-86e0-844a1bda194f")
@@ -9187,7 +9175,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 50 "unconnected-(J1-Pin_8-Pad8)")
+			(net 49 "unconnected-(J1-Pin_8-Pad8)")
 			(pinfunction "Pin_8")
 			(pintype "passive+no_connect")
 			(uuid "68b4b447-eb64-4b1b-8410-1e9c54550de9")
@@ -9198,7 +9186,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 55 "unconnected-(J1-Pin_9-Pad9)")
+			(net 54 "unconnected-(J1-Pin_9-Pad9)")
 			(pinfunction "Pin_9")
 			(pintype "passive+no_connect")
 			(uuid "ad525d44-1fbe-4138-ac35-cc48d5a5bb71")
@@ -9209,7 +9197,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 59 "unconnected-(J1-Pin_10-Pad10)")
+			(net 58 "unconnected-(J1-Pin_10-Pad10)")
 			(pinfunction "Pin_10")
 			(pintype "passive+no_connect")
 			(uuid "f07efbad-cffa-4493-8c03-f413d51beb55")
@@ -9220,7 +9208,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 60 "unconnected-(J1-Pin_11-Pad11)")
+			(net 59 "unconnected-(J1-Pin_11-Pad11)")
 			(pinfunction "Pin_11")
 			(pintype "passive+no_connect")
 			(uuid "fb04ac4d-722a-48cc-8203-87a89d01a617")
@@ -9231,7 +9219,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 49 "unconnected-(J1-Pin_12-Pad12)")
+			(net 48 "unconnected-(J1-Pin_12-Pad12)")
 			(pinfunction "Pin_12")
 			(pintype "passive+no_connect")
 			(uuid "1263d914-16f8-421e-aa8c-989a98843375")
@@ -9242,7 +9230,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 56 "unconnected-(J1-Pin_13-Pad13)")
+			(net 55 "unconnected-(J1-Pin_13-Pad13)")
 			(pinfunction "Pin_13")
 			(pintype "passive+no_connect")
 			(uuid "ae354cf8-351c-418c-8a35-5a77f483a76b")
@@ -9253,7 +9241,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 48 "unconnected-(J1-Pin_14-Pad14)")
+			(net 47 "unconnected-(J1-Pin_14-Pad14)")
 			(pinfunction "Pin_14")
 			(pintype "passive+no_connect")
 			(uuid "0fc4fe96-5648-40c0-9850-a43a24ae4f3c")
@@ -9264,7 +9252,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 54 "unconnected-(J1-Pin_15-Pad15)")
+			(net 53 "unconnected-(J1-Pin_15-Pad15)")
 			(pinfunction "Pin_15")
 			(pintype "passive+no_connect")
 			(uuid "a952ea4e-d7ad-4376-aba0-c4b7e95f7cb2")
@@ -9275,7 +9263,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 53 "unconnected-(J1-Pin_16-Pad16)")
+			(net 52 "unconnected-(J1-Pin_16-Pad16)")
 			(pinfunction "Pin_16")
 			(pintype "passive+no_connect")
 			(uuid "9fd11dff-ef2b-4983-9789-f2495a6a222b")
@@ -9294,321 +9282,12 @@
 	)
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
-		(uuid "65f54d88-dc3e-4f51-b8e4-bc6899be7164")
-		(at 223.1 100)
-		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
-		(tags "CFP3 SOD-123W")
-		(property "Reference" "D5"
-			(at 0 -2 0)
-			(layer "F.SilkS")
-			(uuid "022cb11f-8cb8-4c72-8257-79d47634d860")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "D"
-			(at 0 2 0)
-			(layer "F.Fab")
-			(uuid "9fc42c6a-ffdc-4a8d-bdb3-ba8bda5fa064")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "822b2f80-aee4-4fab-9ef3-822a59420904")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "468ee8bb-bd02-450d-828d-e5d823ab5b44")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Diode"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d3c0df1e-e267-44ac-ad3c-2b562e9129da")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ad909601-2519-45a1-9478-ff6ef24a3047")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ac19f096-567d-4d0d-acda-ec14afee2027")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
-		(path "/8a84df9d-ac27-4c8c-abe1-2735b2722ead")
-		(sheetname "Root")
-		(sheetfile "skeleton.kicad_sch")
-		(attr smd)
-		(fp_line
-			(start -2.26 -0.95)
-			(end -2.26 0.95)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "21a500f1-c085-4396-a2c0-82f96af42ca5")
-		)
-		(fp_line
-			(start -2.26 -0.95)
-			(end 1.4 -0.95)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "9e8cb3d4-cc01-4220-bf51-13013e8b7f4a")
-		)
-		(fp_line
-			(start -2.26 0.95)
-			(end 1.4 0.95)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "bdf7c613-63a7-4a6d-9a8b-21a9d9a8f4e8")
-		)
-		(fp_line
-			(start -2.25 -1.1)
-			(end -2.25 1.1)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "4d38f055-a0cc-4afb-9f67-401d5294dc49")
-		)
-		(fp_line
-			(start -2.25 -1.1)
-			(end 2.25 -1.1)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "56f4e62d-06b7-4fae-9a4f-39be0470b2c9")
-		)
-		(fp_line
-			(start 2.25 -1.1)
-			(end 2.25 1.1)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "899dfde4-8237-4d9b-b699-8d55804a9e78")
-		)
-		(fp_line
-			(start 2.25 1.1)
-			(end -2.25 1.1)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "54eca4da-0791-4848-b1a1-72c0741956be")
-		)
-		(fp_line
-			(start -1.3 -0.85)
-			(end 1.3 -0.85)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f92dc83f-2610-463e-bf2a-39a37b3c04e9")
-		)
-		(fp_line
-			(start -1.3 0.85)
-			(end -1.3 -0.85)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "5bb75875-cf75-431a-a439-af774145ceda")
-		)
-		(fp_line
-			(start -0.75 0)
-			(end -0.35 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "6e249ef2-3b5e-4ea8-9522-495eda2eb61c")
-		)
-		(fp_line
-			(start -0.35 -0.55)
-			(end -0.35 0.55)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "e3a6eef2-ff5d-4011-834e-74692dbb7230")
-		)
-		(fp_line
-			(start -0.35 0)
-			(end 0.25 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "92c93445-3e5c-4f89-851b-a608c79e4370")
-		)
-		(fp_line
-			(start -0.35 0)
-			(end 0.25 0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "41d2afc1-f333-4816-b8f3-0ac255a6a516")
-		)
-		(fp_line
-			(start 0.25 -0.4)
-			(end 0.25 0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "de0579b8-c9c2-403a-96ce-885328d47d64")
-		)
-		(fp_line
-			(start 0.75 0)
-			(end 0.25 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "e38e2547-00df-4950-99c1-17b09fd17d4d")
-		)
-		(fp_line
-			(start 1.3 -0.85)
-			(end 1.3 0.85)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "74155d49-554a-4605-819a-cef6dff5986e")
-		)
-		(fp_line
-			(start 1.3 0.85)
-			(end -1.3 0.85)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "5f41a513-a468-4633-bade-85546db3db98")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 -2 0)
-			(layer "F.Fab")
-			(uuid "665bb204-843a-4744-93f2-664278670645")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" smd rect
-			(at -1.4 0)
-			(size 1.2 1.2)
-			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
-			(pinfunction "K")
-			(pintype "passive")
-			(uuid "bfe50506-40b2-4f82-974e-a57b080c38b4")
-		)
-		(pad "2" smd rect
-			(at 1.4 0)
-			(size 1.2 1.2)
-			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 9 "Net-(D5-A)")
-			(pinfunction "A")
-			(pintype "passive")
-			(uuid "0c2978ba-fae0-4ba7-bd53-f96ec81c281f")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Diode_SMD.3dshapes/Nexperia_CFP3_SOD-123W.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
-	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
-		(layer "F.Cu")
 		(uuid "69944cc9-6399-44b6-ae38-31a92e7933e3")
-		(at 132.46 127.005 180)
+		(at 128.6 125.95 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D21"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "82c2aa19-8166-48a0-b22b-f1f5b6f47c61")
 			(effects
@@ -9619,7 +9298,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 1.625 -0.425 0)
 			(layer "F.Fab")
 			(uuid "0af271f8-1bef-4448-845f-643b849ecc7f")
 			(effects
@@ -9870,7 +9549,7 @@
 			(uuid "eff58dc1-73ff-490f-bfa8-f9f12a5bead3")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "b2f01ae8-2861-4afd-80e8-0a98727c68ff")
 			(effects
@@ -9893,7 +9572,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 26 "Net-(D21-A)")
+			(net 25 "Net-(D21-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "389bac50-6057-499b-a5c5-fb9660538f2a")
@@ -9913,11 +9592,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "69fa19a2-37c6-4497-9306-d6244bbd18b9")
-		(at 30.85 102.975 180)
+		(at 30.225 112.38 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D2"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "62a9d1f1-bc08-4b64-a621-c15a222424f2")
 			(effects
@@ -9928,7 +9607,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "014d03bb-75e7-453f-a08b-188da82c0b77")
 			(effects
@@ -10179,7 +9858,7 @@
 			(uuid "674b2605-b3be-4889-8cac-cd2515bbca85")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "b6fc7e88-4f02-4ac5-8fa1-735201c2ddc5")
 			(effects
@@ -10220,10 +9899,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "6c7aebb2-197b-4e51-8df6-30d6000ad0cb")
-		(at 33.39 69.32)
+		(at 32.765 78.725)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW4"
@@ -10489,7 +10167,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 36 "Net-(SW1-Pad1)")
+			(net 35 "Net-(SW1-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "94512d97-4b30-4183-8ed3-e0220e9e65fa")
@@ -10520,7 +10198,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "6d069cb1-2d7d-4e7a-89f6-6889e7501454")
-		(at 154.05 131.45)
+		(at 150.19 130.395)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW11"
@@ -10786,7 +10464,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 38 "Net-(SW11-Pad1)")
+			(net 37 "Net-(SW11-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "b43f4343-ef8e-4ba5-9961-9f56e7237809")
@@ -10797,7 +10475,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 16 "Net-(D11-A)")
+			(net 15 "Net-(D11-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "3f925763-88a2-4fbd-9e41-3bee2817739e")
@@ -10815,10 +10493,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "76572c28-b7ad-47e2-9952-4c5b6182ba52")
-		(at 52.44 107.42)
+		(at 51.815 116.825)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW7"
@@ -11084,7 +10761,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 37 "Net-(SW10-Pad1)")
+			(net 36 "Net-(SW10-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "0808339a-4a30-474f-a34b-7a26f923e42e")
@@ -11095,7 +10772,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 12 "Net-(D7-A)")
+			(net 11 "Net-(D7-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "d43a2a29-fa72-4027-a4a4-ed449685708d")
@@ -11113,10 +10790,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "7790e5ae-347b-458e-b138-9522dd8677cf")
-		(at 33.39 107.42)
+		(at 32.765 116.825)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW2"
@@ -11382,7 +11058,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 36 "Net-(SW1-Pad1)")
+			(net 35 "Net-(SW1-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "c5e3a0d8-6e1c-49f6-8845-f9629a4f1cb5")
@@ -11413,11 +11089,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "7f23cfea-15e4-4d81-9d2c-8b1dbd8d9edb")
-		(at 49.9 83.925 180)
+		(at 49.275 93.33 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D8"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "c1ff12ea-9d80-43aa-bde8-4e548db26422")
 			(effects
@@ -11428,7 +11104,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "bc698aed-fcae-4f64-bcb3-54ede3d75899")
 			(effects
@@ -11679,7 +11355,7 @@
 			(uuid "cea1473c-78cd-41d3-ad36-597292959481")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "cf038fe4-0b08-45c6-b5f1-735d6ccf3453")
 			(effects
@@ -11702,7 +11378,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 13 "Net-(D8-A)")
+			(net 12 "Net-(D8-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "ed48f1d1-c2e9-4792-b348-7b1ae2dd3db3")
@@ -11722,7 +11398,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "81a89bbf-0695-447c-ad0a-bbff4afa4f5a")
-		(at 135 131.45)
+		(at 131.14 130.395)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW21"
@@ -11988,7 +11664,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(SW21-Pad1)")
+			(net 39 "Net-(SW21-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "70e2008f-dd11-4a7f-a05e-8740db4eaf75")
@@ -11999,7 +11675,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 26 "Net-(D21-A)")
+			(net 25 "Net-(D21-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "b8d73456-dfdb-453f-900b-b24aa0dd06d2")
@@ -12019,11 +11695,11 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "81ec60d6-92a4-41a0-8140-bd82d33fbdaf")
-		(at 190.745 129.91)
+		(at 190 124.55 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R4"
-			(at 0 -1.43 0)
+			(at 0 -1.43 90)
 			(layer "F.SilkS")
 			(uuid "502e6d7a-7d7a-4f7b-8fa0-163dc26b6948")
 			(effects
@@ -12034,7 +11710,7 @@
 			)
 		)
 		(property "Value" "R_US"
-			(at 0 1.43 0)
+			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "4781ee71-9b2f-4515-beb5-b43c4580c58e")
 			(effects
@@ -12045,7 +11721,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -12058,7 +11734,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -12071,7 +11747,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -12109,26 +11785,6 @@
 			(uuid "a9790afb-b3c1-4f14-8ec4-2a4c86f49c4a")
 		)
 		(fp_line
-			(start -1.48 -0.73)
-			(end 1.48 -0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "81fd3026-d570-45a1-b4ce-67d203360e9d")
-		)
-		(fp_line
-			(start -1.48 0.73)
-			(end -1.48 -0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "74c3dcb2-9e3a-4afc-b1bd-501790e7f7a3")
-		)
-		(fp_line
 			(start 1.48 -0.73)
 			(end 1.48 0.73)
 			(stroke
@@ -12137,6 +11793,16 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "951cc883-ada5-4ca6-a38f-9cf2e33e3c90")
+		)
+		(fp_line
+			(start -1.48 -0.73)
+			(end 1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "81fd3026-d570-45a1-b4ce-67d203360e9d")
 		)
 		(fp_line
 			(start 1.48 0.73)
@@ -12149,24 +11815,14 @@
 			(uuid "e141b9dc-8cd7-4fe3-83f9-19e92b5fd1cf")
 		)
 		(fp_line
-			(start -0.8 -0.4125)
-			(end 0.8 -0.4125)
+			(start -1.48 0.73)
+			(end -1.48 -0.73)
 			(stroke
-				(width 0.1)
+				(width 0.05)
 				(type solid)
 			)
-			(layer "F.Fab")
-			(uuid "3655931b-2969-42dd-b166-b9e979e750dd")
-		)
-		(fp_line
-			(start -0.8 0.4125)
-			(end -0.8 -0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "4c8755fb-d610-46a6-951b-2e24ae17fa53")
+			(layer "F.CrtYd")
+			(uuid "74c3dcb2-9e3a-4afc-b1bd-501790e7f7a3")
 		)
 		(fp_line
 			(start 0.8 -0.4125)
@@ -12179,6 +11835,16 @@
 			(uuid "eb84e666-4bb3-49d5-a31e-1382ae99f238")
 		)
 		(fp_line
+			(start -0.8 -0.4125)
+			(end 0.8 -0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "3655931b-2969-42dd-b166-b9e979e750dd")
+		)
+		(fp_line
 			(start 0.8 0.4125)
 			(end -0.8 0.4125)
 			(stroke
@@ -12188,8 +11854,18 @@
 			(layer "F.Fab")
 			(uuid "5ea01764-69ef-4497-abe8-3d6add1955ef")
 		)
+		(fp_line
+			(start -0.8 0.4125)
+			(end -0.8 -0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "4c8755fb-d610-46a6-951b-2e24ae17fa53")
+		)
 		(fp_text user "${REFERENCE}"
-			(at 0.45 -0.41 0)
+			(at 0.45 -0.41 90)
 			(layer "F.Fab")
 			(uuid "300b4f51-6555-42d0-9b41-93ff6015c9dc")
 			(effects
@@ -12200,16 +11876,16 @@
 			)
 		)
 		(pad "1" smd roundrect
-			(at -0.825 0)
+			(at -0.825 0 90)
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 46 "+3.3V")
+			(net 45 "+3.3V")
 			(pintype "passive")
 			(uuid "aa89a00a-c6c6-4485-8b02-7deaf3e58dd1")
 		)
 		(pad "2" smd roundrect
-			(at 0.825 0)
+			(at 0.825 0 90)
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
@@ -12230,10 +11906,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "8a9baf70-82a9-45cd-aea3-2a7ddf8370f4")
-		(at 90.54 69.32)
+		(at 89.915 59.3575)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW19"
@@ -12499,7 +12174,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 39 "Net-(SW16-Pad1)")
+			(net 38 "Net-(SW16-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "d5cc0907-6911-421d-88e9-4d05f28866a0")
@@ -12510,7 +12185,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 24 "Net-(D19-A)")
+			(net 23 "Net-(D19-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "d11c3cda-d7da-4393-b145-71dc70e91b8c")
@@ -12530,11 +12205,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "8ec13779-9c95-495c-9b22-f0c535a43f98")
-		(at 113.41 127.005 180)
+		(at 109.55 125.95 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D26"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "59bd0636-0571-4b83-b727-74d19e2293c0")
 			(effects
@@ -12545,7 +12220,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 1.625 -0.425 0)
 			(layer "F.Fab")
 			(uuid "3c82046c-b4c9-4158-ad0c-1b9075ac66e8")
 			(effects
@@ -12796,7 +12471,7 @@
 			(uuid "bcd2c13c-a8bb-4a89-99ab-c5941edd1ea9")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "e4263fc2-dfdc-49e8-93c2-889d9e619f5d")
 			(effects
@@ -12819,7 +12494,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 31 "Net-(D26-A)")
+			(net 30 "Net-(D26-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "9faaba32-bf51-41ef-8b79-8282fc7e7c8f")
@@ -12837,10 +12512,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "979f0047-f86b-4638-8a8d-6a83d700339a")
-		(at 109.59 88.37)
+		(at 108.965 86.345)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW23"
@@ -13106,7 +12780,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(SW21-Pad1)")
+			(net 39 "Net-(SW21-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "455569eb-d7f9-46b4-a9e5-2ca22be3aa12")
@@ -13117,7 +12791,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 28 "Net-(D23-A)")
+			(net 27 "Net-(D23-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "a717fd72-e177-4bcb-aa97-f79677491175")
@@ -13135,10 +12809,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "a38f24a8-7ed0-4b70-a136-1dd215dd11f6")
-		(at 71.49 69.32)
+		(at 70.865 64.755)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW14"
@@ -13404,7 +13077,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 38 "Net-(SW11-Pad1)")
+			(net 37 "Net-(SW11-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "28a8e602-05b5-4cc7-a1a5-95e8d2360f0d")
@@ -13415,7 +13088,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 19 "Net-(D14-A)")
+			(net 18 "Net-(D14-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "76afcfbf-9b52-43a7-82fe-3128346fc27c")
@@ -13433,10 +13106,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "b1486951-60cb-40e3-aed7-b144c65d732e")
-		(at 71.49 50.27)
+		(at 70.865 45.705)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW15"
@@ -13702,7 +13374,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 38 "Net-(SW11-Pad1)")
+			(net 37 "Net-(SW11-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "a8ee0153-e9a4-4c38-8764-6178f976fcce")
@@ -13713,7 +13385,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 20 "Net-(D15-A)")
+			(net 19 "Net-(D15-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "0fb8f041-1184-4cbe-8adf-22ff43329276")
@@ -13733,7 +13405,7 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "b374c36f-bf84-4ef7-86f8-6e837f2abe5e")
-		(at 226.87 115)
+		(at 227.87 110.55)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R2"
@@ -13918,7 +13590,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 46 "+3.3V")
+			(net 45 "+3.3V")
 			(pintype "passive")
 			(uuid "f1b01b9d-0420-4402-a42f-163e2dbe626e")
 		)
@@ -13946,7 +13618,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "b4aa9a33-835c-4ca4-bf8e-dc9a843902a8")
-		(at 154.05 150.5)
+		(at 150.19 149.445)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW6"
@@ -14212,7 +13884,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 37 "Net-(SW10-Pad1)")
+			(net 36 "Net-(SW10-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "14dc5a33-69b5-4946-9836-0228855889ee")
@@ -14223,7 +13895,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 11 "Net-(D6-A)")
+			(net 10 "Net-(D6-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "74d88163-7b44-48c4-a10e-f8ddbf5e4838")
@@ -14243,7 +13915,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "bbdf4480-4796-42f7-8d09-3f0e73098abb")
-		(at 172.32 80.6)
+		(at 164.795 88.21)
 		(descr "Through hole straight pin header, 1x12, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x12 2.54mm single row")
 		(property "Reference" "J2"
@@ -14479,7 +14151,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 45 "unconnected-(J2-Pin_1-Pad1)")
+			(net 44 "unconnected-(J2-Pin_1-Pad1)")
 			(pinfunction "Pin_1")
 			(pintype "passive")
 			(uuid "51eae374-8652-47b1-9fc4-c220e5c092a3")
@@ -14490,7 +14162,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 44 "unconnected-(J2-Pin_2-Pad2)")
+			(net 43 "unconnected-(J2-Pin_2-Pad2)")
 			(pinfunction "Pin_2")
 			(pintype "passive")
 			(uuid "08c6c277-8392-4c4d-b01f-71a04fe9b9a0")
@@ -14501,7 +14173,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 69 "unconnected-(J2-Pin_3-Pad3)")
+			(net 68 "unconnected-(J2-Pin_3-Pad3)")
 			(pinfunction "Pin_3")
 			(pintype "passive")
 			(uuid "bbab1fc7-4a0c-4007-b069-9512b8552d07")
@@ -14512,7 +14184,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 61 "unconnected-(J2-Pin_4-Pad4)")
+			(net 60 "unconnected-(J2-Pin_4-Pad4)")
 			(pinfunction "Pin_4")
 			(pintype "passive")
 			(uuid "00f071ac-171f-4862-a657-cf9d3c8981c5")
@@ -14523,7 +14195,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 64 "unconnected-(J2-Pin_5-Pad5)")
+			(net 63 "unconnected-(J2-Pin_5-Pad5)")
 			(pinfunction "Pin_5")
 			(pintype "passive")
 			(uuid "4131c8e5-1bb2-4dd0-83ce-dcdf79043fcc")
@@ -14534,7 +14206,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 62 "unconnected-(J2-Pin_6-Pad6)")
+			(net 61 "unconnected-(J2-Pin_6-Pad6)")
 			(pinfunction "Pin_6")
 			(pintype "passive")
 			(uuid "2572d253-d799-42f1-aacb-d8227dfb8a21")
@@ -14545,7 +14217,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 70 "unconnected-(J2-Pin_7-Pad7)")
+			(net 69 "unconnected-(J2-Pin_7-Pad7)")
 			(pinfunction "Pin_7")
 			(pintype "passive")
 			(uuid "edb8d56c-fda0-47a0-a620-d70088dee5f9")
@@ -14556,7 +14228,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 63 "unconnected-(J2-Pin_8-Pad8)")
+			(net 62 "unconnected-(J2-Pin_8-Pad8)")
 			(pinfunction "Pin_8")
 			(pintype "passive")
 			(uuid "30d6d8e4-47d8-4b8d-bcfc-bb6946d35ffa")
@@ -14567,7 +14239,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 68 "unconnected-(J2-Pin_9-Pad9)")
+			(net 67 "unconnected-(J2-Pin_9-Pad9)")
 			(pinfunction "Pin_9")
 			(pintype "passive")
 			(uuid "9c852d9c-21b2-42f2-9c86-7ed175525e05")
@@ -14578,7 +14250,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 66 "unconnected-(J2-Pin_10-Pad10)")
+			(net 65 "unconnected-(J2-Pin_10-Pad10)")
 			(pinfunction "Pin_10")
 			(pintype "passive")
 			(uuid "6c856d3f-143e-4bdb-8b2b-b829a4b5b962")
@@ -14589,7 +14261,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 67 "unconnected-(J2-Pin_11-Pad11)")
+			(net 66 "unconnected-(J2-Pin_11-Pad11)")
 			(pinfunction "Pin_11")
 			(pintype "passive")
 			(uuid "8c215015-07c5-4f17-baf4-5a35a3d935b1")
@@ -14600,7 +14272,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 65 "unconnected-(J2-Pin_12-Pad12)")
+			(net 64 "unconnected-(J2-Pin_12-Pad12)")
 			(pinfunction "Pin_12")
 			(pintype "passive+no_connect")
 			(uuid "5ed62d16-7fef-41c7-bac8-7567c5de8b19")
@@ -14620,11 +14292,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "bc844634-c3dc-476c-b020-6d2a03cd2df9")
-		(at 151.51 127.005 180)
+		(at 147.65 125.95 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D11"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "99cb2787-e52d-4121-96bf-82935fdacb56")
 			(effects
@@ -14635,7 +14307,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "03eaa6a6-85c0-47c2-8dfb-41243377322b")
 			(effects
@@ -14886,7 +14558,7 @@
 			(uuid "0b83c2e6-f6f1-4e7d-aae7-2e5b537356ca")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "b64f1562-444f-4c7d-aa90-542a6c2421a5")
 			(effects
@@ -14909,7 +14581,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 16 "Net-(D11-A)")
+			(net 15 "Net-(D11-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "9630fcd9-9812-4e6e-9686-3b8c2bcd9397")
@@ -14929,7 +14601,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "bdf674e8-88ee-4712-b963-ccfdd0d9048c")
-		(at 135 150.5)
+		(at 131.14 149.445)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW16"
@@ -15195,7 +14867,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 39 "Net-(SW16-Pad1)")
+			(net 38 "Net-(SW16-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "c1a317b2-3b4c-4350-a860-9d52e61f6696")
@@ -15206,7 +14878,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 21 "Net-(D16-A)")
+			(net 20 "Net-(D16-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "67386c04-426d-43fd-b349-31ff78c9b08a")
@@ -15224,10 +14896,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "c19c9911-cff1-46b9-9d05-06c8a1d38a8c")
-		(at 109.59 50.27)
+		(at 108.965 48.245)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW25"
@@ -15493,7 +15164,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 40 "Net-(SW21-Pad1)")
+			(net 39 "Net-(SW21-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "eeac168b-b8bf-45e2-a391-2ca9f29dbf9b")
@@ -15504,7 +15175,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 30 "Net-(D25-A)")
+			(net 29 "Net-(D25-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "f0482d63-eaa0-437a-8112-f7e10fbf4b3d")
@@ -15524,11 +15195,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "c81f28b3-7da3-4f3d-8835-e75261bb6c17")
-		(at 107.05 102.975 180)
+		(at 106.425 100.95 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D22"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "fb52e6c9-0a11-45f4-aa58-a0b444881ce3")
 			(effects
@@ -15539,7 +15210,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "0514474d-636e-48e9-8a24-6793e5ee0e2b")
 			(effects
@@ -15790,7 +15461,7 @@
 			(uuid "dbaef2fd-6463-46ec-9bf6-6eb1ee076b4c")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "e0738321-5222-43b0-bfc6-4996229d5739")
 			(effects
@@ -15813,7 +15484,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 27 "Net-(D22-A)")
+			(net 26 "Net-(D22-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "69e16e4b-12f6-42b6-8c57-62dfdc2690ec")
@@ -15833,11 +15504,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "c8b668e3-a356-447d-9f5c-67fcb037873e")
-		(at 88 83.925 180)
+		(at 87.375 73.9625 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D18"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "946daadf-5021-4cf8-8214-30ea875f0a1a")
 			(effects
@@ -15848,7 +15519,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "80c94589-06a6-48c2-bcea-7920d8680fa5")
 			(effects
@@ -16099,7 +15770,7 @@
 			(uuid "3b2e1e11-da5b-469d-8943-ba759688fce4")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "bb9e0a34-59cd-4874-8bd9-4dca71e57e3f")
 			(effects
@@ -16122,7 +15793,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 23 "Net-(D18-A)")
+			(net 22 "Net-(D18-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "a8806c03-0493-42bc-98a5-18c7a02314f6")
@@ -16142,11 +15813,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "cc31304d-7f39-4543-a90f-b27abe5b28d7")
-		(at 126.1 45.825 180)
+		(at 125.475 43.8 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D30"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "4c5a8a81-5e17-4187-a803-aab7b1b55a39")
 			(effects
@@ -16157,7 +15828,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "3f30192d-4246-435c-b425-38aec30f97d0")
 			(effects
@@ -16408,7 +16079,7 @@
 			(uuid "401d7920-09d6-4e02-a809-e4b9b1d91ebc")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "6c2d13b8-6dfb-4621-b6b6-dedd1a0abece")
 			(effects
@@ -16422,7 +16093,7 @@
 			(at -1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pinfunction "K")
 			(pintype "passive")
 			(uuid "c96975f0-743b-4d49-8923-cd4d63b07179")
@@ -16431,7 +16102,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 35 "Net-(D30-A)")
+			(net 34 "Net-(D30-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "6da6b90d-ce93-4b83-adb9-dff84dc50561")
@@ -16448,307 +16119,10 @@
 			)
 		)
 	)
-	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(layer "F.Cu")
-		(uuid "ccb55242-b412-447b-a3d7-8a4af480fad1")
-		(at 200.35 -45.54)
-		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
-		(tags "Cherry MX keyswitch 1.00u PCB")
-		(property "Reference" "SW5"
-			(at -2.54 -2.794 0)
-			(layer "F.SilkS")
-			(uuid "7b022caf-2aae-450e-8210-a34974f5534b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at -2.54 12.954 0)
-			(layer "F.Fab")
-			(uuid "77951144-46b2-42ca-a3e4-19d83251195f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7a0699c0-a543-4f5f-9b84-3498409aeeb3")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1ae603a5-7820-42d6-9f07-7af96d76ff8a")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c96e4e2d-adfa-4159-80e6-763346b23611")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(path "/38890924-817e-4810-b72c-0ce3365308b1")
-		(sheetname "Root")
-		(sheetfile "skeleton.kicad_sch")
-		(attr through_hole)
-		(fp_line
-			(start -9.525 -1.905)
-			(end 4.445 -1.905)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "1b7df824-9a43-4f3b-bcb2-e887a0f77aa7")
-		)
-		(fp_line
-			(start -9.525 12.065)
-			(end -9.525 -1.905)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "e6697c49-eb27-4225-99bc-812cec1900c7")
-		)
-		(fp_line
-			(start 4.445 -1.905)
-			(end 4.445 12.065)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "cf0839d0-2944-45fc-a389-276c6577ee63")
-		)
-		(fp_line
-			(start 4.445 12.065)
-			(end -9.525 12.065)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "46b50a20-baf5-4f60-859a-53be1698eb29")
-		)
-		(fp_line
-			(start -12.065 -4.445)
-			(end 6.985 -4.445)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "Dwgs.User")
-			(uuid "40dace2c-961b-48cc-a7be-104a30832acd")
-		)
-		(fp_line
-			(start -12.065 14.605)
-			(end -12.065 -4.445)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "Dwgs.User")
-			(uuid "485e3491-3afe-46b0-b8eb-922a21c3321b")
-		)
-		(fp_line
-			(start 6.985 -4.445)
-			(end 6.985 14.605)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "Dwgs.User")
-			(uuid "fc715f2c-419d-44ec-9b6f-a4f7deb1f052")
-		)
-		(fp_line
-			(start 6.985 14.605)
-			(end -12.065 14.605)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "Dwgs.User")
-			(uuid "7e596d50-02dd-4769-af23-e74f4a0ef833")
-		)
-		(fp_line
-			(start -9.14 -1.52)
-			(end 4.06 -1.52)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "4a342df1-1beb-4334-b52c-fc035cb44fb9")
-		)
-		(fp_line
-			(start -9.14 11.68)
-			(end -9.14 -1.52)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "a6cebb41-d2bd-48a6-8396-a0c29d9c48fd")
-		)
-		(fp_line
-			(start 4.06 -1.52)
-			(end 4.06 11.68)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "e4c3bf3f-3861-4000-a1e6-024a3efce807")
-		)
-		(fp_line
-			(start 4.06 11.68)
-			(end -9.14 11.68)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "bd24df0e-0fbf-4b5f-97cc-cca29fad863e")
-		)
-		(fp_line
-			(start -8.89 -1.27)
-			(end 3.81 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "068b1054-9310-4fe9-8abf-e504e27c0fc9")
-		)
-		(fp_line
-			(start -8.89 11.43)
-			(end -8.89 -1.27)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "5df28908-f65b-43d9-b656-6f1498e7c205")
-		)
-		(fp_line
-			(start 3.81 -1.27)
-			(end 3.81 11.43)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "ce23dfa8-bc69-43a5-a8f5-54536b5fed1d")
-		)
-		(fp_line
-			(start 3.81 11.43)
-			(end -8.89 11.43)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "191a7041-77d2-458e-a8e5-184e0a039f4a")
-		)
-		(fp_text user "${REFERENCE}"
-			(at -2.54 -2.794 0)
-			(layer "F.Fab")
-			(uuid "04129240-32f7-4c3b-ac76-842d1834bf66")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "" np_thru_hole circle
-			(at -7.62 5.08)
-			(size 1.7 1.7)
-			(drill 1.7)
-			(layers "*.Cu" "*.Mask")
-			(uuid "2339ac32-1518-4075-ab59-4d7b066d1c00")
-		)
-		(pad "" np_thru_hole circle
-			(at -2.54 5.08)
-			(size 4 4)
-			(drill 4)
-			(layers "*.Cu" "*.Mask")
-			(uuid "d7a469b0-10cb-4882-9728-318149080827")
-		)
-		(pad "" np_thru_hole circle
-			(at 2.54 5.08)
-			(size 1.7 1.7)
-			(drill 1.7)
-			(layers "*.Cu" "*.Mask")
-			(uuid "6dda3ca5-84fc-4d44-957b-e918efd4c9a3")
-		)
-		(pad "1" thru_hole circle
-			(at 0 0)
-			(size 2.2 2.2)
-			(drill 1.5)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 36 "Net-(SW1-Pad1)")
-			(pinfunction "1")
-			(pintype "passive")
-			(uuid "98e5e62f-d4f9-4361-8853-ee5b8c9dccff")
-		)
-		(pad "2" thru_hole circle
-			(at -6.35 2.54)
-			(size 2.2 2.2)
-			(drill 1.5)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 9 "Net-(D5-A)")
-			(pinfunction "2")
-			(pintype "passive")
-			(uuid "2950de9e-c2c0-4707-a9f4-a0ce1b105c80")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Button_Switch_Keyboard.3dshapes/SW_Cherry_MX_1.00u_PCB.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "d0782102-fcf1-4281-8ed3-c441c7e9bff5")
-		(at 213.37 119)
+		(at 214.37 114.55)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R1"
@@ -16933,7 +16307,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 46 "+3.3V")
+			(net 45 "+3.3V")
 			(pintype "passive")
 			(uuid "db0d5ab5-cf99-41be-bb14-3a707ae64fac")
 		)
@@ -16961,11 +16335,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "d59321fc-5211-4819-9202-b63bb17072e9")
-		(at 68.95 64.875 180)
+		(at 68.325 60.31 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D14"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "8d855285-e3af-42a6-b749-66bef1d92342")
 			(effects
@@ -16976,7 +16350,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "7a65b3e4-c768-4741-874b-a732a18ad04c")
 			(effects
@@ -17227,7 +16601,7 @@
 			(uuid "7f4d3d70-ae34-4234-9bcd-e9d396dc6b92")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "3451a598-cf23-486b-9cf1-42ba3bf68a01")
 			(effects
@@ -17250,7 +16624,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 19 "Net-(D14-A)")
+			(net 18 "Net-(D14-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "ae103c5a-ecf6-415d-a40c-65dd822927d6")
@@ -17270,11 +16644,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "d7a36a6d-7fde-4866-94d3-ce3e5b937fd6")
-		(at 126.1 83.925 180)
+		(at 125.475 81.9 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D28"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "c67b6e30-3f92-4592-9ac2-a50a88546b52")
 			(effects
@@ -17285,7 +16659,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "33436b1e-d246-4c0b-881b-40fee0b8442e")
 			(effects
@@ -17536,7 +16910,7 @@
 			(uuid "1473548f-02c0-4534-ad4b-ad5fac02b93b")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "f660229a-58a7-4680-bba3-2880a53f8c04")
 			(effects
@@ -17559,7 +16933,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 33 "Net-(D28-A)")
+			(net 32 "Net-(D28-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "40066b71-8a3c-42fa-b18a-51724a052198")
@@ -17577,10 +16951,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "dd63e7fc-cc37-400f-9a37-d1161353dee9")
-		(at 90.54 107.42)
+		(at 89.915 97.4575)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW17"
@@ -17846,7 +17219,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 39 "Net-(SW16-Pad1)")
+			(net 38 "Net-(SW16-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "14c690e9-678a-426e-8707-47a356854837")
@@ -17857,7 +17230,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 22 "Net-(D17-A)")
+			(net 21 "Net-(D17-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "c322949f-7c81-470c-b3de-626354081622")
@@ -17875,10 +17248,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "dec55f3d-8166-4da7-ac35-e26fabad4a26")
-		(at 128.64 50.27)
+		(at 128.015 48.245)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW30"
@@ -18144,7 +17516,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 41 "Net-(SW26-Pad1)")
+			(net 40 "Net-(SW26-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "9921b6d1-c930-459e-be8a-8941f1c95c74")
@@ -18155,7 +17527,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 35 "Net-(D30-A)")
+			(net 34 "Net-(D30-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "7dfd4b70-efc2-4e44-9fb7-58cf7224b4a0")
@@ -18175,11 +17547,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "e1612562-67e0-4cc5-8613-b9a6dd610953")
-		(at 151.51 165.105 180)
+		(at 147.65 164.05 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D1"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "4d5c3e79-a076-4f97-8deb-861642343a2d")
 			(effects
@@ -18190,7 +17562,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "cfcffe21-5262-4ccd-8a1a-94da896c718e")
 			(effects
@@ -18441,7 +17813,7 @@
 			(uuid "71dd6e98-7613-4c49-bd57-467b678ed4f6")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "2f7ea654-6cd7-4c80-9eec-dc92c8aed92d")
 			(effects
@@ -18484,11 +17856,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "e6744e5d-d97f-4442-bd1c-ec9358b806a0")
-		(at 107.05 83.925 180)
+		(at 106.425 81.9 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D23"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "964545a9-4694-4e0d-9b3b-7122a96c3119")
 			(effects
@@ -18499,7 +17871,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(uuid "f0d2d321-9ada-4873-8120-01d2e7f8d86a")
 			(effects
@@ -18750,7 +18122,7 @@
 			(uuid "f95b8113-e4af-40b5-8978-e24bd8def22e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "e7223fb3-7bd9-48db-894d-75deb431a91c")
 			(effects
@@ -18773,7 +18145,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 28 "Net-(D23-A)")
+			(net 27 "Net-(D23-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "74e73c16-4a7d-400d-8f33-26cf28fd6154")
@@ -18793,7 +18165,7 @@
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
 		(layer "F.Cu")
 		(uuid "e70d6b3f-ee76-4fe4-bb7f-79ffa37ffa15")
-		(at 154.05 169.55)
+		(at 150.19 168.495)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW1"
@@ -19059,7 +18431,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 36 "Net-(SW1-Pad1)")
+			(net 35 "Net-(SW1-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "a8b4a498-44b0-4dcc-bd9b-da92cf6d98b5")
@@ -19090,11 +18462,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "e74e0ba7-1fab-42d7-82c3-fd38263b6650")
-		(at 30.85 64.875 180)
+		(at 30.225 74.28 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D4"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "27499eb9-7f75-4f01-839d-521aa7b32b29")
 			(effects
@@ -19105,7 +18477,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 0 2 360)
+			(at 0 2 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d1258d6b-be3f-4d48-a696-cc6362ad2ab8")
@@ -19357,7 +18729,7 @@
 			(uuid "ae4b721f-b2d5-4ffb-ac8c-ea1f4095d243")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "097d4b18-55b6-4f98-8658-e345b457709b")
 			(effects
@@ -19400,11 +18772,11 @@
 	(footprint "Diode_SMD:Nexperia_CFP3_SOD-123W"
 		(layer "F.Cu")
 		(uuid "ec77fb24-ab06-4f31-b499-7012856b0544")
-		(at 151.51 146.055 180)
+		(at 147.65 145 180)
 		(descr "Nexperia CFP3 (SOD-123W), https://assets.nexperia.com/documents/outline-drawing/SOD123W.pdf")
 		(tags "CFP3 SOD-123W")
 		(property "Reference" "D6"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.SilkS")
 			(uuid "d6c76f6f-b15a-4d6d-a520-2f3d1f2ae5f0")
 			(effects
@@ -19415,7 +18787,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at -61.5 -33.25 360)
+			(at 0.01 2.055 0)
 			(layer "F.Fab")
 			(uuid "f669f1a3-ac26-43f8-ac23-9dab7f51a853")
 			(effects
@@ -19666,7 +19038,7 @@
 			(uuid "975493f8-1a8d-46b0-9d5d-dd2e9772eb00")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "0b5736bc-83cf-4e05-bf8a-5d7f2a6e5a60")
 			(effects
@@ -19689,7 +19061,7 @@
 			(at 1.4 0 180)
 			(size 1.2 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
-			(net 11 "Net-(D6-A)")
+			(net 10 "Net-(D6-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "b08c894a-9e58-4fa8-ae19-5a30c69959c9")
@@ -19709,7 +19081,7 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "f18c5de7-06f3-422b-9da5-dcb27b99196c")
-		(at 203.37 111.5)
+		(at 204.37 107.05)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R5"
@@ -19894,7 +19266,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 46 "+3.3V")
+			(net 45 "+3.3V")
 			(pintype "passive")
 			(uuid "4dc5faf4-c992-4eee-b247-f2f07c4e9d45")
 		)
@@ -19903,7 +19275,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(roundrect_rratio 0.25)
-			(net 10 "Net-(D10-K)")
+			(net 9 "Net-(D10-K)")
 			(pintype "passive")
 			(uuid "769a2468-8bd8-4420-b180-f6a97327fd4d")
 		)
@@ -19920,10 +19292,9 @@
 		)
 	)
 	(footprint "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB"
-		(locked yes)
 		(layer "F.Cu")
 		(uuid "fa390df9-c678-4f90-8806-267c27a64edc")
-		(at 52.44 88.37)
+		(at 51.815 97.775)
 		(descr "Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf")
 		(tags "Cherry MX keyswitch 1.00u PCB")
 		(property "Reference" "SW8"
@@ -20189,7 +19560,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 37 "Net-(SW10-Pad1)")
+			(net 36 "Net-(SW10-Pad1)")
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "9e1ad542-7cf8-4357-a982-5f38afbd2846")
@@ -20200,7 +19571,7 @@
 			(drill 1.5)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 13 "Net-(D8-A)")
+			(net 12 "Net-(D8-A)")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "3dbd17a0-800d-4eca-841a-e9816b4e195b")
@@ -20217,62 +19588,209 @@
 			)
 		)
 	)
+	(dimension
+		(type aligned)
+		(layer "User.1")
+		(uuid "71a40f6a-0672-4917-9f5a-f5160e3fe4b3")
+		(pts
+			(xy 135 100.95) (xy 135 120)
+		)
+		(height -8)
+		(gr_text "750.0000 mils"
+			(at 141.85 110.475 90)
+			(layer "User.1")
+			(uuid "71a40f6a-0672-4917-9f5a-f5160e3fe4b3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "User.1")
+		(uuid "048c7b1c-21cc-43b0-8062-d37cacd01650")
+		(pts
+			(xy 96.9 112.0625) (xy 96.9 120)
+		)
+		(height -3.9)
+		(orientation 1)
+		(gr_text "312.50 mils"
+			(at 91.85 116.03125 90)
+			(layer "User.1")
+			(uuid "048c7b1c-21cc-43b0-8062-d37cacd01650")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 2)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type orthogonal)
+		(layer "User.1")
+		(uuid "ee52aee6-367c-45a7-b8f9-69acd6b5abdc")
+		(pts
+			(xy 96.9 120) (xy 77.85 117.46)
+		)
+		(height -19.9)
+		(orientation 1)
+		(gr_text "100.0000 mils"
+			(at 75.85 118.73 90)
+			(layer "User.1")
+			(uuid "ee52aee6-367c-45a7-b8f9-69acd6b5abdc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
 	(group ""
 		(uuid "00b29870-1105-4070-b6a3-81462eb05d5c")
-		(locked yes)
 		(members "1a700950-9321-41a4-8ffe-7f31ea279ea6" "5f7392a4-7b96-4b8d-84ff-6828ddf0b02f"
 			"76572c28-b7ad-47e2-9952-4c5b6182ba52" "fa390df9-c678-4f90-8806-267c27a64edc"
 		)
 	)
 	(group ""
+		(uuid "1aead45f-ab1a-4690-aec5-db412566f111")
+		(members "00b29870-1105-4070-b6a3-81462eb05d5c" "00b4665e-568c-4ff8-848f-cccf9f025858"
+			"27ec5e66-3500-43d9-848e-3e1bf5222216" "31f37e5b-b197-4d1f-a05d-621a621ae17b"
+			"7f23cfea-15e4-4d81-9d2c-8b1dbd8d9edb"
+		)
+	)
+	(group ""
 		(uuid "1af6090d-10e6-4c46-862c-8da0de78cb72")
-		(locked yes)
 		(members "39f2120e-5e8a-40e8-8887-fde5f9a3e6a0" "5bdebcc2-01ca-473b-b8d2-5a703472dbee"
 			"8a9baf70-82a9-45cd-aea3-2a7ddf8370f4" "dd63e7fc-cc37-400f-9a37-d1161353dee9"
 		)
 	)
 	(group ""
 		(uuid "2ab8e1d9-68a0-4ecc-b69a-43088384f1c7")
-		(locked yes)
 		(members "46da40ef-440f-4f58-85aa-4b4bdbe3e0d7" "5ac8fbdd-1083-429a-a199-e0b384058170"
 			"a38f24a8-7ed0-4b70-a136-1dd215dd11f6" "b1486951-60cb-40e3-aed7-b144c65d732e"
 		)
 	)
 	(group ""
+		(uuid "5a84d1ea-a53f-4361-a21f-cee560fcc7db")
+		(members "20bb69e0-c4e3-469b-b11b-edc731f332b7" "24341d2a-7e16-4fb5-a209-5a674ba8126d"
+			"7d23cf69-299f-4e75-b58e-e0328ca8d89e" "c81f28b3-7da3-4f3d-8835-e75261bb6c17"
+			"e6744e5d-d97f-4442-bd1c-ec9358b806a0"
+		)
+	)
+	(group ""
+		(uuid "61023917-2266-4daf-907d-4dd975589414")
+		(members "410066d4-921e-4ad4-a70f-5837a2bf32b1" "69fa19a2-37c6-4497-9306-d6244bbd18b9"
+			"9ffa9df4-74e3-4119-a8c8-0ad4c6f66e9f" "e74e0ba7-1fab-42d7-82c3-fd38263b6650"
+		)
+	)
+	(group ""
 		(uuid "7d23cf69-299f-4e75-b58e-e0328ca8d89e")
-		(locked yes)
 		(members "3fdfc753-d678-4d6d-9440-402903c85dc8" "5102a716-bb85-47b5-8be1-0f43f706ccc4"
 			"979f0047-f86b-4638-8a8d-6a83d700339a" "c19c9911-cff1-46b9-9d05-06c8a1d38a8c"
 		)
 	)
 	(group ""
 		(uuid "99e14ad2-135e-4081-b6e7-8b54915fc084")
-		(locked yes)
 		(members "14be6502-8280-4a89-b333-9c102e31aece" "2434a640-62d5-4b28-a3f3-df585c442431"
 			"5df41927-9d85-4f80-87ad-fe64d94aff95" "dec55f3d-8166-4da7-ac35-e26fabad4a26"
 		)
 	)
 	(group ""
+		(uuid "9e1942c8-13a4-4d43-ac34-bec6061b6233")
+		(members "0db23bcc-bbef-4c15-ae57-4b707300d19d" "1cdcbc69-9026-4db5-aec1-4cd0958d16f6"
+			"5f468526-1530-4aea-82d0-cff29be73e13" "c0376368-052e-4798-a75d-13c51eac94af"
+			"c8b668e3-a356-447d-9f5c-67fcb037873e"
+		)
+	)
+	(group ""
 		(uuid "9ffa9df4-74e3-4119-a8c8-0ad4c6f66e9f")
-		(locked yes)
 		(members "098131d8-8f73-4a0c-8ab4-6474876b9eaf" "6c7aebb2-197b-4e51-8df6-30d6000ad0cb"
 			"7790e5ae-347b-458e-b138-9522dd8677cf"
 		)
 	)
 	(group ""
 		(uuid "c0376368-052e-4798-a75d-13c51eac94af")
-		(locked yes)
 		(members "1af6090d-10e6-4c46-862c-8da0de78cb72")
+	)
+	(group ""
+		(uuid "c0f3b7cb-a1b4-43da-a5bb-8c35887c05c7")
+		(members "4952394c-b3f7-4e2c-9bf6-18482d06af88" "69944cc9-6399-44b6-ae38-31a92e7933e3"
+			"8ec13779-9c95-495c-9b22-f0c535a43f98" "bc844634-c3dc-476c-b020-6d2a03cd2df9"
+			"d9190f7d-67a6-4558-90ef-5a849e59c10f" "e1612562-67e0-4cc5-8613-b9a6dd610953"
+			"ec77fb24-ab06-4f31-b499-7012856b0544"
+		)
+	)
+	(group ""
+		(uuid "c20cb834-3025-4aef-ae27-e005e7384a86")
+		(members "5a84d1ea-a53f-4361-a21f-cee560fcc7db")
 	)
 	(group ""
 		(uuid "c7d53728-1b63-4c9a-9194-eb799a382ee3")
 		(members "63a21d24-e518-4897-bdbc-bcf2d2308ba1" "bbdf4480-4796-42f7-8d09-3f0e73098abb")
 	)
 	(group ""
+		(uuid "cf6731b0-f876-4e7d-b587-bdc45d844649")
+		(members "16c48a6b-498c-4ee0-808a-ba084cd0c0a2" "2ab8e1d9-68a0-4ecc-b69a-43088384f1c7"
+			"3768b1d8-79d5-4887-8ff2-1f2e879e3e12" "5b89ac54-aa38-4879-9ccc-8c0967ed2c32"
+			"d59321fc-5211-4819-9202-b63bb17072e9"
+		)
+	)
+	(group ""
 		(uuid "d9190f7d-67a6-4558-90ef-5a849e59c10f")
 		(members "26f76192-8c98-41ed-bb7a-1277e3a22cdc" "6d069cb1-2d7d-4e7a-89f6-6889e7501454"
 			"81a89bbf-0695-447c-ad0a-bbff4afa4f5a" "b4aa9a33-835c-4ca4-bf8e-dc9a843902a8"
 			"bdf674e8-88ee-4712-b963-ccfdd0d9048c" "e70d6b3f-ee76-4fe4-bb7f-79ffa37ffa15"
+		)
+	)
+	(group ""
+		(uuid "f472a335-6293-41bc-b6f7-862f37352437")
+		(members "5a7d0666-42e6-48e5-81fd-653b25d7ab94" "5d161d64-9cd9-4572-9e1c-725267eeb76d"
+			"99e14ad2-135e-4081-b6e7-8b54915fc084" "cc31304d-7f39-4543-a90f-b27abe5b28d7"
+			"d7a36a6d-7fde-4866-94d3-ce3e5b937fd6"
 		)
 	)
 )
