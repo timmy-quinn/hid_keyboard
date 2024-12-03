@@ -845,7 +845,6 @@ bool kb_ble_is_adv() {
 
 void kb_ble_init() {
 	int err;
-	int blink_status = 0;
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
@@ -854,7 +853,6 @@ void kb_ble_init() {
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
 		printk("Failed to register authorization callbacks.\n");
-		return 0;
 	}
 
 	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
@@ -868,7 +866,6 @@ void kb_ble_init() {
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
-		return 0;
 	}
 
 	printk("Bluetooth initialized\n");
