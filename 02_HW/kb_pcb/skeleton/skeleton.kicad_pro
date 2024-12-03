@@ -458,30 +458,7 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "Net-(D1-K)": "Row_0",
-      "Net-(D10-K)": "Row_4",
-      "Net-(D12-K)": "Row_1",
-      "Net-(D13-K)": "Row_2",
-      "Net-(D14-K)": "Row_3",
-      "Net-(SW1-Pad1)": "Col_0",
-      "Net-(SW10-Pad1)": "Col_1",
-      "Net-(SW11-Pad1)": "Col_2",
-      "Net-(SW16-Pad1)": "Col_3",
-      "Net-(SW21-Pad1)": "Col_4",
-      "Net-(SW26-Pad1)": "Col_5",
-      "unconnected-(J2-Pin_1-Pad1)": "Col_0",
-      "unconnected-(J2-Pin_10-Pad10)": "Row_3",
-      "unconnected-(J2-Pin_11-Pad11)": "Row_4",
-      "unconnected-(J2-Pin_2-Pad2)": "Col_1",
-      "unconnected-(J2-Pin_3-Pad3)": "Col_2",
-      "unconnected-(J2-Pin_4-Pad4)": "Col_3",
-      "unconnected-(J2-Pin_5-Pad5)": "Col_4",
-      "unconnected-(J2-Pin_6-Pad6)": "Col_5",
-      "unconnected-(J2-Pin_7-Pad7)": "Row_0",
-      "unconnected-(J2-Pin_8-Pad8)": "Row_1",
-      "unconnected-(J2-Pin_9-Pad9)": "Row_2"
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
