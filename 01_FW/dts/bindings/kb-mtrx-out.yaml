@@ -1,0 +1,49 @@
+# Copyright (c) 2018, Linaro Limited
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  This allows you to define a group of keyboard matrix outputs. Each output in the group is
+  controlled by a GPIO. Each output is defined in a child node of the
+  gpio-outputs node.
+
+  Here is an example which defines three LEDs in the node /leds:
+
+  / {
+  	mtrxout {
+  		compatible = "kb-mtrx-out";
+  		mx_out1 {
+  			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+  		};
+  		mx_out2 {
+  			gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+  		};
+  		mx_out3 {
+  			gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+  		};
+  	};
+  };
+
+  Above:
+
+  - led_0 is pin 1 on gpio0. The LED is on when the pin is low,
+    and off when the pin is high.
+  - led_1 is pin 2 on gpio0. The LED is on when the pin is high,
+    and off when it is low.
+  - led_2 is pin 15 on gpio1. The LED is on when the pin is low,
+    and the pin's internal pull-up resistor should be enabled.
+
+compatible: "kb-mtrx-out"
+
+child-binding:
+  description: GPIO keyboard matrix out child node
+  properties:
+    gpios:
+      type: phandle-array
+      required: true
+    label:
+      type: string
+      description: |
+        Human readable string describing the matrix output. It can be 
+        used by an application to identify this keyboard matrix out 
+        column or to retrieve its number/index (i.e. child node number) 
+        on the parent device.
