@@ -12,28 +12,9 @@
 #define GPIO_NODE_1 DT_NODELABEL(gpio1)
 #define GPIO_NAME_1 DEVICE_DT_NAME(GPIO_NODE_1) 
 
-#define KEY_MATRIX_OUT_COUNT 8
-#define KEY_MATRIX_IN_COUNT 7
+#define KEY_MATRIX_OUT_COUNT 4
+#define KEY_MATRIX_IN_COUNT 4
 #define SLEEP_TIME_MS 2 
-
-#define EXT_LED_0        DT_NODELABEL(ledx0)
-#define EXT_LED_1        DT_NODELABEL(ledx1)
-#define EXT_LED_2        DT_NODELABEL(ledx2)
-#define EXT_LED_3        DT_NODELABEL(ledx3)
-#define EXT_LED_4        DT_NODELABEL(ledx4)
-#define EXT_LED_5        DT_NODELABEL(ledx5)
-#define EXT_LED_6        DT_NODELABEL(ledx6)
-#define EXT_LED_7        DT_NODELABEL(ledx7)
-
-#define TEST_LED        DT_NODELABEL(testled)
-
-#define BTN_MATRIX_0    DT_NODELABEL(btnmtrx0)
-#define BTN_MATRIX_1    DT_NODELABEL(btnmtrx1)
-#define BTN_MATRIX_2    DT_NODELABEL(btnmtrx2)
-#define BTN_MATRIX_3    DT_NODELABEL(btnmtrx3)
-#define BTN_MATRIX_4    DT_NODELABEL(btnmtrx4)
-#define BTN_MATRIX_5    DT_NODELABEL(btnmtrx5)
-#define BTN_MATRIX_6    DT_NODELABEL(btnmtrx6)
 
 typedef struct _kybrd_key_{
     uint8_t scan_code; 
@@ -44,38 +25,27 @@ static struct k_work_delayable key_mtrx_scan;
 static uint8_t mtrx_row_active; 
 static key_change_cb key_cb; 
 
-static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(testled), gpios);
+static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 
 static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx0), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx1), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx2), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx3), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx4), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx5), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx6), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(ledx7), gpios)
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swout0), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swout1), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swout2), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swout3), gpios)
 };
 
 static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx0), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx1), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx2), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx3), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx4), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx5), gpios),
-    GPIO_DT_SPEC_GET(DT_NODELABEL(btnmtrx6), gpios)
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swin0), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swin1), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swin2), gpios),
+    GPIO_DT_SPEC_GET(DT_NODELABEL(swin3), gpios)
 };
 
 kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0},{KEY_A, 0}} 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
+    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}} 
 }; 
 
 
