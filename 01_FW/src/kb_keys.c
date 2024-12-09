@@ -56,7 +56,7 @@ static void key_gpios_init() {
     }
 
     for(uint16_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
-        gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT);
+        gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT | GPIO_PULL_UP);
     }
 
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {

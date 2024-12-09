@@ -6,6 +6,7 @@
 #include "kb_keys.h"
 #include "kb_ble.h"
 
+
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
 #define ADV_LED_BLINK_INTERVAL  1000
 
@@ -19,7 +20,7 @@ int main(void)
 	for (;;) {
 		if (kb_ble_is_adv()) {
 			//dk_set_led(ADV_STATUS_LED, (++blink_status) % 2);
-    		gpio_pin_set_dt(&adv_status_led, 1);
+    		gpio_pin_set_dt(&adv_status_led, (++blink_status) % 2);
 		} else {
 			// dk_set_led_off(ADV_STATUS_LED);
     		gpio_pin_set_dt(&adv_status_led, 0);
