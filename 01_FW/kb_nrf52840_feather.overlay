@@ -1,39 +1,6 @@
-/ {
-    mtrxout {
-        // swout0: sw_out_0{
-        //     gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-        //     label = "switch matrix output 0"; 
-        // };
-        swout1: sw_out_1{
-            gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
-            label = "switch matrix output 1"; 
-        };
-        swout2: sw_out_2{
-            gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
-            label = "switch matrix output 2"; 
-        };
-        swout3: sw_out_3{
-            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
-            label = "switch matrix output 3"; 
-        };
-    };
-
-    buttons {
-        swin0: sw_in_0 {
-            gpios = <&gpio0 3 GPIO_ACTIVE_LOW>; 
-            label = "switch matrix input 0"; 
-        };
-        swin1: sw_in_1 {
-            gpios = <&gpio0 4 GPIO_ACTIVE_LOW>; 
-            label = "switch matrix input 1"; 
-        };
-        swin2: sw_in_2 {
-            gpios = <&gpio0 5 GPIO_ACTIVE_LOW>; 
-            label = "switch matrix input 2"; 
-        };
-        swin3: sw_in_3 {
-            gpios = <&gpio0 28 GPIO_ACTIVE_LOW>; 
-            label = "switch matrix input 3"; 
-        };
-    };
+&uart0 {
+    status = "disabled"; 
+};
+&spi1 {
+    status = "disabled"; 
 };
