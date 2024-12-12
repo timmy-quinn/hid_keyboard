@@ -848,7 +848,7 @@ void kb_ble_init() {
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
-	configure_gpio();
+	// configure_gpio();
 
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
@@ -858,7 +858,6 @@ void kb_ble_init() {
 	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
 	if (err) {
 		printk("Failed to register authorization info callbacks.\n");
-		return 0;
 	}
 
 	hid_init();
