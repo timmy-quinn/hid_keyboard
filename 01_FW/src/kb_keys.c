@@ -14,7 +14,7 @@
 
 #define KEY_MATRIX_OUT_COUNT 4
 #define KEY_MATRIX_IN_COUNT 4
-#define SLEEP_TIME_MS 200 
+#define SLEEP_TIME_MS 2 
 
 typedef struct _kybrd_key_{
     uint8_t scan_code; 
@@ -22,7 +22,7 @@ typedef struct _kybrd_key_{
 }kybrd_key_t; 
 
 static struct k_work_delayable key_mtrx_scan;
-static uint8_t mtrx_row_active; 
+static uint8_t mtrx_col_active; 
 static key_change_cb key_cb; 
 
 static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
@@ -43,10 +43,10 @@ static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
 };
 
 kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}}, 
-    {{KEY_A, 0}, {KEY_A, 0},{KEY_A, 0},{KEY_A, 0}} 
+    {{KEY_A, 0}, {KEY_B, 2},{KEY_C, 0},{KEY_D, 0}}, 
+    {{KEY_E, 0}, {KEY_F, 0},{KEY_G, 0},{KEY_H, 0}}, 
+    {{KEY_I, 0}, {KEY_J, 0},{KEY_K, 0},{KEY_L, 0}}, 
+    {{KEY_N, 0}, {KEY_O, 0},{KEY_P, 0},{KEY_LSHIFT, 0}} 
 }; 
 
 
@@ -59,7 +59,7 @@ static void key_gpios_init() {
 
 
     for(uint16_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
-        gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT | GPIO_PULL_UP);
+        gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT);
     }
 
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
@@ -72,24 +72,23 @@ static void key_gpios_init() {
 static void key_mtrx_scan_fn() {
     int btn_pressed; 
 
-    gpio_pin_set_dt(&key_mtrx_out[mtrx_row_active], 0);
-    if(mtrx_row_active < KEY_MATRIX_OUT_COUNT -1) {
-        mtrx_row_active++; 
+    gpio_pin_set_dt(&key_mtrx_out[mtrx_col_active], 0);
+    if(mtrx_col_active < KEY_MATRIX_OUT_COUNT -1) {
+        mtrx_col_active++; 
     }
     else{
-        mtrx_row_active = 0; 
+        mtrx_col_active = 0; 
     }
-    // CIRCULAR_INCREMENT(mtrx_row_active, 0, KEY_MATRIX_OUT_COUNT -1);
-    gpio_pin_set_dt(&key_mtrx_out[mtrx_row_active], 1);
+    gpio_pin_set_dt(&key_mtrx_out[mtrx_col_active], 1);
 
     for(uint16_t j = 0; j < KEY_MATRIX_IN_COUNT; j++) {
         btn_pressed = gpio_pin_get(key_mtrx_in[j].port, key_mtrx_in[j].pin); 
-        if(scan_code_mtrx[mtrx_row_active][j].state != btn_pressed) {
+        if(scan_code_mtrx[j][mtrx_col_active].state != btn_pressed) {
             //gpio_pin_set_dt(&test_led, btn_pressed); 
             if(key_cb) {
-                key_cb(&scan_code_mtrx[mtrx_row_active][j].scan_code, btn_pressed);
+                key_cb(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
             }
-            scan_code_mtrx[mtrx_row_active][j].state = btn_pressed;    
+            scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));

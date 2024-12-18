@@ -24,3 +24,6 @@
 #define KEY_X 0x1b
 #define KEY_Y 0x1c
 #define KEY_Z 0x1d
+
+#define KEY_LSHIFT 0xE1
+#define KEY_RSHIFT 0xE5
