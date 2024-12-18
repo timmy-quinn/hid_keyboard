@@ -810,11 +810,6 @@ static void configure_gpio(void)
 	if (err) {
 		printk("Cannot init buttons (err: %d)\n", err);
 	}
-
-	err = dk_leds_init();
-	if (err) {
-		printk("Cannot init LEDs (err: %d)\n", err);
-	}
 }
 
 void kb_ble_key_event(const uint8_t *scan_code, int state) {
@@ -848,7 +843,7 @@ void kb_ble_init() {
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
-	// configure_gpio();
+	configure_gpio();
 
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
