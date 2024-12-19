@@ -287,12 +287,17 @@ static void security_changed(struct bt_conn *conn, bt_security_t level,
 }
 
 
-BT_CONN_CB_DEFINE(conn_callbacks) = {
-	.connected = connected,
-	.disconnected = disconnected,
-	.security_changed = security_changed,
-};
+// BT_CONN_CB_DEFINE(conn_callbacks) = {
+// 	.connected = connected,
+// 	.disconnected = disconnected,
+// 	.security_changed = security_changed,
+// };
 
+static struct bt_conn_cb conn_callbacks = {
+	.connected = connected, 
+	.disconnected = disconnected, 
+	.security_changed = security_changed,
+}
 
 static void caps_lock_handler(const struct bt_hids_rep *rep)
 {
@@ -458,39 +463,39 @@ static void hid_init(void)
 	__ASSERT(err == 0, "HIDS initialization failed\n");
 }
 
-static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
+// static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
+// {
+// 	char addr[BT_ADDR_LE_STR_LEN];
 
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
+// 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 
-	printk("Passkey for %s: %06u\n", addr, passkey);
-}
+// 	printk("Passkey for %s: %06u\n", addr, passkey);
+// }
 
-static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
-{
-	int err;
+// static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
+// {
+// 	int err;
 
-	struct pairing_data_mitm pairing_data;
+// 	struct pairing_data_mitm pairing_data;
 
-	pairing_data.conn    = bt_conn_ref(conn);
-	pairing_data.passkey = passkey;
+// 	pairing_data.conn    = bt_conn_ref(conn);
+// 	pairing_data.passkey = passkey;
 
-	err = k_msgq_put(&mitm_queue, &pairing_data, K_NO_WAIT);
-	if (err) {
-		printk("Pairing queue is full. Purge previous data.\n");
-	}
+// 	err = k_msgq_put(&mitm_queue, &pairing_data, K_NO_WAIT);
+// 	if (err) {
+// 		printk("Pairing queue is full. Purge previous data.\n");
+// 	}
 
-	/* In the case of multiple pairing requests, trigger
-	 * pairing confirmation which needed user interaction only
-	 * once to avoid display information about all devices at
-	 * the same time. Passkey confirmation for next devices will
-	 * be proccess from queue after handling the earlier ones.
-	 */
-	if (k_msgq_num_used_get(&mitm_queue) == 1) {
-		k_work_submit(&pairing_work);
-	}
-}
+// 	/* In the case of multiple pairing requests, trigger
+// 	 * pairing confirmation which needed user interaction only
+// 	 * once to avoid display information about all devices at
+// 	 * the same time. Passkey confirmation for next devices will
+// 	 * be proccess from queue after handling the earlier ones.
+// 	 */
+// 	if (k_msgq_num_used_get(&mitm_queue) == 1) {
+// 		k_work_submit(&pairing_work);
+// 	}
+// }
 
 
 static void auth_cancel(struct bt_conn *conn)
@@ -533,9 +538,9 @@ static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 }
 
 
+// Using Just works pairing.
+// To add more secure and advanced pairing, can add auth_passkey_confirm and auth_passkey_display
 static struct bt_conn_auth_cb conn_auth_callbacks = {
-	.passkey_display = auth_passkey_display,
-	.passkey_confirm = auth_passkey_confirm,
 	.cancel = auth_cancel,
 };
 
@@ -861,6 +866,8 @@ void kb_ble_init() {
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
 	}
+	// temp placed here
+	bt_conn_cb_register(&conn_callbacks);	
 
 	printk("Bluetooth initialized\n");
 
