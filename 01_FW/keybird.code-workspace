@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../ncs/v2.6.1/zephyr"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"hids.h": "c",
+			"gpio.h": "c"
+		}
+	}
+}

@@ -300,17 +300,17 @@ static void security_changed(struct bt_conn *conn, bt_security_t level,
 }
 
 
-// BT_CONN_CB_DEFINE(conn_callbacks) = {
-// 	.connected = connected,
-// 	.disconnected = disconnected,
-// 	.security_changed = security_changed,
-// };
-
-static struct bt_conn_cb conn_callbacks = {
-	.connected = connected, 
-	.disconnected = disconnected, 
+BT_CONN_CB_DEFINE(conn_callbacks) = {
+	.connected = connected,
+	.disconnected = disconnected,
 	.security_changed = security_changed,
 };
+
+// static struct bt_conn_cb conn_callbacks = {
+// 	.connected = connected, 
+// 	.disconnected = disconnected, 
+// 	.security_changed = security_changed,
+// };
 
 static void caps_lock_handler(const struct bt_hids_rep *rep)
 {
@@ -858,6 +858,12 @@ bool kb_ble_is_adv() {
 	return is_adv;
 }
 
+void kb_ble_accept_pairing() {
+	if (k_msgq_num_used_get(&mitm_queue)) {
+		num_comp_reply(true);
+	}
+}
+
 void kb_ble_init() {
 	int err;
 
@@ -882,7 +888,7 @@ void kb_ble_init() {
 		printk("Bluetooth init failed (err %d)\n", err);
 	}
 	// temp placed here
-	bt_conn_cb_register(&conn_callbacks);	
+	// bt_conn_cb_register(&conn_callbacks);	
 
 	printk("Bluetooth initialized\n");
 

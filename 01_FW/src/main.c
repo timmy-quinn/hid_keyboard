@@ -15,7 +15,7 @@ int main(void)
 	int blink_status = 0;
    	gpio_pin_configure_dt(&adv_status_led, GPIO_OUTPUT);
 	kb_ble_init();
-	kb_keys_init(kb_ble_key_event); 
+	kb_keys_init(kb_ble_key_event, kb_ble_accept_pairing); 
 
 	for (;;) {
 		if (kb_ble_is_adv()) {

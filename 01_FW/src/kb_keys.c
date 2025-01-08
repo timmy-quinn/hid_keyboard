@@ -24,9 +24,11 @@ typedef struct _kybrd_key_{
 static struct k_work_delayable key_mtrx_scan;
 static uint8_t mtrx_col_active; 
 static key_change_cb key_cb; 
+static void (*pairing_cb)(void);
 
 static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 static const struct gpio_dt_spec pwr_pin = GPIO_DT_SPEC_GET(DT_NODELABEL(pwr), gpios);
+static const struct gpio_dt_spec usr_btn = GPIO_DT_SPEC_GET(DT_NODELABEL(button0), gpios);
 
 static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
     GPIO_DT_SPEC_GET(DT_NODELABEL(swout0), gpios),
@@ -61,6 +63,8 @@ static void key_gpios_init() {
     for(uint16_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
         gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT);
     }
+    
+    gpio_pin_configure_dt(&usr_btn, GPIO_INPUT);
 
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
         gpio_pin_set_dt(&key_mtrx_out[i], 0);
@@ -91,11 +95,19 @@ static void key_mtrx_scan_fn() {
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
+
+    if(gpio_pin_get(usr_btn.port, usr_btn.pin)) {
+        printk("Pairing btn pressed\n"); 
+        pairing_cb(); 
+    }
+
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));
 }
 
-void kb_keys_init(key_change_cb callback) {
-    key_cb = callback; 
+void kb_keys_init(key_change_cb new_key_cb, void (*new_pairing_cb)(void)) {
+    key_cb = new_key_cb; 
+    pairing_cb = new_pairing_cb;
+    
     key_gpios_init(); 
 	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);
 	k_work_schedule(&key_mtrx_scan, K_NO_WAIT);
