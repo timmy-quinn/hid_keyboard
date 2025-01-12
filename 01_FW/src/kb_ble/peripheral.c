@@ -23,7 +23,7 @@
 #include <zephyr/bluetooth/services/dis.h>
 #include <dk_buttons_and_leds.h>
 
-#include "kb_ble.h"
+#include "peripheral.h"
 
 #define DEVICE_NAME     CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
@@ -216,7 +216,7 @@ static void connected(struct bt_conn *conn, uint8_t err)
 	}
 
 	printk("Connected %s\n", addr);
-	dk_set_led_on(CON_STATUS_LED);
+	// dk_set_led_on(CON_STATUS_LED);
 
 	err = bt_hids_connected(&hids_obj, conn);
 
@@ -264,7 +264,7 @@ static void disconnected(struct bt_conn *conn, uint8_t reason)
 	}
 
 	if (!is_any_dev_connected) {
-		dk_set_led_off(CON_STATUS_LED);
+		// dk_set_led_off(CON_STATUS_LED);
 	}
 
 	advertising_start();
@@ -316,7 +316,7 @@ static void caps_lock_handler(const struct bt_hids_rep *rep)
 {
 	uint8_t report_val = ((*rep->data) & OUTPUT_REPORT_BIT_MASK_CAPS_LOCK) ?
 			  1 : 0;
-	dk_set_led(LED_CAPS_LOCK, report_val);
+	// dk_set_led(LED_CAPS_LOCK, report_val);
 }
 
 

@@ -1,5 +1,8 @@
 {
     "nrf-connect.applications": [
         "${workspaceFolder}/01_FW"
-    ]
+    ],
+    "files.associations": {
+        "scan.h": "c"
+    }
 }
