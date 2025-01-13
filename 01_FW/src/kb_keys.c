@@ -24,7 +24,10 @@ typedef struct _kybrd_key_{
 static struct k_work_delayable key_mtrx_scan;
 static uint8_t mtrx_col_active; 
 static key_change_cb key_cb; 
-static void (*pairing_cb)(void);
+static vv_cb cent_pairing_cb;
+static vv_cb periph_pairing_cb;
+static vv_cb advertising_cb;
+static vv_cb scanning_cb;
 
 static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 static const struct gpio_dt_spec pwr_pin = GPIO_DT_SPEC_GET(DT_NODELABEL(pwr), gpios);
@@ -45,7 +48,7 @@ static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
 };
 
 kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-    {{KEY_A, 0}, {KEY_B, 2},{KEY_C, 0},{KEY_D, 0}}, 
+    {{PERIPH_PAIRING_ACCEPT, 0}, {ADV_START, 0}, {SCAN_START, 0}, {CENT_PAIRING_ACCEPT, 0}}, 
     {{KEY_E, 0}, {KEY_F, 0},{KEY_G, 0},{KEY_H, 0}}, 
     {{KEY_I, 0}, {KEY_J, 0},{KEY_K, 0},{KEY_L, 0}}, 
     {{KEY_N, 0}, {KEY_O, 0},{KEY_P, 0},{KEY_LSHIFT, 0}} 
@@ -89,24 +92,39 @@ static void key_mtrx_scan_fn() {
         btn_pressed = gpio_pin_get(key_mtrx_in[j].port, key_mtrx_in[j].pin); 
         if(scan_code_mtrx[j][mtrx_col_active].state != btn_pressed) {
             //gpio_pin_set_dt(&test_led, btn_pressed); 
-            if(key_cb) {
+            if(scan_code_mtrx[j][mtrx_col_active].scan_code == CENT_PAIRING_ACCEPT && cent_pairing_cb) {
+                cent_pairing_cb(); 
+            }
+            else if(scan_code_mtrx[j][mtrx_col_active].scan_code == PERIPH_PAIRING_ACCEPT && periph_pairing_cb) {
+                periph_pairing_cb();
+            }
+            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == SCAN_START && scanning_cb) {
+                scanning_cb();
+            }
+            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == ADV_START && advertising_cb) {
+                advertising_cb();
+            }
+            else if(key_cb) {
                 key_cb(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
             }
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
 
-    if(gpio_pin_get(usr_btn.port, usr_btn.pin)) {
-        printk("Pairing btn pressed\n"); 
-        pairing_cb(); 
-    }
+    // if(gpio_pin_get(usr_btn.port, usr_btn.pin)) {
+    //     printk("Pairing btn pressed\n"); 
+    //     periph_pairing_cb(); 
+    // }
 
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));
 }
 
-void kb_keys_init(key_change_cb new_key_cb, void (*new_pairing_cb)(void)) {
+void kb_keys_init(key_change_cb new_key_cb, vv_cb pp_cb, vv_cb a_cb, vv_cb s_cb, vv_cb cp_cb) {
     key_cb = new_key_cb; 
-    pairing_cb = new_pairing_cb;
+    periph_pairing_cb = pp_cb;
+    advertising_cb = a_cb;
+    scanning_cb = s_cb;
+    cent_pairing_cb = cp_cb;
     
     key_gpios_init(); 
 	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);

@@ -3,6 +3,11 @@
         "${workspaceFolder}/01_FW"
     ],
     "files.associations": {
-        "scan.h": "c"
+        "scan.h": "c",
+        "peripheral.h": "c",
+        "printk.h": "c",
+        "hci.h": "c",
+        "dis.h": "c",
+        "uuid.h": "c"
     }
 }

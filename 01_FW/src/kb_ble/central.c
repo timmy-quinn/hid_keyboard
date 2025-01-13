@@ -6,6 +6,7 @@
  * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
  */
 
+#include "central.h"
 #include <zephyr/types.h>
 #include <stddef.h>
 #include <errno.h>
@@ -25,7 +26,6 @@
 
 #include <zephyr/settings/settings.h>
 
-#include "central.h"
 
 /**
  * Switch between boot protocol and report protocol mode.
@@ -161,7 +161,7 @@ static const struct bt_gatt_dm_cb discovery_cb = {
 	.error_found = discovery_error_found_cb,
 };
 
-static void gatt_discover(struct bt_conn *conn)
+void cent_gatt_discover(struct bt_conn *conn)
 {
 	int err;
 
@@ -176,7 +176,7 @@ static void gatt_discover(struct bt_conn *conn)
 	}
 }
 
-static void connected(struct bt_conn *conn, uint8_t conn_err)
+void cent_connected(struct bt_conn *conn, uint8_t conn_err)
 {
 	int err;
 	char addr[BT_ADDR_LE_STR_LEN];
@@ -206,11 +206,11 @@ static void connected(struct bt_conn *conn, uint8_t conn_err)
 	if (err) {
 		printk("Failed to set security: %d\n", err);
 
-		gatt_discover(conn);
+		cent_gatt_discover(conn);
 	}
 }
 
-static void disconnected(struct bt_conn *conn, uint8_t reason)
+void cent_disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 	int err;
@@ -257,12 +257,12 @@ static void security_changed(struct bt_conn *conn, bt_security_t level,
 			err);
 	}
 
-	gatt_discover(conn);
+	cent_gatt_discover(conn);
 }
 
 BT_CONN_CB_DEFINE(conn_callbacks) = {
-	.connected        = connected,
-	.disconnected     = disconnected,
+	.connected        = cent_connected,
+	.disconnected     = cent_disconnected,
 	.security_changed = security_changed
 };
 
@@ -544,6 +544,9 @@ static void num_comp_reply(bool accept)
 	auth_conn = NULL;
 }
 
+void cent_pairing_accept() {
+	num_comp_reply(true);
+}
 
 // static void button_handler(uint32_t button_state, uint32_t has_changed)
 // {
@@ -583,7 +586,7 @@ static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
 }
 
 
-static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
+void cent_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 
@@ -616,7 +619,7 @@ static void pairing_complete(struct bt_conn *conn, bool bonded)
 }
 
 
-static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
+void cent_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 
@@ -627,62 +630,72 @@ static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 
 static struct bt_conn_auth_cb conn_auth_callbacks = {
 	.passkey_display = auth_passkey_display,
-	.passkey_confirm = auth_passkey_confirm,
+	.passkey_confirm = cent_auth_passkey_confirm,
 	.cancel = auth_cancel,
 };
 
 static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
 	.pairing_complete = pairing_complete,
-	.pairing_failed = pairing_failed
+	.pairing_failed = cent_pairing_failed
 };
 
+void ble_cent_scan_start() {
+	int err;
+	err = bt_scan_start(BT_SCAN_TYPE_SCAN_ACTIVE);
+	if (err) {
+		printk("Scanning failed to start (err %d)\n", err);
+		return;
+	}
 
-int kb_ble_cent_init(void)
+	printk("Scanning successfully started\n");
+}
+
+int cent_ble_init(void)
 {
 	int err;
 
-	printk("Starting Bluetooth Central HIDS example\n");
+	printk("Starting Bluetooth Central HIDS\n");
 
 	bt_hogp_init(&hogp, &hogp_init_params);
 
-	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-	if (err) {
-		printk("failed to register authorization callbacks.\n");
-		return 0;
-	}
+	// err = bt_conn_auth_cb_register(&conn_auth_callbacks);
+	// if (err) {
+	// 	printk("failed to register authorization callbacks.\n");
+	// 	return 0;
+	// }
 
-	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-	if (err) {
-		printk("Failed to register authorization info callbacks.\n");
-		return 0;
-	}
+	// err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
+	// if (err) {
+	// 	printk("Failed to register authorization info callbacks.\n");
+	// 	return 0;
+	// }
 
-	err = bt_enable(NULL);
-	if (err) {
-		printk("Bluetooth init failed (err %d)\n", err);
-		return 0;
-	}
+	// err = bt_enable(NULL);
+	// if (err) {
+	// 	printk("Bluetooth init failed (err %d)\n", err);
+	// 	return 0;
+	// }
 
 	printk("Bluetooth initialized\n");
 
-	if (IS_ENABLED(CONFIG_SETTINGS)) {
-		settings_load();
-	}
+	// if (IS_ENABLED(CONFIG_SETTINGS)) {
+		// settings_load();
+	// }
 
 	scan_init();
 
 	// err = dk_buttons_init(button_handler);
-	if (err) {
-		printk("Failed to initialize buttons (err %d)\n", err);
-		return 0;
-	}
+	// if (err) {
+	// 	printk("Failed to initialize buttons (err %d)\n", err);
+	// 	return 0;
+	// }
 
-	err = bt_scan_start(BT_SCAN_TYPE_SCAN_ACTIVE);
-	if (err) {
-		printk("Scanning failed to start (err %d)\n", err);
-		return 0;
-	}
+	// err = bt_scan_start(BT_SCAN_TYPE_SCAN_ACTIVE);
+	// if (err) {
+	// 	printk("Scanning failed to start (err %d)\n", err);
+	// 	return 0;
+	// }
 
-	printk("Scanning successfully started\n");
+	// printk("Scanning successfully started\n");
 	return 0;
 }

@@ -21,7 +21,7 @@
 #include <zephyr/bluetooth/services/bas.h>
 #include <bluetooth/services/hids.h>
 #include <zephyr/bluetooth/services/dis.h>
-#include <dk_buttons_and_leds.h>
+// #include <dk_buttons_and_leds.h>
 
 #include "peripheral.h"
 
@@ -157,7 +157,7 @@ K_MSGQ_DEFINE(mitm_queue,
 	      CONFIG_BT_HIDS_MAX_CLIENT_COUNT,
 	      4);
 
-static void advertising_start(void)
+void advertising_start(void)
 {
 	int err;
 	struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
@@ -204,7 +204,7 @@ static void pairing_process(struct k_work *work)
 }
 
 
-static void connected(struct bt_conn *conn, uint8_t err)
+void periph_connected(struct bt_conn *conn, uint8_t err)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 
@@ -237,7 +237,7 @@ static void connected(struct bt_conn *conn, uint8_t err)
 }
 
 
-static void disconnected(struct bt_conn *conn, uint8_t reason)
+void periph_disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	int err;
 	bool is_any_dev_connected = false;
@@ -281,30 +281,17 @@ static void security_changed(struct bt_conn *conn, bt_security_t level,
 	if (!err) {
 		printk("Security changed: %s level %u\n", addr, level);
 	} else {
-		// note: 
-		//call stack for this function on failure 
-		// bt_conn_security_changed()
-		// smp_pairing_complete()
-		// bt_smp_recv()
-		// l2cap_chan_recv()
-		// bt_l2cap_recv()
-		// bt_acl_recv()
-		// bt_conn_recv()
-		// hci_acl()
-		// rx_work_handler()
-		// ... 
-		// BT RX thread
 		printk("Security failed: %s level %u err %d\n", addr, level,
 			err);
 	}
 }
 
 
-BT_CONN_CB_DEFINE(conn_callbacks) = {
-	.connected = connected,
-	.disconnected = disconnected,
-	.security_changed = security_changed,
-};
+// BT_CONN_CB_DEFINE(conn_callbacks) = {
+// 	.connected = periph_connected,
+// 	.disconnected = periph_disconnected,
+// 	.security_changed = security_changed,
+// };
 
 // static struct bt_conn_cb conn_callbacks = {
 // 	.connected = connected, 
@@ -485,7 +472,7 @@ static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
 	printk("Passkey for %s: %06u\n", addr, passkey);
 }
 
-static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
+void periph_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 {
 	int err;
 
@@ -531,7 +518,7 @@ static void pairing_complete(struct bt_conn *conn, bool bonded)
 }
 
 
-static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
+void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 	struct pairing_data_mitm pairing_data;
@@ -555,13 +542,13 @@ static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 // To add more secure and advanced pairing, can add auth_passkey_confirm and auth_passkey_display
 static struct bt_conn_auth_cb conn_auth_callbacks = {
 	.passkey_display = auth_passkey_display,
-	.passkey_confirm = auth_passkey_confirm,
+	.passkey_confirm = periph_auth_passkey_confirm,
 	.cancel = auth_cancel,
 };
 
 static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
 	.pairing_complete = pairing_complete,
-	.pairing_failed = pairing_failed
+	.pairing_failed = periph_pairing_failed
 };
 
 
@@ -783,54 +770,54 @@ static void num_comp_reply(bool accept)
 }
 
 
-static void button_changed(uint32_t button_state, uint32_t has_changed)
-{
-	static bool pairing_button_pressed;
+// static void button_changed(uint32_t button_state, uint32_t has_changed)
+// {
+// 	static bool pairing_button_pressed;
 
-	uint32_t buttons = button_state & has_changed;
+// 	uint32_t buttons = button_state & has_changed;
 
-	if (k_msgq_num_used_get(&mitm_queue)) {
-		if (buttons & KEY_PAIRING_ACCEPT) {
-			pairing_button_pressed = true;
-			num_comp_reply(true);
+// 	if (k_msgq_num_used_get(&mitm_queue)) {
+// 		if (buttons & KEY_PAIRING_ACCEPT) {
+// 			pairing_button_pressed = true;
+// 			num_comp_reply(true);
 
-			return;
-		}
+// 			return;
+// 		}
 
-		if (buttons & KEY_PAIRING_REJECT) {
-			pairing_button_pressed = true;
-			num_comp_reply(false);
+// 		if (buttons & KEY_PAIRING_REJECT) {
+// 			pairing_button_pressed = true;
+// 			num_comp_reply(false);
 
-			return;
-		}
-	}
+// 			return;
+// 		}
+// 	}
 
-	/* Do not take any action if the pairing button is released. */
-	if (pairing_button_pressed &&
-	    (has_changed & (KEY_PAIRING_ACCEPT | KEY_PAIRING_REJECT))) {
-		pairing_button_pressed = false;
+// 	/* Do not take any action if the pairing button is released. */
+// 	if (pairing_button_pressed &&
+// 	    (has_changed & (KEY_PAIRING_ACCEPT | KEY_PAIRING_REJECT))) {
+// 		pairing_button_pressed = false;
 
-		return;
-	}
+// 		return;
+// 	}
 
-	if (has_changed & KEY_TEXT_MASK) {
-		button_text_changed((button_state & KEY_TEXT_MASK) != 0);
-	}
-	if (has_changed & KEY_SHIFT_MASK) {
-		button_shift_changed((button_state & KEY_SHIFT_MASK) != 0);
-	}
-}
+// 	if (has_changed & KEY_TEXT_MASK) {
+// 		button_text_changed((button_state & KEY_TEXT_MASK) != 0);
+// 	}
+// 	if (has_changed & KEY_SHIFT_MASK) {
+// 		button_shift_changed((button_state & KEY_SHIFT_MASK) != 0);
+// 	}
+// }
 
 
-static void configure_gpio(void)
-{
-	int err;
+// static void configure_gpio(void)
+// {
+// 	int err;
 
-	err = dk_buttons_init(button_changed);
-	if (err) {
-		printk("Cannot init buttons (err: %d)\n", err);
-	}
-}
+// 	err = dk_buttons_init(button_changed);
+// 	if (err) {
+// 		printk("Cannot init buttons (err: %d)\n", err);
+// 	}
+// }
 
 void kb_ble_key_event(const uint8_t *scan_code, int state) {
 	if (state) {
@@ -864,39 +851,39 @@ void kb_ble_accept_pairing() {
 	}
 }
 
-void kb_ble_init() {
+void periph_ble_init() {
 	int err;
 
 	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
 
 	// configure_gpio();
 
-	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-	if (err) {
-		printk("Failed to register authorization callbacks.\n");
-	}
+	// err = bt_conn_auth_cb_register(&conn_auth_callbacks);
+	// if (err) {
+	// 	printk("Failed to register authorization callbacks.\n");
+	// }
 
-	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-	if (err) {
-		printk("Failed to register authorization info callbacks.\n");
-	}
+	// err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
+	// if (err) {
+	// 	printk("Failed to register authorization info callbacks.\n");
+	// }
 
 	hid_init();
-
-	err = bt_enable(NULL);
-	if (err) {
-		printk("Bluetooth init failed (err %d)\n", err);
-	}
+	// err = bt_enable(NULL);
+	// if (err) {
+	// 	printk("Bluetooth init failed (err %d)\n", err);
+	// }
 	// temp placed here
 	// bt_conn_cb_register(&conn_callbacks);	
 
-	printk("Bluetooth initialized\n");
+	printk("HID initialized\n");
 
-	if (IS_ENABLED(CONFIG_SETTINGS)) {
-		settings_load();
-	}
+	// if (IS_ENABLED(CONFIG_SETTINGS)) {
+	// 	settings_load();
+	// }
 
-	advertising_start();
+	// advertising_start();
 
 	k_work_init(&pairing_work, pairing_process);
+	printk("initialized pairing work");
 }

@@ -1,10 +1,14 @@
+#include "kb_keys.h"
+#include "kb_ble/central.h"
+#include "kb_ble/peripheral.h"
+#include "kb_ble/ble.h"
+
+#include <zephyr/settings/settings.h>
+#include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/drivers/gpio.h>
 #include <hal/nrf_gpio.h>
 #include <zephyr/kernel.h>
 
-#include "kb_keys.h"
-#include "kb_ble/central.h"
-#include "kb_ble/peripheral.h"
 
 
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
@@ -14,10 +18,24 @@ static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(
 int main(void)
 {
 	int blink_status = 0;
+	int err;
    	gpio_pin_configure_dt(&adv_status_led, GPIO_OUTPUT);
-	kb_ble_init();
+
+	// bt_enable must come before settings_load(); not 100% sure why, but bt_enable appears 
+	// to have a bt_settings_init usring similar macros
+	ble_init(); 
+
+	if (IS_ENABLED(CONFIG_SETTINGS)) {
+		printk("loading settings\n");
+		settings_load();
+	}
+	periph_ble_init();
+	// cent_ble_init();
+
+	printk("Bluetooth initialized\n");
 	// kb_ble_cent_init();
-	kb_keys_init(kb_ble_key_event, kb_ble_accept_pairing); 
+	kb_keys_init(kb_ble_key_event, kb_ble_accept_pairing, advertising_start, ble_cent_scan_start, cent_pairing_accept); 
+
 
 	for (;;) {
 		if (kb_ble_is_adv()) {
