@@ -21,7 +21,7 @@ typedef struct _kybrd_key_{
     int state; 
 }kybrd_key_t; 
 
-static struct k_work_delayable key_mtrx_scan;
+static struct k_work_delayable btn_scan;
 static uint8_t mtrx_col_active; 
 static key_change_cb key_cb; 
 static vv_cb cent_pairing_cb;
@@ -76,7 +76,7 @@ static void key_gpios_init() {
 }
 
 
-static void key_mtrx_scan_fn() {
+static void btn_scan() {
     int btn_pressed; 
 
     gpio_pin_set_dt(&key_mtrx_out[mtrx_col_active], 0);
@@ -127,6 +127,6 @@ void kb_keys_init(key_change_cb new_key_cb, vv_cb pp_cb, vv_cb a_cb, vv_cb s_cb,
     cent_pairing_cb = cp_cb;
     
     key_gpios_init(); 
-	k_work_init_delayable(&key_mtrx_scan, key_mtrx_scan_fn);
+	k_work_init_delayable(&key_mtrx_scan, btns_scan);
 	k_work_schedule(&key_mtrx_scan, K_NO_WAIT);
 }

@@ -7,10 +7,10 @@
 #include <zephyr/settings/settings.h>
 #include <stdbool.h>
 
-bool periph_is_enabled;
-bool cent_is_enabled;
+static bool periph_is_enabled;
+static bool cent_is_enabled;
 
-/* Static function definitions */
+/* Static function declarations */
 static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey);
 static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey);
 static void auth_cancel(struct bt_conn *conn);
@@ -110,7 +110,6 @@ static void disconnected(struct bt_conn *conn, uint8_t reason) {
     else if (info.role == BT_CONN_ROLE_PERIPHERAL) {
         periph_disconnected(conn, reason);
     } 
-
 }
 
 static void security_changed(struct bt_conn *conn, bt_security_t level, enum bt_security_err err) { 
@@ -131,7 +130,8 @@ static void security_changed(struct bt_conn *conn, bt_security_t level, enum bt_
 	}
 }
 
-void ble_init() {
+
+int ble_init() {
 	int err;
 
 	printk("Initializing bluetooth for Keyboard\n");
@@ -139,22 +139,21 @@ void ble_init() {
 	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
 	if (err) {
 		printk("failed to register authorization callbacks.\n");
-		return;
+		return err;
 	}
 	printk("Registered authorization callbacks.\n");
 
 	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
 	if (err) {
 		printk("Failed to register authorization info callbacks.\n");
-		return;
+		return err;
 	}
 	printk("Registered authorization info callbacks.\n");
 
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
-		return;
+		return err;
 	}
-
 	printk("Bluetooth initialized\n");
 }

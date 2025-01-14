@@ -45,11 +45,7 @@
  * Just for testing purposes.
  * The result should be the same like usine @ref KEY_CAPSLOCK_MASK
  */
-// #define KEY_CAPSLOCK_RSP_MASK DK_BTN3_MSK
 
-/* Key used to accept or reject passkey value */
-// #define KEY_PAIRING_ACCEPT DK_BTN1_MSK
-// #define KEY_PAIRING_REJECT DK_BTN2_MSK
 
 static struct bt_conn *default_conn;
 static struct bt_hogp hogp;
@@ -88,8 +84,7 @@ static void scan_connecting_error(struct bt_scan_device_info *device_info)
 	printk("Connecting failed\n");
 }
 
-static void scan_connecting(struct bt_scan_device_info *device_info,
-			    struct bt_conn *conn)
+static void scan_connecting(struct bt_scan_device_info *device_info, struct bt_conn *conn)
 {
 	default_conn = bt_conn_ref(conn);
 }
@@ -548,33 +543,6 @@ void cent_pairing_accept() {
 	num_comp_reply(true);
 }
 
-// static void button_handler(uint32_t button_state, uint32_t has_changed)
-// {
-// 	uint32_t button = button_state & has_changed;
-
-// 	if (auth_conn) {
-// 		if (button & KEY_PAIRING_ACCEPT) {
-// 			num_comp_reply(true);
-// 		}
-
-// 		if (button & KEY_PAIRING_REJECT) {
-// 			num_comp_reply(false);
-// 		}
-
-// 		return;
-// 	}
-
-// 	if (button & KEY_BOOTMODE_MASK) {
-// 		button_bootmode();
-// 	}
-// 	if (button & KEY_CAPSLOCK_MASK) {
-// 		button_capslock();
-// 	}
-// 	if (button & KEY_CAPSLOCK_RSP_MASK) {
-// 		button_capslock_rsp();
-// 	}
-// }
-
 
 static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
 {
@@ -639,7 +607,7 @@ static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
 	.pairing_failed = cent_pairing_failed
 };
 
-void ble_cent_scan_start() {
+void kb_cent_scan_start() {
 	int err;
 	err = bt_scan_start(BT_SCAN_TYPE_SCAN_ACTIVE);
 	if (err) {
@@ -650,52 +618,7 @@ void ble_cent_scan_start() {
 	printk("Scanning successfully started\n");
 }
 
-int cent_ble_init(void)
-{
-	int err;
-
-	printk("Starting Bluetooth Central HIDS\n");
-
+void kb_cent_init(void) {
 	bt_hogp_init(&hogp, &hogp_init_params);
-
-	// err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-	// if (err) {
-	// 	printk("failed to register authorization callbacks.\n");
-	// 	return 0;
-	// }
-
-	// err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-	// if (err) {
-	// 	printk("Failed to register authorization info callbacks.\n");
-	// 	return 0;
-	// }
-
-	// err = bt_enable(NULL);
-	// if (err) {
-	// 	printk("Bluetooth init failed (err %d)\n", err);
-	// 	return 0;
-	// }
-
-	printk("Bluetooth initialized\n");
-
-	// if (IS_ENABLED(CONFIG_SETTINGS)) {
-		// settings_load();
-	// }
-
 	scan_init();
-
-	// err = dk_buttons_init(button_handler);
-	// if (err) {
-	// 	printk("Failed to initialize buttons (err %d)\n", err);
-	// 	return 0;
-	// }
-
-	// err = bt_scan_start(BT_SCAN_TYPE_SCAN_ACTIVE);
-	// if (err) {
-	// 	printk("Scanning failed to start (err %d)\n", err);
-	// 	return 0;
-	// }
-
-	// printk("Scanning successfully started\n");
-	return 0;
 }

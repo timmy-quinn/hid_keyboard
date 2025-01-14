@@ -126,15 +126,6 @@ static struct conn_mode {
 	bool in_boot_mode;
 } conn_mode[CONFIG_BT_HIDS_MAX_CLIENT_COUNT];
 
-static const uint8_t hello_world_str[] = {
-	0x0b,	/* Key h */
-	0x08,	/* Key e */
-	0x0f,	/* Key l */
-	0x0f,	/* Key l */
-	0x12,	/* Key o */
-	0x1E,   /* Key 1/! */	
-	0x28,	/* Key Return */
-};
 
 static const uint8_t shift_key[] = { 225 };
 
@@ -216,7 +207,6 @@ void periph_connected(struct bt_conn *conn, uint8_t err)
 	}
 
 	printk("Connected %s\n", addr);
-	// dk_set_led_on(CON_STATUS_LED);
 
 	err = bt_hids_connected(&hids_obj, conn);
 
@@ -263,10 +253,6 @@ void periph_disconnected(struct bt_conn *conn, uint8_t reason)
 		}
 	}
 
-	if (!is_any_dev_connected) {
-		// dk_set_led_off(CON_STATUS_LED);
-	}
-
 	advertising_start();
 }
 
@@ -287,23 +273,10 @@ static void security_changed(struct bt_conn *conn, bt_security_t level,
 }
 
 
-// BT_CONN_CB_DEFINE(conn_callbacks) = {
-// 	.connected = periph_connected,
-// 	.disconnected = periph_disconnected,
-// 	.security_changed = security_changed,
-// };
-
-// static struct bt_conn_cb conn_callbacks = {
-// 	.connected = connected, 
-// 	.disconnected = disconnected, 
-// 	.security_changed = security_changed,
-// };
-
 static void caps_lock_handler(const struct bt_hids_rep *rep)
 {
 	uint8_t report_val = ((*rep->data) & OUTPUT_REPORT_BIT_MASK_CAPS_LOCK) ?
 			  1 : 0;
-	// dk_set_led(LED_CAPS_LOCK, report_val);
 }
 
 
@@ -733,15 +706,6 @@ static void button_text_changed(bool down)
 }
 
 
-static void button_shift_changed(bool down)
-{
-	if (down) {
-		hid_buttons_press(shift_key, 1);
-	} else {
-		hid_buttons_release(shift_key, 1);
-	}
-}
-
 
 static void num_comp_reply(bool accept)
 {
@@ -770,56 +734,7 @@ static void num_comp_reply(bool accept)
 }
 
 
-// static void button_changed(uint32_t button_state, uint32_t has_changed)
-// {
-// 	static bool pairing_button_pressed;
-
-// 	uint32_t buttons = button_state & has_changed;
-
-// 	if (k_msgq_num_used_get(&mitm_queue)) {
-// 		if (buttons & KEY_PAIRING_ACCEPT) {
-// 			pairing_button_pressed = true;
-// 			num_comp_reply(true);
-
-// 			return;
-// 		}
-
-// 		if (buttons & KEY_PAIRING_REJECT) {
-// 			pairing_button_pressed = true;
-// 			num_comp_reply(false);
-
-// 			return;
-// 		}
-// 	}
-
-// 	/* Do not take any action if the pairing button is released. */
-// 	if (pairing_button_pressed &&
-// 	    (has_changed & (KEY_PAIRING_ACCEPT | KEY_PAIRING_REJECT))) {
-// 		pairing_button_pressed = false;
-
-// 		return;
-// 	}
-
-// 	if (has_changed & KEY_TEXT_MASK) {
-// 		button_text_changed((button_state & KEY_TEXT_MASK) != 0);
-// 	}
-// 	if (has_changed & KEY_SHIFT_MASK) {
-// 		button_shift_changed((button_state & KEY_SHIFT_MASK) != 0);
-// 	}
-// }
-
-
-// static void configure_gpio(void)
-// {
-// 	int err;
-
-// 	err = dk_buttons_init(button_changed);
-// 	if (err) {
-// 		printk("Cannot init buttons (err: %d)\n", err);
-// 	}
-// }
-
-void kb_ble_key_event(const uint8_t *scan_code, int state) {
+void kb_periph_key_event(const uint8_t *scan_code, int state) {
 	if (state) {
 		hid_buttons_press(scan_code, 1);
 	} else {
@@ -828,7 +743,7 @@ void kb_ble_key_event(const uint8_t *scan_code, int state) {
 }
 
 // move to 
-void kb_ble_bas_notify(void)
+void kb_periph_bas_notify(void)
 {
 	uint8_t battery_level = bt_bas_get_battery_level();
 
@@ -841,49 +756,19 @@ void kb_ble_bas_notify(void)
 	bt_bas_set_battery_level(battery_level);
 }
 
-bool kb_ble_is_adv() {
+bool kb_periph_is_adv() {
 	return is_adv;
 }
 
-void kb_ble_accept_pairing() {
+void kb_periph_accept_pairing() {
 	if (k_msgq_num_used_get(&mitm_queue)) {
 		num_comp_reply(true);
 	}
 }
 
-void periph_ble_init() {
-	int err;
-
-	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
-
-	// configure_gpio();
-
-	// err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-	// if (err) {
-	// 	printk("Failed to register authorization callbacks.\n");
-	// }
-
-	// err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-	// if (err) {
-	// 	printk("Failed to register authorization info callbacks.\n");
-	// }
-
+void kb_periph_init() {
+	printk("HIDs initalizing\n");
 	hid_init();
-	// err = bt_enable(NULL);
-	// if (err) {
-	// 	printk("Bluetooth init failed (err %d)\n", err);
-	// }
-	// temp placed here
-	// bt_conn_cb_register(&conn_callbacks);	
-
-	printk("HID initialized\n");
-
-	// if (IS_ENABLED(CONFIG_SETTINGS)) {
-	// 	settings_load();
-	// }
-
-	// advertising_start();
-
 	k_work_init(&pairing_work, pairing_process);
 	printk("initialized pairing work");
 }

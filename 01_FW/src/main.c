@@ -10,9 +10,9 @@
 #include <zephyr/kernel.h>
 
 
+#define ADV_LED_BLINK_INTERVAL  1000
 
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
-#define ADV_LED_BLINK_INTERVAL  1000
 
 
 int main(void)
@@ -29,22 +29,24 @@ int main(void)
 		printk("loading settings\n");
 		settings_load();
 	}
-	periph_ble_init();
-	// cent_ble_init();
+	kb_periph_init();
+	printk("Intialized HID keyboard device\n");
+	kb_cent_init();
+	printk("Initialize HOGP\n");
 
 	printk("Bluetooth initialized\n");
 	// kb_ble_cent_init();
-	kb_keys_init(kb_ble_key_event, kb_ble_accept_pairing, advertising_start, ble_cent_scan_start, cent_pairing_accept); 
+	kb_keys_init(kb_periph_key_event, kb_periph_accept_pairing, advertising_start, kb_cent_scan_start, cent_pairing_accept); 
 
 
 	for (;;) {
-		if (kb_ble_is_adv()) {
+		if (kb_periph_is_adv()) {
     		gpio_pin_set_dt(&adv_status_led, (++blink_status) % 2);
 		} else {
     		gpio_pin_set_dt(&adv_status_led, 0);
 		}
 		k_sleep(K_MSEC(ADV_LED_BLINK_INTERVAL));
 		/* Battery level simulation */
-		kb_ble_bas_notify();
+		kb_periph_bas_notify();
 	}
 }

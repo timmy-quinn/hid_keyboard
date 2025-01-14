@@ -11,6 +11,7 @@
 typedef void (*key_change_cb)(const uint8_t *, int);
 typedef void(*vv_cb)(void);
 
+
 void kb_keys_init(key_change_cb new_key_cb, vv_cb pp_cb, vv_cb a_cb, vv_cb s_cb, vv_cb cp_cb); 
 
 #endif

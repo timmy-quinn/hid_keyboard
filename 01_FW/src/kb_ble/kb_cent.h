@@ -12,9 +12,9 @@ void cent_connected(struct bt_conn *conn, uint8_t conn_err);
 void cent_connected(struct bt_conn *conn, uint8_t conn_err);
 void cent_disconnected(struct bt_conn *conn, uint8_t reason);
 
-void ble_cent_scan_start(); 
+void kb_cent_scan_start(); 
 void cent_pairing_accept(); 
 
-int cent_ble_init(void);
+void kb_cent_init(void);
 
 #endif
