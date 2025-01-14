@@ -1,5 +1,7 @@
 #ifndef KEYS
 #define KEYS
+
+#include "common.h"
 #include <stdint.h>
 
 #define SCAN_START 0xF0
@@ -7,11 +9,17 @@
 #define CENT_PAIRING_ACCEPT 0xF2
 #define PERIPH_PAIRING_ACCEPT 0xF3
 
-
 typedef void (*key_change_cb)(const uint8_t *, int);
-typedef void(*vv_cb)(void);
 
 
-void kb_keys_init(key_change_cb new_key_cb, vv_cb pp_cb, vv_cb a_cb, vv_cb s_cb, vv_cb cp_cb); 
+typedef struct {
+    key_change_cb key_press;
+    void_void_func btn_0;
+    void_void_func btn_1;
+    void_void_func btn_2;
+    void_void_func btn_3;
+} btn_callbacks;
+
+void btns_init(btn_callbacks *new_cb); 
 
 #endif

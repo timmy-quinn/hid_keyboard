@@ -23,7 +23,7 @@
 #include <zephyr/bluetooth/services/dis.h>
 // #include <dk_buttons_and_leds.h>
 
-#include "peripheral.h"
+#include "kb_periph.h"
 
 #define DEVICE_NAME     CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)

@@ -1,7 +1,7 @@
-#include "kb_keys.h"
-#include "kb_ble/central.h"
-#include "kb_ble/peripheral.h"
-#include "kb_ble/ble.h"
+#include "btns.h"
+#include "kb_ble/kb_ble.h"
+#include "kb_ble/kb_cent.h"
+#include "kb_ble/kb_periph.h"
 
 #include <zephyr/settings/settings.h>
 #include <zephyr/bluetooth/bluetooth.h>
@@ -35,9 +35,7 @@ int main(void)
 	printk("Initialize HOGP\n");
 
 	printk("Bluetooth initialized\n");
-	// kb_ble_cent_init();
 	kb_keys_init(kb_periph_key_event, kb_periph_accept_pairing, advertising_start, kb_cent_scan_start, cent_pairing_accept); 
-
 
 	for (;;) {
 		if (kb_periph_is_adv()) {

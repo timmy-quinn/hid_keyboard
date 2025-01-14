@@ -2,9 +2,9 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/sys/printk.h>
 #include <hal/nrf_gpio.h>
-#include "utils.h"
+#include "common.h"
 #include "scan_codes.h"
-#include "kb_keys.h"
+#include "btns.h"
 
 #define GPIO_NODE_0 DT_NODELABEL(gpio0)
 #define GPIO_NAME_0 DEVICE_DT_NAME(GPIO_NODE_0) 
@@ -22,12 +22,14 @@ typedef struct _kybrd_key_{
 }kybrd_key_t; 
 
 static struct k_work_delayable btn_scan;
-static uint8_t mtrx_col_active; 
-static key_change_cb key_cb; 
-static vv_cb cent_pairing_cb;
-static vv_cb periph_pairing_cb;
-static vv_cb advertising_cb;
-static vv_cb scanning_cb;
+static size_t mtrx_col_active; 
+
+// static key_change_cb key_cb; 
+// static vv_cb cent_pairing_cb;
+// static vv_cb periph_pairing_cb;
+// static vv_cb advertising_cb;
+// static vv_cb scanning_cb;
+static btn_callbacks btns_cb;
 
 static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 static const struct gpio_dt_spec pwr_pin = GPIO_DT_SPEC_GET(DT_NODELABEL(pwr), gpios);
@@ -56,12 +58,11 @@ kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
 
 
 static void key_gpios_init() {
-    // gpio_pin_configure_dt(&test_led, GPIO_OUTPUT); 
+
     for(uint16_t i = 0; i < KEY_MATRIX_OUT_COUNT; i++) {
         gpio_pin_configure_dt(&key_mtrx_out[i], GPIO_OUTPUT);
     }
     gpio_pin_configure_dt(&pwr_pin, GPIO_OUTPUT);
-
 
     for(uint16_t i = 0; i < KEY_MATRIX_IN_COUNT; i++) {
         gpio_pin_configure_dt(&key_mtrx_in[i], GPIO_INPUT);
@@ -111,20 +112,15 @@ static void btn_scan() {
         }
     }
 
-    // if(gpio_pin_get(usr_btn.port, usr_btn.pin)) {
-    //     printk("Pairing btn pressed\n"); 
-    //     periph_pairing_cb(); 
-    // }
-
 	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));
 }
 
-void kb_keys_init(key_change_cb new_key_cb, vv_cb pp_cb, vv_cb a_cb, vv_cb s_cb, vv_cb cp_cb) {
-    key_cb = new_key_cb; 
-    periph_pairing_cb = pp_cb;
-    advertising_cb = a_cb;
-    scanning_cb = s_cb;
-    cent_pairing_cb = cp_cb;
+void btns_init(btn_callbacks *new_cb) {
+    btns_cb.key_press = new_cb->key_press; 
+    btns_cb.central_start_scan = new_cb->central_start_scan;
+    btns_cb.peripheral_start_adv = new_cb->peripheral_start_adv;
+    btns_cb.central_pairing_confirm = new_cb->central_pairing_confirm;
+    btns_cb.peripheral_pairing_confirm = new_cb->peripheral_pairing_confirm;
     
     key_gpios_init(); 
 	k_work_init_delayable(&key_mtrx_scan, btns_scan);

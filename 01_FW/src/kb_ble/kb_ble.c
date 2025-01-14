@@ -1,7 +1,6 @@
-#include "ble.h"
-#include "central.h"
-#include "peripheral.h"
-
+#include "kb_ble.h"
+#include "kb_cent.h"
+#include "kb_periph.h"
 
 #include <zephyr/bluetooth/conn.h>
 #include <zephyr/settings/settings.h>

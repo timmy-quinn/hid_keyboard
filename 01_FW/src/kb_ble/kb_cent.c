@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
  */
 
-#include "central.h"
+#include "kb_cent.h"
 #include <zephyr/types.h>
 #include <stddef.h>
 #include <errno.h>
