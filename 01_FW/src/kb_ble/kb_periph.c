@@ -127,8 +127,6 @@ static struct conn_mode {
 } conn_mode[CONFIG_BT_HIDS_MAX_CLIENT_COUNT];
 
 
-static const uint8_t shift_key[] = { 225 };
-
 /* Current report status
  */
 static struct keyboard_state {
@@ -257,28 +255,6 @@ void periph_disconnected(struct bt_conn *conn, uint8_t reason)
 }
 
 
-static void security_changed(struct bt_conn *conn, bt_security_t level,
-			     enum bt_security_err err)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	if (!err) {
-		printk("Security changed: %s level %u\n", addr, level);
-	} else {
-		printk("Security failed: %s level %u err %d\n", addr, level,
-			err);
-	}
-}
-
-
-static void caps_lock_handler(const struct bt_hids_rep *rep)
-{
-	uint8_t report_val = ((*rep->data) & OUTPUT_REPORT_BIT_MASK_CAPS_LOCK) ?
-			  1 : 0;
-}
-
 
 static void hids_outp_rep_handler(struct bt_hids_rep *rep,
 				  struct bt_conn *conn,
@@ -293,7 +269,6 @@ static void hids_outp_rep_handler(struct bt_hids_rep *rep,
 
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 	printk("Output report has been received %s\n", addr);
-	caps_lock_handler(rep);
 }
 
 
@@ -310,7 +285,6 @@ static void hids_boot_kb_outp_rep_handler(struct bt_hids_rep *rep,
 
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 	printk("Boot Keyboard Output report has been received %s\n", addr);
-	caps_lock_handler(rep);
 }
 
 
@@ -436,14 +410,6 @@ static void hid_init(void)
 	__ASSERT(err == 0, "HIDS initialization failed\n");
 }
 
-static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Passkey for %s: %06u\n", addr, passkey);
-}
 
 void periph_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 {
@@ -470,27 +436,6 @@ void periph_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 	}
 }
 
-
-static void auth_cancel(struct bt_conn *conn)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing cancelled: %s\n", addr);
-}
-
-
-static void pairing_complete(struct bt_conn *conn, bool bonded)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing completed: %s, bonded: %d\n", addr, bonded);
-}
-
-
 void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
@@ -509,21 +454,6 @@ void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 
 	printk("Pairing failed conn: %s, reason %d\n", addr, reason);
 }
-
-
-// Using Just works pairing.
-// To add more secure and advanced pairing, can add auth_passkey_confirm and auth_passkey_display
-static struct bt_conn_auth_cb conn_auth_callbacks = {
-	.passkey_display = auth_passkey_display,
-	.passkey_confirm = periph_auth_passkey_confirm,
-	.cancel = auth_cancel,
-};
-
-static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
-	.pairing_complete = pairing_complete,
-	.pairing_failed = periph_pairing_failed
-};
-
 
 /** @brief Function process keyboard state and sends it
  *
@@ -688,23 +618,6 @@ static int hid_buttons_release(const uint8_t *keys, size_t cnt)
 
 	return key_report_send();
 }
-
-
-static void button_text_changed(bool down)
-{
-	static const uint8_t *chr = hello_world_str;
-
-	if (down) {
-		hid_buttons_press(chr, 1);
-	} else {
-		hid_buttons_release(chr, 1);
-		if (++chr == (hello_world_str + sizeof(hello_world_str))) {
-			chr = hello_world_str;
-			printk("!\n");
-		}
-	}
-}
-
 
 
 static void num_comp_reply(bool accept)

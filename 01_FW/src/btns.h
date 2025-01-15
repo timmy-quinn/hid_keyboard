@@ -4,10 +4,10 @@
 #include "common.h"
 #include <stdint.h>
 
-#define SCAN_START 0xF0
-#define ADV_START 0xF1
-#define CENT_PAIRING_ACCEPT 0xF2
-#define PERIPH_PAIRING_ACCEPT 0xF3
+#define GEN_0 0xF0
+#define GEN_1 0xF1
+#define GEN_2 0xF2
+#define GEN_3 0xF3
 
 typedef void (*key_change_cb)(const uint8_t *, int);
 

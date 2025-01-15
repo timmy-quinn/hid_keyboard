@@ -13,17 +13,24 @@
 #define ADV_LED_BLINK_INTERVAL  1000
 
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
-
+static btn_callbacks btn_cb =  {
+								.key_press = kb_periph_key_event,
+								.btn_0 = kb_periph_accept_pairing,
+								.btn_1 = advertising_start,
+								.btn_2 = kb_cent_scan_start,
+								.btn_3 = cent_pairing_accept,
+								};
 
 int main(void)
 {
 	int blink_status = 0;
-	int err;
    	gpio_pin_configure_dt(&adv_status_led, GPIO_OUTPUT);
 
 	// bt_enable must come before settings_load(); not 100% sure why, but bt_enable appears 
 	// to have a bt_settings_init usring similar macros
-	ble_init(); 
+	if(ble_init()) {
+		return 0;
+	}
 
 	if (IS_ENABLED(CONFIG_SETTINGS)) {
 		printk("loading settings\n");
@@ -35,7 +42,7 @@ int main(void)
 	printk("Initialize HOGP\n");
 
 	printk("Bluetooth initialized\n");
-	kb_keys_init(kb_periph_key_event, kb_periph_accept_pairing, advertising_start, kb_cent_scan_start, cent_pairing_accept); 
+	btns_init(&btn_cb); 
 
 	for (;;) {
 		if (kb_periph_is_adv()) {

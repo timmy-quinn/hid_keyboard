@@ -410,6 +410,8 @@ static const struct bt_hogp_init_params hogp_init_params = {
 };
 
 
+// TODO: Use this to switch keyboard from boot mode to report mode. 
+// 
 static void button_bootmode(void)
 {
 	if (!bt_hogp_ready_check(&hogp)) {
@@ -596,16 +598,6 @@ void cent_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 	printk("Pairing failed conn: %s, reason %d\n", addr, reason);
 }
 
-static struct bt_conn_auth_cb conn_auth_callbacks = {
-	.passkey_display = auth_passkey_display,
-	.passkey_confirm = cent_auth_passkey_confirm,
-	.cancel = auth_cancel,
-};
-
-static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
-	.pairing_complete = pairing_complete,
-	.pairing_failed = cent_pairing_failed
-};
 
 void kb_cent_scan_start() {
 	int err;

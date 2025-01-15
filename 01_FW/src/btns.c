@@ -21,7 +21,7 @@ typedef struct _kybrd_key_{
     int state; 
 }kybrd_key_t; 
 
-static struct k_work_delayable btn_scan;
+static struct k_work_delayable btn_scan_work;
 static size_t mtrx_col_active; 
 
 // static key_change_cb key_cb; 
@@ -29,9 +29,8 @@ static size_t mtrx_col_active;
 // static vv_cb periph_pairing_cb;
 // static vv_cb advertising_cb;
 // static vv_cb scanning_cb;
-static btn_callbacks btns_cb;
+static btn_callbacks *btn_cb;
 
-static const struct gpio_dt_spec test_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 static const struct gpio_dt_spec pwr_pin = GPIO_DT_SPEC_GET(DT_NODELABEL(pwr), gpios);
 static const struct gpio_dt_spec usr_btn = GPIO_DT_SPEC_GET(DT_NODELABEL(button0), gpios);
 
@@ -50,10 +49,10 @@ static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
 };
 
 kybrd_key_t scan_code_mtrx[KEY_MATRIX_OUT_COUNT][KEY_MATRIX_IN_COUNT] = {
-    {{PERIPH_PAIRING_ACCEPT, 0}, {ADV_START, 0}, {SCAN_START, 0}, {CENT_PAIRING_ACCEPT, 0}}, 
-    {{KEY_E, 0}, {KEY_F, 0},{KEY_G, 0},{KEY_H, 0}}, 
-    {{KEY_I, 0}, {KEY_J, 0},{KEY_K, 0},{KEY_L, 0}}, 
-    {{KEY_N, 0}, {KEY_O, 0},{KEY_P, 0},{KEY_LSHIFT, 0}} 
+    {{GEN_0, 0}, {GEN_1, 0}, {GEN_2, 0}, {GEN_3, 0}}, 
+    {{KEY_E, 0}, {KEY_F, 0}, {KEY_G, 0}, {KEY_H, 0}}, 
+    {{KEY_I, 0}, {KEY_J, 0}, {KEY_K, 0}, {KEY_L, 0}}, 
+    {{KEY_N, 0}, {KEY_O, 0}, {KEY_P, 0}, {KEY_LSHIFT, 0}} 
 }; 
 
 
@@ -93,36 +92,36 @@ static void btn_scan() {
         btn_pressed = gpio_pin_get(key_mtrx_in[j].port, key_mtrx_in[j].pin); 
         if(scan_code_mtrx[j][mtrx_col_active].state != btn_pressed) {
             //gpio_pin_set_dt(&test_led, btn_pressed); 
-            if(scan_code_mtrx[j][mtrx_col_active].scan_code == CENT_PAIRING_ACCEPT && cent_pairing_cb) {
-                cent_pairing_cb(); 
+            if(scan_code_mtrx[j][mtrx_col_active].scan_code == GEN_0 && btn_cb->btn_0) {
+                btn_cb->btn_0(); 
             }
-            else if(scan_code_mtrx[j][mtrx_col_active].scan_code == PERIPH_PAIRING_ACCEPT && periph_pairing_cb) {
-                periph_pairing_cb();
+            else if(scan_code_mtrx[j][mtrx_col_active].scan_code == GEN_1 && btn_cb->btn_1) {
+                btn_cb->btn_1();
             }
-            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == SCAN_START && scanning_cb) {
-                scanning_cb();
+            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == GEN_2 && btn_cb->btn_2) {
+                btn_cb->btn_2();
             }
-            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == ADV_START && advertising_cb) {
-                advertising_cb();
+            else if (scan_code_mtrx[j][mtrx_col_active].scan_code == GEN_3 && btn_cb->btn_3) {
+                btn_cb->btn_3();
             }
-            else if(key_cb) {
-                key_cb(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
+            else if(btn_cb->key_press) {
+                btn_cb->key_press(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
             }
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
 
-	k_work_reschedule(&key_mtrx_scan, K_MSEC(SLEEP_TIME_MS));
+	k_work_reschedule(&btn_scan_work, K_MSEC(SLEEP_TIME_MS));
 }
 
 void btns_init(btn_callbacks *new_cb) {
-    btns_cb.key_press = new_cb->key_press; 
-    btns_cb.central_start_scan = new_cb->central_start_scan;
-    btns_cb.peripheral_start_adv = new_cb->peripheral_start_adv;
-    btns_cb.central_pairing_confirm = new_cb->central_pairing_confirm;
-    btns_cb.peripheral_pairing_confirm = new_cb->peripheral_pairing_confirm;
+    if(!new_cb) {
+    //TODO: add error types
+        return;
+    }
+    btn_cb = new_cb;
     
     key_gpios_init(); 
-	k_work_init_delayable(&key_mtrx_scan, btns_scan);
-	k_work_schedule(&key_mtrx_scan, K_NO_WAIT);
+	k_work_init_delayable(&btn_scan_work, btn_scan);
+	k_work_schedule(&btn_scan_work, K_NO_WAIT);
 }
