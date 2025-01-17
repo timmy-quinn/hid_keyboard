@@ -24,61 +24,8 @@
 // #include <dk_buttons_and_leds.h>
 
 #include "kb_periph.h"
+#include "kb_hid_common.h"
 
-#define DEVICE_NAME     CONFIG_BT_DEVICE_NAME
-#define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
-
-#define BASE_USB_HID_SPEC_VERSION   0x0101
-
-#define OUTPUT_REPORT_MAX_LEN            1
-#define OUTPUT_REPORT_BIT_MASK_CAPS_LOCK 0x02
-#define INPUT_REP_KEYS_REF_ID            0
-#define OUTPUT_REP_KEYS_REF_ID           0
-#define MODIFIER_KEY_POS                 0
-#define SHIFT_KEY_CODE                   0x02
-#define SCAN_CODE_POS                    2
-#define KEYS_MAX_LEN                    (INPUT_REPORT_KEYS_MAX_LEN - \
-					SCAN_CODE_POS)
-
-#define ADV_LED_BLINK_INTERVAL  1000
-
-#define CON_STATUS_LED DK_LED2
-#define LED_CAPS_LOCK  DK_LED3
-#define NFC_LED	       DK_LED4
-#define KEY_TEXT_MASK  DK_BTN1_MSK
-#define KEY_SHIFT_MASK DK_BTN2_MSK
-#define KEY_ADV_MASK   DK_BTN4_MSK
-
-/* Key used to accept or reject passkey value */
-#define KEY_PAIRING_ACCEPT DK_BTN1_MSK
-#define KEY_PAIRING_REJECT DK_BTN2_MSK
-
-/* HIDs queue elements. */
-#define HIDS_QUEUE_SIZE 10
-
-/* ********************* */
-/* Buttons configuration */
-
-/* Note: The configuration below is the same as BOOT mode configuration
- * This simplifies the code as the BOOT mode is the same as REPORT mode.
- * Changing this configuration would require separate implementation of
- * BOOT mode report generation.
- */
-#define KEY_CTRL_CODE_MIN 224 /* Control key codes - required 8 of them */
-#define KEY_CTRL_CODE_MAX 231 /* Control key codes - required 8 of them */
-#define KEY_CODE_MIN      0   /* Normal key codes */
-#define KEY_CODE_MAX      101 /* Normal key codes */
-#define KEY_PRESS_MAX     6   /* Maximum number of non-control keys
-			       * pressed simultaneously
-			       */
-
-/* Number of bytes in key report
- *
- * 1B - control keys
- * 1B - reserved
- * rest - non-control keys
- */
-#define INPUT_REPORT_KEYS_MAX_LEN (1 + 1 + KEY_PRESS_MAX)
 
 /* Current report map construction requires exactly 8 buttons */
 BUILD_ASSERT((KEY_CTRL_CODE_MAX - KEY_CTRL_CODE_MIN) + 1 == 8);
@@ -129,10 +76,7 @@ static struct conn_mode {
 
 /* Current report status
  */
-static struct keyboard_state {
-	uint8_t ctrl_keys_state; /* Current keys state */
-	uint8_t keys_state[KEY_PRESS_MAX];
-} hid_keyboard_state;
+static keyboard_state_t hid_keyboard_state;
 
 
 static struct k_work pairing_work;
@@ -455,6 +399,19 @@ void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 	printk("Pairing failed conn: %s, reason %d\n", addr, reason);
 }
 
+#define KEY_REPORT_WORKQ_THREAD_STACK_SIZE 1024
+#define KEY_REPORT_WORKQ_PRIORITY (-9)
+
+// static K_THREAD_STACK_DEFINE(key_report_stack_area, 1024);
+
+static struct k_work_q key_report_work_q = {0};
+struct k_work key_report_work = {0};
+
+void offload(struct k_work * work_item) {
+	printk("work item"); 
+}
+
+
 /** @brief Function process keyboard state and sends it
  *
  *  @param pstate     The state to be sent
@@ -463,7 +420,7 @@ void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
  *
  *  @return 0 on success or negative error code.
  */
-static int key_report_con_send(const struct keyboard_state *state,
+static int key_report_con_send(const keyboard_state_t *state,
 			bool boot_mode,
 			struct bt_conn *conn)
 {
@@ -682,6 +639,10 @@ void kb_periph_accept_pairing() {
 void kb_periph_init() {
 	printk("HIDs initalizing\n");
 	hid_init();
+	// k_work_queue_start(&key_report_work_q,  key_report_stack_area, 
+// 	 K_THREAD_STACK_SIZEOF(key_report_stack_area), -10, NULL);
+// //  key_report_work 
 	k_work_init(&pairing_work, pairing_process);
+// 	k_work_init(&key_report_work, );
 	printk("initialized pairing work");
 }

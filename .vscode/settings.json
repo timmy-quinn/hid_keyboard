@@ -8,7 +8,8 @@
         "printk.h": "c",
         "hci.h": "c",
         "dis.h": "c",
-        "uuid.h": "c"
+        "uuid.h": "c",
+        "kb_hid_common.h": "c"
     },
     "nrf-connect.debugging.bindings": {
         "${workspaceFolder}/01_FW/build_debug": "Launch build_debug"

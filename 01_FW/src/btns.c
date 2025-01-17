@@ -5,6 +5,8 @@
 #include "common.h"
 #include "scan_codes.h"
 #include "btns.h"
+#include "kb_ble/kb_hid_common.h"
+#include "kb_ble/kb_cent.h"
 
 #define GPIO_NODE_0 DT_NODELABEL(gpio0)
 #define GPIO_NAME_0 DEVICE_DT_NAME(GPIO_NODE_0) 
@@ -110,6 +112,10 @@ static void btn_scan() {
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
+    keyboard_state_t kb_state; 
+    kb_cent_get_kb_state(&kb_state); 
+    printk("central loop keyboard state")
+    print_kb_state(&kb_state); 
 
 	k_work_reschedule(&btn_scan_work, K_MSEC(SLEEP_TIME_MS));
 }
