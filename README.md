@@ -1,4 +1,4 @@
-# The QBoard
+# The KeyBird
 
 A split, ortholinear keyboard that addresses the limitations and inefficiencies of standard keyboards. 
 

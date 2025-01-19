@@ -40,21 +40,25 @@
 
 	mtrxout {
         compatible = "kb-mtrx-out";
-        swout0: sw_out_0{
-            gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-            label = "switch matrix output 0"; 
-        };
-        swout1: sw_out_1{
-            gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
+        swout3: sw_out_3{
+            gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
             label = "switch matrix output 1"; 
         };
         swout2: sw_out_2{
-            gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+            gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
             label = "switch matrix output 2"; 
         };
-        swout3: sw_out_3{
-            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+        swout0: sw_out_0{
+            gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
             label = "switch matrix output 3"; 
+        };
+        swout1: sw_out_1{
+            gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+            label = "switch matrix output 4"; 
+        };
+		pwr: pwr {
+            gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
+            label = "power"; 
         };
 	};
 
@@ -66,19 +70,19 @@
 			zephyr,code = <INPUT_KEY_0>;
 		};
         swin0: sw_in_0 {
-            gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; 
+            gpios = <&gpio0 5 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
             label = "switch matrix input 0"; 
         };
         swin1: sw_in_1 {
-            gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; 
+            gpios = <&gpio0 30 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
             label = "switch matrix input 1"; 
         };
         swin2: sw_in_2 {
-            gpios = <&gpio0 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; 
+            gpios = <&gpio0 28 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
             label = "switch matrix input 2"; 
         };
         swin3: sw_in_3 {
-            gpios = <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; 
+            gpios = <&gpio0 2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
             label = "switch matrix input 3"; 
         };
 	};
