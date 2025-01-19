@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20
+    },
+    "configurePresets": [
+        {
+            "name": "build",
+            "displayName": "Build for Adafruit Feather nRF52840 Express",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "NCS_TOOLCHAIN_VERSION": "NONE",
+                "BOARD": "kb_nrf52840_feather",
+                "CONF_FILE": "prj.conf",
+                "DTC_OVERLAY_FILE": "kb_nrf52840_feather.overlay"
+            }
+        },
+        {
+            "name": "build_debug",
+            "displayName": "Build for Adafruit Feather nRF52840 Express",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build_debug",
+            "cacheVariables": {
+                "NCS_TOOLCHAIN_VERSION": "NONE",
+                "BOARD": "kb_nrf52840_feather",
+                "CONFIG_DEBUG_OPTIMIZATIONS": true,
+                "CONFIG_DEBUG_THREAD_INFO": true
+            }
+        }
+    ]
+}

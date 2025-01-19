@@ -21,64 +21,11 @@
 #include <zephyr/bluetooth/services/bas.h>
 #include <bluetooth/services/hids.h>
 #include <zephyr/bluetooth/services/dis.h>
-#include <dk_buttons_and_leds.h>
+// #include <dk_buttons_and_leds.h>
 
-#include "kb_ble.h"
+#include "kb_periph.h"
+#include "kb_hid_common.h"
 
-#define DEVICE_NAME     CONFIG_BT_DEVICE_NAME
-#define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
-
-#define BASE_USB_HID_SPEC_VERSION   0x0101
-
-#define OUTPUT_REPORT_MAX_LEN            1
-#define OUTPUT_REPORT_BIT_MASK_CAPS_LOCK 0x02
-#define INPUT_REP_KEYS_REF_ID            0
-#define OUTPUT_REP_KEYS_REF_ID           0
-#define MODIFIER_KEY_POS                 0
-#define SHIFT_KEY_CODE                   0x02
-#define SCAN_CODE_POS                    2
-#define KEYS_MAX_LEN                    (INPUT_REPORT_KEYS_MAX_LEN - \
-					SCAN_CODE_POS)
-
-#define ADV_LED_BLINK_INTERVAL  1000
-
-#define CON_STATUS_LED DK_LED2
-#define LED_CAPS_LOCK  DK_LED3
-#define NFC_LED	       DK_LED4
-#define KEY_TEXT_MASK  DK_BTN1_MSK
-#define KEY_SHIFT_MASK DK_BTN2_MSK
-#define KEY_ADV_MASK   DK_BTN4_MSK
-
-/* Key used to accept or reject passkey value */
-#define KEY_PAIRING_ACCEPT DK_BTN1_MSK
-#define KEY_PAIRING_REJECT DK_BTN2_MSK
-
-/* HIDs queue elements. */
-#define HIDS_QUEUE_SIZE 10
-
-/* ********************* */
-/* Buttons configuration */
-
-/* Note: The configuration below is the same as BOOT mode configuration
- * This simplifies the code as the BOOT mode is the same as REPORT mode.
- * Changing this configuration would require separate implementation of
- * BOOT mode report generation.
- */
-#define KEY_CTRL_CODE_MIN 224 /* Control key codes - required 8 of them */
-#define KEY_CTRL_CODE_MAX 231 /* Control key codes - required 8 of them */
-#define KEY_CODE_MIN      0   /* Normal key codes */
-#define KEY_CODE_MAX      101 /* Normal key codes */
-#define KEY_PRESS_MAX     6   /* Maximum number of non-control keys
-			       * pressed simultaneously
-			       */
-
-/* Number of bytes in key report
- *
- * 1B - control keys
- * 1B - reserved
- * rest - non-control keys
- */
-#define INPUT_REPORT_KEYS_MAX_LEN (1 + 1 + KEY_PRESS_MAX)
 
 /* Current report map construction requires exactly 8 buttons */
 BUILD_ASSERT((KEY_CTRL_CODE_MAX - KEY_CTRL_CODE_MIN) + 1 == 8);
@@ -126,24 +73,10 @@ static struct conn_mode {
 	bool in_boot_mode;
 } conn_mode[CONFIG_BT_HIDS_MAX_CLIENT_COUNT];
 
-static const uint8_t hello_world_str[] = {
-	0x0b,	/* Key h */
-	0x08,	/* Key e */
-	0x0f,	/* Key l */
-	0x0f,	/* Key l */
-	0x12,	/* Key o */
-	0x1E,   /* Key 1/! */	
-	0x28,	/* Key Return */
-};
-
-static const uint8_t shift_key[] = { 225 };
 
 /* Current report status
  */
-static struct keyboard_state {
-	uint8_t ctrl_keys_state; /* Current keys state */
-	uint8_t keys_state[KEY_PRESS_MAX];
-} hid_keyboard_state;
+static keyboard_state_t hid_keyboard_state;
 
 
 static struct k_work pairing_work;
@@ -157,7 +90,7 @@ K_MSGQ_DEFINE(mitm_queue,
 	      CONFIG_BT_HIDS_MAX_CLIENT_COUNT,
 	      4);
 
-static void advertising_start(void)
+void advertising_start(void)
 {
 	int err;
 	struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
@@ -204,7 +137,7 @@ static void pairing_process(struct k_work *work)
 }
 
 
-static void connected(struct bt_conn *conn, uint8_t err)
+void periph_connected(struct bt_conn *conn, uint8_t err)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 
@@ -216,7 +149,6 @@ static void connected(struct bt_conn *conn, uint8_t err)
 	}
 
 	printk("Connected %s\n", addr);
-	dk_set_led_on(CON_STATUS_LED);
 
 	err = bt_hids_connected(&hids_obj, conn);
 
@@ -237,7 +169,7 @@ static void connected(struct bt_conn *conn, uint8_t err)
 }
 
 
-static void disconnected(struct bt_conn *conn, uint8_t reason)
+void periph_disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	int err;
 	bool is_any_dev_connected = false;
@@ -263,43 +195,9 @@ static void disconnected(struct bt_conn *conn, uint8_t reason)
 		}
 	}
 
-	if (!is_any_dev_connected) {
-		dk_set_led_off(CON_STATUS_LED);
-	}
-
 	advertising_start();
 }
 
-
-static void security_changed(struct bt_conn *conn, bt_security_t level,
-			     enum bt_security_err err)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	if (!err) {
-		printk("Security changed: %s level %u\n", addr, level);
-	} else {
-		printk("Security failed: %s level %u err %d\n", addr, level,
-			err);
-	}
-}
-
-
-BT_CONN_CB_DEFINE(conn_callbacks) = {
-	.connected = connected,
-	.disconnected = disconnected,
-	.security_changed = security_changed,
-};
-
-
-static void caps_lock_handler(const struct bt_hids_rep *rep)
-{
-	uint8_t report_val = ((*rep->data) & OUTPUT_REPORT_BIT_MASK_CAPS_LOCK) ?
-			  1 : 0;
-	dk_set_led(LED_CAPS_LOCK, report_val);
-}
 
 
 static void hids_outp_rep_handler(struct bt_hids_rep *rep,
@@ -315,7 +213,6 @@ static void hids_outp_rep_handler(struct bt_hids_rep *rep,
 
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 	printk("Output report has been received %s\n", addr);
-	caps_lock_handler(rep);
 }
 
 
@@ -332,7 +229,6 @@ static void hids_boot_kb_outp_rep_handler(struct bt_hids_rep *rep,
 
 	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
 	printk("Boot Keyboard Output report has been received %s\n", addr);
-	caps_lock_handler(rep);
 }
 
 
@@ -458,16 +354,8 @@ static void hid_init(void)
 	__ASSERT(err == 0, "HIDS initialization failed\n");
 }
 
-static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
 
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Passkey for %s: %06u\n", addr, passkey);
-}
-
-static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
+void periph_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 {
 	int err;
 
@@ -492,28 +380,7 @@ static void auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 	}
 }
 
-
-static void auth_cancel(struct bt_conn *conn)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing cancelled: %s\n", addr);
-}
-
-
-static void pairing_complete(struct bt_conn *conn, bool bonded)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing completed: %s, bonded: %d\n", addr, bonded);
-}
-
-
-static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
+void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
 	struct pairing_data_mitm pairing_data;
@@ -532,17 +399,17 @@ static void pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 	printk("Pairing failed conn: %s, reason %d\n", addr, reason);
 }
 
+#define KEY_REPORT_WORKQ_THREAD_STACK_SIZE 1024
+#define KEY_REPORT_WORKQ_PRIORITY (-9)
 
-static struct bt_conn_auth_cb conn_auth_callbacks = {
-	.passkey_display = auth_passkey_display,
-	.passkey_confirm = auth_passkey_confirm,
-	.cancel = auth_cancel,
-};
+// static K_THREAD_STACK_DEFINE(key_report_stack_area, 1024);
 
-static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
-	.pairing_complete = pairing_complete,
-	.pairing_failed = pairing_failed
-};
+static struct k_work_q key_report_work_q = {0};
+struct k_work key_report_work = {0};
+
+void offload(struct k_work * work_item) {
+	printk("work item"); 
+}
 
 
 /** @brief Function process keyboard state and sends it
@@ -553,7 +420,7 @@ static struct bt_conn_auth_info_cb conn_auth_info_callbacks = {
  *
  *  @return 0 on success or negative error code.
  */
-static int key_report_con_send(const struct keyboard_state *state,
+static int key_report_con_send(const keyboard_state_t *state,
 			bool boot_mode,
 			struct bt_conn *conn)
 {
@@ -710,32 +577,6 @@ static int hid_buttons_release(const uint8_t *keys, size_t cnt)
 }
 
 
-static void button_text_changed(bool down)
-{
-	static const uint8_t *chr = hello_world_str;
-
-	if (down) {
-		hid_buttons_press(chr, 1);
-	} else {
-		hid_buttons_release(chr, 1);
-		if (++chr == (hello_world_str + sizeof(hello_world_str))) {
-			chr = hello_world_str;
-			printk("!\n");
-		}
-	}
-}
-
-
-static void button_shift_changed(bool down)
-{
-	if (down) {
-		hid_buttons_press(shift_key, 1);
-	} else {
-		hid_buttons_release(shift_key, 1);
-	}
-}
-
-
 static void num_comp_reply(bool accept)
 {
 	struct pairing_data_mitm pairing_data;
@@ -763,56 +604,7 @@ static void num_comp_reply(bool accept)
 }
 
 
-static void button_changed(uint32_t button_state, uint32_t has_changed)
-{
-	static bool pairing_button_pressed;
-
-	uint32_t buttons = button_state & has_changed;
-
-	if (k_msgq_num_used_get(&mitm_queue)) {
-		if (buttons & KEY_PAIRING_ACCEPT) {
-			pairing_button_pressed = true;
-			num_comp_reply(true);
-
-			return;
-		}
-
-		if (buttons & KEY_PAIRING_REJECT) {
-			pairing_button_pressed = true;
-			num_comp_reply(false);
-
-			return;
-		}
-	}
-
-	/* Do not take any action if the pairing button is released. */
-	if (pairing_button_pressed &&
-	    (has_changed & (KEY_PAIRING_ACCEPT | KEY_PAIRING_REJECT))) {
-		pairing_button_pressed = false;
-
-		return;
-	}
-
-	if (has_changed & KEY_TEXT_MASK) {
-		button_text_changed((button_state & KEY_TEXT_MASK) != 0);
-	}
-	if (has_changed & KEY_SHIFT_MASK) {
-		button_shift_changed((button_state & KEY_SHIFT_MASK) != 0);
-	}
-}
-
-
-static void configure_gpio(void)
-{
-	int err;
-
-	err = dk_buttons_init(button_changed);
-	if (err) {
-		printk("Cannot init buttons (err: %d)\n", err);
-	}
-}
-
-void kb_ble_key_event(const uint8_t *scan_code, int state) {
+void kb_periph_key_event(const uint8_t *scan_code, int state) {
 	if (state) {
 		hid_buttons_press(scan_code, 1);
 	} else {
@@ -821,7 +613,7 @@ void kb_ble_key_event(const uint8_t *scan_code, int state) {
 }
 
 // move to 
-void kb_ble_bas_notify(void)
+void kb_periph_bas_notify(void)
 {
 	uint8_t battery_level = bt_bas_get_battery_level();
 
@@ -834,41 +626,23 @@ void kb_ble_bas_notify(void)
 	bt_bas_set_battery_level(battery_level);
 }
 
-bool kb_ble_is_adv() {
+bool kb_periph_is_adv() {
 	return is_adv;
 }
 
-void kb_ble_init() {
-	int err;
-
-	printk("Starting Bluetooth Peripheral HIDS keyboard example\n");
-
-	configure_gpio();
-
-	err = bt_conn_auth_cb_register(&conn_auth_callbacks);
-	if (err) {
-		printk("Failed to register authorization callbacks.\n");
+void kb_periph_accept_pairing() {
+	if (k_msgq_num_used_get(&mitm_queue)) {
+		num_comp_reply(true);
 	}
+}
 
-	err = bt_conn_auth_info_cb_register(&conn_auth_info_callbacks);
-	if (err) {
-		printk("Failed to register authorization info callbacks.\n");
-	}
-
+void kb_periph_init() {
+	printk("HIDs initalizing\n");
 	hid_init();
-
-	err = bt_enable(NULL);
-	if (err) {
-		printk("Bluetooth init failed (err %d)\n", err);
-	}
-
-	printk("Bluetooth initialized\n");
-
-	if (IS_ENABLED(CONFIG_SETTINGS)) {
-		settings_load();
-	}
-
-	advertising_start();
-
+	// k_work_queue_start(&key_report_work_q,  key_report_stack_area, 
+// 	 K_THREAD_STACK_SIZEOF(key_report_stack_area), -10, NULL);
+// //  key_report_work 
 	k_work_init(&pairing_work, pairing_process);
+// 	k_work_init(&key_report_work, );
+	printk("initialized pairing work");
 }
