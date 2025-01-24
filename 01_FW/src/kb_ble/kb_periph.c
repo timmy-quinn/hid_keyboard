@@ -74,11 +74,6 @@ static struct conn_mode {
 } conn_mode[CONFIG_BT_HIDS_MAX_CLIENT_COUNT];
 
 
-/* Current report status
- */
-static keyboard_state_t hid_keyboard_state;
-
-
 static struct k_work pairing_work;
 struct pairing_data_mitm {
 	struct bt_conn *conn;
@@ -402,7 +397,7 @@ void periph_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 #define KEY_REPORT_WORKQ_THREAD_STACK_SIZE 1024
 #define KEY_REPORT_WORKQ_PRIORITY (-9)
 
-// static K_THREAD_STACK_DEFINE(key_report_stack_area, 1024);
+static K_THREAD_STACK_DEFINE(key_report_stack, 1024);
 
 static struct k_work_q key_report_work_q = {0};
 struct k_work key_report_work = {0};
@@ -420,7 +415,7 @@ void offload(struct k_work * work_item) {
  *
  *  @return 0 on success or negative error code.
  */
-static int key_report_con_send(const keyboard_state_t *state,
+static int key_report_con_send(const kb_state_t *state,
 			bool boot_mode,
 			struct bt_conn *conn)
 {
@@ -456,22 +451,32 @@ static int key_report_con_send(const keyboard_state_t *state,
  *
  * @return 0 on success or negative error code.
  */
-static int key_report_send(void)
+static void key_report_send(struct k_work *work)
 {
-	for (size_t i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
-		if (conn_mode[i].conn) {
-			int err;
-
-			err = key_report_con_send(&hid_keyboard_state,
-						  conn_mode[i].in_boot_mode,
-						  conn_mode[i].conn);
-			if (err) {
-				printk("Key report send error: %d\n", err);
-				return err;
-			}
-		}
+	int err; 
+	printk("Key report send\n");
+	kb_state_t state;  
+	err = kb_hid_get_kb_state(&state);
+	if(!err) {
+		printk("key report send: ");
+		print_kb_state(&state);
 	}
-	return 0;
+	else {
+		printk("get from queue failed");
+	}
+
+	// for (size_t i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
+	// 	if (conn_mode[i].conn) {
+	// 		int err;
+
+	// 		err = key_report_con_send(&state,
+	// 					  conn_mode[i].in_boot_mode,
+	// 					  conn_mode[i].conn);
+	// 		if (err) {
+	// 			printk("Key report send error: %d\n", err);
+	// 		}
+	// 	}
+	// }
 }
 
 /** @brief Change key code to ctrl code mask
@@ -493,17 +498,17 @@ static uint8_t button_ctrl_code(uint8_t key)
 }
 
 
-static int hid_kbd_state_key_set(uint8_t key)
+ int kb_periph_key_set(uint8_t key, kb_state_t *state)
 {
 	uint8_t ctrl_mask = button_ctrl_code(key);
 
 	if (ctrl_mask) {
-		hid_keyboard_state.ctrl_keys_state |= ctrl_mask;
+		state->ctrl_keys_state |= ctrl_mask;
 		return 0;
 	}
 	for (size_t i = 0; i < KEY_PRESS_MAX; ++i) {
-		if (hid_keyboard_state.keys_state[i] == 0) {
-			hid_keyboard_state.keys_state[i] = key;
+		if (state->keys_state[i] == 0) {
+			state->keys_state[i] = key;
 			return 0;
 		}
 	}
@@ -512,17 +517,21 @@ static int hid_kbd_state_key_set(uint8_t key)
 }
 
 
-static int hid_kbd_state_key_clear(uint8_t key)
+int kb_periph_key_clear(uint8_t key, kb_state_t *state)
 {
 	uint8_t ctrl_mask = button_ctrl_code(key);
 
+	if(state == NULL) {
+		return -EINVAL;
+	}
+
 	if (ctrl_mask) {
-		hid_keyboard_state.ctrl_keys_state &= ~ctrl_mask;
+		state->ctrl_keys_state &= ~ctrl_mask;
 		return 0;
 	}
 	for (size_t i = 0; i < KEY_PRESS_MAX; ++i) {
-		if (hid_keyboard_state.keys_state[i] == key) {
-			hid_keyboard_state.keys_state[i] = 0;
+		if (state->keys_state[i] == key) {
+			state->keys_state[i] = 0;
 			return 0;
 		}
 	}
@@ -538,20 +547,20 @@ static int hid_kbd_state_key_clear(uint8_t key)
  *
  *  @return 0 on success or negative error code.
  */
-static int hid_buttons_press(const uint8_t *keys, size_t cnt)
-{
-	while (cnt--) {
-		int err;
+// static int hid_buttons_press(uint8_t key, size_t cnt)
+// {
+// 	while (cnt--) {
+// 		int err;
 
-		err = hid_kbd_state_key_set(*keys++);
-		if (err) {
-			printk("Cannot set selected key.\n");
-			return err;
-		}
-	}
+// 		// err = kb_periph_key_set(key);
+// 		if (err) {
+// 			printk("Cannot set selected key.\n");
+// 			return err;
+// 		}
+// 	}
 
-	return key_report_send();
-}
+// 	return key_report_send();
+// }
 
 /** @brief Release the button and send report
  *
@@ -566,14 +575,15 @@ static int hid_buttons_release(const uint8_t *keys, size_t cnt)
 	while (cnt--) {
 		int err;
 
-		err = hid_kbd_state_key_clear(*keys++);
+		// err = kb_periph_key_clear(*keys++);
 		if (err) {
 			printk("Cannot clear selected key.\n");
 			return err;
 		}
 	}
 
-	return key_report_send();
+	key_report_send(NULL);
+	return 0; 
 }
 
 
@@ -604,11 +614,12 @@ static void num_comp_reply(bool accept)
 }
 
 
-void kb_periph_key_event(const uint8_t *scan_code, int state) {
-	if (state) {
-		hid_buttons_press(scan_code, 1);
+void kb_periph_key_event(uint8_t scan_code, kb_state_t *state, bool is_pressed) {
+	printk("kb_periph_key_event\n");
+	if (is_pressed) {
+ 		kb_periph_key_set(scan_code, state);
 	} else {
-		hid_buttons_release(scan_code, 1);
+		kb_periph_key_clear(scan_code, state);
 	}
 }
 
@@ -630,19 +641,29 @@ bool kb_periph_is_adv() {
 	return is_adv;
 }
 
+
 void kb_periph_accept_pairing() {
 	if (k_msgq_num_used_get(&mitm_queue)) {
 		num_comp_reply(true);
 	}
 }
 
+void kb_periph_submit_key_notify(kb_state_t *state) {
+	kb_hid_put_kb_state(state); 
+	k_work_submit_to_queue(&key_report_work_q, &key_report_work);
+}
+
 void kb_periph_init() {
 	printk("HIDs initalizing\n");
 	hid_init();
-	// k_work_queue_start(&key_report_work_q,  key_report_stack_area, 
-// 	 K_THREAD_STACK_SIZEOF(key_report_stack_area), -10, NULL);
-// //  key_report_work 
+
+
 	k_work_init(&pairing_work, pairing_process);
-// 	k_work_init(&key_report_work, );
 	printk("initialized pairing work");
+
+	k_work_queue_start(&key_report_work_q, key_report_stack, 
+			K_THREAD_STACK_SIZEOF(key_report_stack), KEY_REPORT_WORKQ_PRIORITY, 
+			NULL);
+	k_work_init(&key_report_work, key_report_send); 
+	printk("initialized key report work queue");
 }

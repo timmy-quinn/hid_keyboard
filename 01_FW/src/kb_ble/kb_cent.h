@@ -4,7 +4,7 @@
 #include <zephyr/bluetooth/conn.h>
 #include "kb_hid_common.h"
 
-int kb_cent_get_kb_state(keyboard_state_t * kb_state); 
+int kb_cent_get_kb_state(kb_state_t * kb_state); 
 void cent_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey);
 void cent_pairing_failed(struct bt_conn *conn, enum bt_security_err reason);
 

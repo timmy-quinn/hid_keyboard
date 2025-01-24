@@ -288,42 +288,37 @@ static void scan_init(void)
 	}
 }
 
-K_MSGQ_DEFINE(kb_key_press_queue, sizeof(keyboard_state_t), 10, 8);
+
+// uint8_t kb_msgq_buff[16 * sizeof(kb_state_t)];
+// struct k_msgq kb_key_press_queue;
 //  
 static uint8_t hogp_notify_cb(struct bt_hogp *hogp,
 			     struct bt_hogp_rep_info *rep,
 			     uint8_t err,
 			     const uint8_t *data)
 {
-	keyboard_state_t kb_state; 
+	kb_state_t kb_state; 
 	uint8_t size = bt_hogp_rep_size(rep);
 	uint8_t i;
-
 
 	if (!data) {
 		return BT_GATT_ITER_STOP;
 	}
 	if(size != INPUT_REPORT_KEYS_MAX_LEN) {
 		//TODO: Not sure if this is proper behavior
-		// Maybe have it disconnect, or just skip 
+		// Not sure if it should return STOP or CONTINUE
 		return BT_GATT_ITER_STOP;
 	}
-	printk("Notification, id: %u, size: %u, data:", bt_hogp_rep_id(rep), size);
-	for (i = 0; i < size; ++i) {
-		printk(" 0x%x", data[i]);
-	}
+
 	kb_state.ctrl_keys_state = data[0];
-	for(i = KEY_OFFSET_IN_REPORT; i < KEY_PRESS_MAX; i++) {
-		kb_state.keys_state[i - KEY_OFFSET_IN_REPORT] = data[i]; 
+	kb_state.pad = data[1];
+	for(i = 0; i < KEY_PRESS_MAX; i++) {
+		kb_state.keys_state[i] = data[i + KEY_OFFSET_IN_REPORT]; 
 	}
-	k_msgq_put(&kb_key_press_queue, &kb_state, K_NO_WAIT);
-	printk("\n");
+	
 	return BT_GATT_ITER_CONTINUE;
 }
 
-int kb_cent_get_kb_state(keyboard_state_t * kb_state) {
-	return k_msgq_get(&kb_key_press_queue, &kb_state, K_NO_WAIT);
-}
 
 static uint8_t hogp_boot_mouse_report(struct bt_hogp *hogp,
 				     struct bt_hogp_rep_info *rep,
@@ -635,4 +630,6 @@ K_FIFO_DEFINE(external_key_presses_fifo);
 void kb_cent_init(void) {
 	bt_hogp_init(&hogp, &hogp_init_params);
 	scan_init();
+// uint8_t kb_msgq_buff[10 * sizeof(kb_state_t)];
+// struct k_msgq kb_key_press_queue;
 }

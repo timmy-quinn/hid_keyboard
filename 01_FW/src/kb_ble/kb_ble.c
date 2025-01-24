@@ -155,4 +155,5 @@ int ble_init() {
 		return err;
 	}
 	printk("Bluetooth initialized\n");
+	return 0;
 }

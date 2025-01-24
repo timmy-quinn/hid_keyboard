@@ -49,8 +49,11 @@ typedef struct {
 	uint8_t ctrl_keys_state; /* Current keys state */
 	uint8_t pad; // Padding for alignment for msg queue  
 	uint8_t keys_state[KEY_PRESS_MAX];
-} keyboard_state_t;
+} kb_state_t;
 
-void print_kb_state(keyboard_state_t *kb_state); 
+
+void print_kb_state(kb_state_t *kb_state); 
+int kb_hid_get_kb_state(kb_state_t *kb_state); 
+int kb_hid_put_kb_state(kb_state_t *kb_state); 
 
 #endif 

@@ -7,6 +7,7 @@
 #include "btns.h"
 #include "kb_ble/kb_hid_common.h"
 #include "kb_ble/kb_cent.h"
+#include "kb_ble/kb_periph.h"
 
 #define GPIO_NODE_0 DT_NODELABEL(gpio0)
 #define GPIO_NAME_0 DEVICE_DT_NAME(GPIO_NODE_0) 
@@ -77,9 +78,11 @@ static void key_gpios_init() {
     gpio_pin_set_dt(&pwr_pin, 1);
 }
 
+static kb_state_t keyboard_state = {0};
 
 static void btn_scan() {
     int btn_pressed; 
+    bool key_changed = 0; 
 
     gpio_pin_set_dt(&key_mtrx_out[mtrx_col_active], 0);
     if(mtrx_col_active < KEY_MATRIX_OUT_COUNT -1) {
@@ -107,15 +110,20 @@ static void btn_scan() {
                 btn_cb->btn_3();
             }
             else if(btn_cb->key_press) {
-                btn_cb->key_press(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
+                // btn_cb->key_press(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
+                kb_periph_key_event(scan_code_mtrx[j][mtrx_col_active].scan_code, &keyboard_state, btn_pressed);
+                key_changed = true; 
             }
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
-    keyboard_state_t kb_state; 
-    kb_cent_get_kb_state(&kb_state); 
-    printk("central loop keyboard state")
-    print_kb_state(&kb_state); 
+
+
+    if(key_changed) {
+        printk("btn scan: ");
+        print_kb_state(&keyboard_state);
+        kb_periph_submit_key_notify(&keyboard_state);
+    }
 
 	k_work_reschedule(&btn_scan_work, K_MSEC(SLEEP_TIME_MS));
 }
