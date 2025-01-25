@@ -1,11 +1,3 @@
-/* main.c - Application main entry point */
-
-/*
- * Copyright (c) 2018 Nordic Semiconductor ASA
- *
- * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
- */
-
 #include "kb_cent.h"
 #include <zephyr/types.h>
 #include <stddef.h>
@@ -22,36 +14,14 @@
 #include <zephyr/sys/byteorder.h>
 #include <bluetooth/scan.h>
 #include <bluetooth/services/hogp.h>
-// #include <dk_buttons_and_leds.h>
 
 #include <zephyr/settings/settings.h>
 #include "kb_hid_common.h"
-
-
-/**
- * Switch between boot protocol and report protocol mode.
- */
-// #define KEY_BOOTMODE_MASK DK_BTN2_MSK
-/**
- * Switch CAPSLOCK state.
- *
- * @note
- * For simplicity of the code it works only in boot mode.
- */
-// #define KEY_CAPSLOCK_MASK DK_BTN1_MSK
-/**
- * Switch CAPSLOCK state with response
- *
- * Write CAPSLOCK with response.
- * Just for testing purposes.
- * The result should be the same like usine @ref KEY_CAPSLOCK_MASK
- */
-
+#include "kb_periph.h"
 
 static struct bt_conn *default_conn;
 static struct bt_hogp hogp;
 static struct bt_conn *auth_conn;
-static uint8_t capslock_state;
 
 static void hids_on_ready(struct k_work *work);
 static K_WORK_DEFINE(hids_ready_work, hids_on_ready);
@@ -297,7 +267,7 @@ static uint8_t hogp_notify_cb(struct bt_hogp *hogp,
 			     uint8_t err,
 			     const uint8_t *data)
 {
-	kb_state_t kb_state; 
+	kb_state_t kb; 
 	uint8_t size = bt_hogp_rep_size(rep);
 	uint8_t i;
 
@@ -310,34 +280,34 @@ static uint8_t hogp_notify_cb(struct bt_hogp *hogp,
 		return BT_GATT_ITER_STOP;
 	}
 
-	kb_state.ctrl_keys_state = data[0];
-	kb_state.pad = data[1];
+	kb.ctrl_keys_state = data[0];
+	kb.pad = data[1];
 	for(i = 0; i < KEY_PRESS_MAX; i++) {
-		kb_state.keys_state[i] = data[i + KEY_OFFSET_IN_REPORT]; 
+		kb.keys_state[i] = data[i + KEY_OFFSET_IN_REPORT]; 
 	}
 	
+    kb_periph_submit_key_notify(&kb);
 	return BT_GATT_ITER_CONTINUE;
 }
 
+// static uint8_t hogp_boot_mouse_report(struct bt_hogp *hogp,
+// 				     struct bt_hogp_rep_info *rep,
+// 				     uint8_t err,
+// 				     const uint8_t *data)
+// {
+// 	uint8_t size = bt_hogp_rep_size(rep);
+// 	uint8_t i;
 
-static uint8_t hogp_boot_mouse_report(struct bt_hogp *hogp,
-				     struct bt_hogp_rep_info *rep,
-				     uint8_t err,
-				     const uint8_t *data)
-{
-	uint8_t size = bt_hogp_rep_size(rep);
-	uint8_t i;
-
-	if (!data) {
-		return BT_GATT_ITER_STOP;
-	}
-	printk("Notification, mouse boot, size: %u, data:", size);
-	for (i = 0; i < size; ++i) {
-		printk(" 0x%x", data[i]);
-	}
-	printk("\n");
-	return BT_GATT_ITER_CONTINUE;
-}
+// 	if (!data) {
+// 		return BT_GATT_ITER_STOP;
+// 	}
+// 	printk("Notification, mouse boot, size: %u, data:", size);
+// 	for (i = 0; i < size; ++i) {
+// 		printk(" 0x%x", data[i]);
+// 	}
+// 	printk("\n");
+// 	return BT_GATT_ITER_CONTINUE;
+// }
 
 static uint8_t hogp_boot_kbd_report(struct bt_hogp *hogp,
 				   struct bt_hogp_rep_info *rep,
@@ -355,6 +325,7 @@ static uint8_t hogp_boot_kbd_report(struct bt_hogp *hogp,
 		printk(" 0x%x", data[i]);
 	}
 	printk("\n");
+
 	return BT_GATT_ITER_CONTINUE;
 }
 
@@ -392,13 +363,13 @@ static void hids_on_ready(struct k_work *work)
 		}
 	}
 	if (hogp.rep_boot.mouse_inp) {
-		printk("Subscribe to boot mouse report\n");
-		err = bt_hogp_rep_subscribe(&hogp,
-						   hogp.rep_boot.mouse_inp,
-						   hogp_boot_mouse_report);
-		if (err) {
-			printk("Subscribe error (%d)\n", err);
-		}
+		printk("ERROR: device found is mouse not keyboard\n");
+		// err = bt_hogp_rep_subscribe(&hogp,
+		// 				   hogp.rep_boot.mouse_inp,
+		// 				   hogp_boot_mouse_report);
+		// if (err) {
+		// 	printk("Subscribe error (%d)\n", err);
+		// }
 	}
 }
 
@@ -423,7 +394,6 @@ static const struct bt_hogp_init_params hogp_init_params = {
 
 
 // TODO: Use this to switch keyboard from boot mode to report mode. 
-// 
 static void button_bootmode(void)
 {
 	if (!bt_hogp_ready_check(&hogp)) {
@@ -439,103 +409,6 @@ static void button_bootmode(void)
 	if (err) {
 		printk("Cannot change protocol mode (err %d)\n", err);
 	}
-}
-
-static void hidc_write_cb(struct bt_hogp *hidc,
-			  struct bt_hogp_rep_info *rep,
-			  uint8_t err)
-{
-	printk("Caps lock sent\n");
-}
-
-static void button_capslock(void)
-{
-	int err;
-	uint8_t data;
-
-	if (!bt_hogp_ready_check(&hogp)) {
-		printk("HID device not ready\n");
-		return;
-	}
-	if (!hogp.rep_boot.kbd_out) {
-		printk("HID device does not have Keyboard OUT report\n");
-		return;
-	}
-	if (bt_hogp_pm_get(&hogp) != BT_HIDS_PM_BOOT) {
-		printk("This function works only in BOOT Report mode\n");
-		return;
-	}
-	capslock_state = capslock_state ? 0 : 1;
-	data = capslock_state ? 0x02 : 0;
-	err = bt_hogp_rep_write_wo_rsp(&hogp, hogp.rep_boot.kbd_out,
-				       &data, sizeof(data),
-				       hidc_write_cb);
-
-	if (err) {
-		printk("Keyboard data write error (err: %d)\n", err);
-		return;
-	}
-	printk("Caps lock send (val: 0x%x)\n", data);
-}
-
-
-static uint8_t capslock_read_cb(struct bt_hogp *hogp,
-			     struct bt_hogp_rep_info *rep,
-			     uint8_t err,
-			     const uint8_t *data)
-{
-	if (err) {
-		printk("Capslock read error (err: %u)\n", err);
-		return BT_GATT_ITER_STOP;
-	}
-	if (!data) {
-		printk("Capslock read - no data\n");
-		return BT_GATT_ITER_STOP;
-	}
-	printk("Received data (size: %u, data[0]: 0x%x)\n",
-	       bt_hogp_rep_size(rep), data[0]);
-
-	return BT_GATT_ITER_STOP;
-}
-
-
-static void capslock_write_cb(struct bt_hogp *hogp,
-			      struct bt_hogp_rep_info *rep,
-			      uint8_t err)
-{
-	int ret;
-
-	printk("Capslock write result: %u\n", err);
-
-	ret = bt_hogp_rep_read(hogp, rep, capslock_read_cb);
-	if (ret) {
-		printk("Cannot read capslock value (err: %d)\n", ret);
-	}
-}
-
-
-static void button_capslock_rsp(void)
-{
-	if (!bt_hogp_ready_check(&hogp)) {
-		printk("HID device not ready\n");
-		return;
-	}
-	if (!hogp.rep_boot.kbd_out) {
-		printk("HID device does not have Keyboard OUT report\n");
-		return;
-	}
-	int err;
-	uint8_t data;
-
-	capslock_state = capslock_state ? 0 : 1;
-	data = capslock_state ? 0x02 : 0;
-	err = bt_hogp_rep_write(&hogp, hogp.rep_boot.kbd_out, capslock_write_cb,
-				&data, sizeof(data));
-	if (err) {
-		printk("Keyboard data write error (err: %d)\n", err);
-		return;
-	}
-	printk("Caps lock send using write with response (val: 0x%x)\n", data);
 }
 
 
@@ -558,16 +431,6 @@ void cent_pairing_accept() {
 }
 
 
-static void auth_passkey_display(struct bt_conn *conn, unsigned int passkey)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Passkey for %s: %06u\n", addr, passkey);
-}
-
-
 void cent_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 {
 	char addr[BT_ADDR_LE_STR_LEN];
@@ -579,29 +442,6 @@ void cent_auth_passkey_confirm(struct bt_conn *conn, unsigned int passkey)
 	printk("Passkey for %s: %06u\n", addr, passkey);
 	printk("Press Button 1 to confirm, Button 2 to reject.\n");
 }
-
-
-static void auth_cancel(struct bt_conn *conn)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing cancelled: %s\n", addr);
-}
-
-
-static void pairing_complete(struct bt_conn *conn, bool bonded)
-{
-	char addr[BT_ADDR_LE_STR_LEN];
-
-	bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
-
-	printk("Pairing completed: %s, bonded: %d\n", addr, bonded);
-
-	//button_bootmode();
-}
-
 
 void cent_pairing_failed(struct bt_conn *conn, enum bt_security_err reason)
 {

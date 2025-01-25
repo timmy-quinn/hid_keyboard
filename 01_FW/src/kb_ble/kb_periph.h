@@ -16,7 +16,8 @@ void kb_periph_key_event(uint8_t scan_code, kb_state_t *state, bool is_pressed);
 void kb_periph_submit_key_notify(kb_state_t *state); 
 void kb_periph_bas_notify(void);
 
-bool kb_periph_is_adv(void); 
 void kb_periph_accept_pairing(); 
 void kb_periph_init(void); 
+
+bool kb_periph_is_adv();
 #endif

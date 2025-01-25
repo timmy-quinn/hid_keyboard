@@ -14,7 +14,6 @@
 
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
 static btn_callbacks btn_cb =  {
-								.key_press = kb_periph_key_event,
 								.btn_0 = kb_periph_accept_pairing,
 								.btn_1 = advertising_start,
 								.btn_2 = kb_cent_scan_start,

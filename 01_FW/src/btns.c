@@ -110,14 +110,12 @@ static void btn_scan() {
                 btn_cb->btn_3();
             }
             else if(btn_cb->key_press) {
-                // btn_cb->key_press(&scan_code_mtrx[j][mtrx_col_active].scan_code, btn_pressed);
                 kb_periph_key_event(scan_code_mtrx[j][mtrx_col_active].scan_code, &keyboard_state, btn_pressed);
                 key_changed = true; 
             }
             scan_code_mtrx[j][mtrx_col_active].state = btn_pressed;    
         }
     }
-
 
     if(key_changed) {
         printk("btn scan: ");

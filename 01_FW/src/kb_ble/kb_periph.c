@@ -53,7 +53,6 @@ BT_HIDS_DEF(hids_obj,
 	    OUTPUT_REPORT_MAX_LEN,
 	    INPUT_REPORT_KEYS_MAX_LEN);
 
-static volatile bool is_adv;
 
 static const struct bt_data ad[] = {
 	BT_DATA_BYTES(BT_DATA_GAP_APPEARANCE,
@@ -85,6 +84,23 @@ K_MSGQ_DEFINE(mitm_queue,
 	      CONFIG_BT_HIDS_MAX_CLIENT_COUNT,
 	      4);
 
+static volatile bool is_adv;
+struct k_spinlock adv_spinlock;
+
+static void set_adv_state(bool adv) {
+	K_SPINLOCK(&adv_spinlock) {
+		is_adv = adv;
+	}
+}
+
+bool kb_periph_is_adv() {
+	bool rtn;
+	K_SPINLOCK(&adv_spinlock) {
+		rtn = is_adv;
+	}
+	return rtn;
+}
+
 void advertising_start(void)
 {
 	int err;
@@ -94,6 +110,11 @@ void advertising_start(void)
 						BT_GAP_ADV_FAST_INT_MIN_2, // 160*0.625ms=100ms minimal interval for fast advertising
 						BT_GAP_ADV_FAST_INT_MAX_2, // maximum interval for fast adertising
 						NULL);
+
+	if(kb_periph_is_adv()) {
+		printk("Advertising continued\n");
+		return;
+	}
 
 	err = bt_le_adv_start(adv_param, ad, ARRAY_SIZE(ad), sd,
 			      ARRAY_SIZE(sd));
@@ -107,7 +128,7 @@ void advertising_start(void)
 		return;
 	}
 
-	is_adv = true;
+	set_adv_state(true);
 	printk("Advertising successfully started\n");
 }
 
@@ -160,7 +181,7 @@ void periph_connected(struct bt_conn *conn, uint8_t err)
 		}
 	}
 
-	is_adv = false;
+	set_adv_state(false);
 }
 
 
@@ -444,13 +465,7 @@ static int key_report_con_send(const kb_state_t *state,
 	return err;
 }
 
-/** @brief Function process and send keyboard state to all active connections
- *
- * Function process global keyboard state and send it to all connected
- * clients.
- *
- * @return 0 on success or negative error code.
- */
+
 static void key_report_send(struct k_work *work)
 {
 	int err; 
@@ -465,125 +480,18 @@ static void key_report_send(struct k_work *work)
 		printk("get from queue failed");
 	}
 
-	// for (size_t i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
-	// 	if (conn_mode[i].conn) {
-	// 		int err;
+	for (size_t i = 0; i < CONFIG_BT_HIDS_MAX_CLIENT_COUNT; i++) {
+		if (conn_mode[i].conn) {
+			int err;
 
-	// 		err = key_report_con_send(&state,
-	// 					  conn_mode[i].in_boot_mode,
-	// 					  conn_mode[i].conn);
-	// 		if (err) {
-	// 			printk("Key report send error: %d\n", err);
-	// 		}
-	// 	}
-	// }
-}
-
-/** @brief Change key code to ctrl code mask
- *
- *  Function changes the key code to the mask in the control code
- *  field inside the raport.
- *  Returns 0 if key code is not a control key.
- *
- *  @param key Key code
- *
- *  @return Mask of the control key or 0.
- */
-static uint8_t button_ctrl_code(uint8_t key)
-{
-	if (KEY_CTRL_CODE_MIN <= key && key <= KEY_CTRL_CODE_MAX) {
-		return (uint8_t)(1U << (key - KEY_CTRL_CODE_MIN));
-	}
-	return 0;
-}
-
-
- int kb_periph_key_set(uint8_t key, kb_state_t *state)
-{
-	uint8_t ctrl_mask = button_ctrl_code(key);
-
-	if (ctrl_mask) {
-		state->ctrl_keys_state |= ctrl_mask;
-		return 0;
-	}
-	for (size_t i = 0; i < KEY_PRESS_MAX; ++i) {
-		if (state->keys_state[i] == 0) {
-			state->keys_state[i] = key;
-			return 0;
+			err = key_report_con_send(&state,
+						  conn_mode[i].in_boot_mode,
+						  conn_mode[i].conn);
+			if (err) {
+				printk("Key report send error: %d\n", err);
+			}
 		}
 	}
-	/* All slots busy */
-	return -EBUSY;
-}
-
-
-int kb_periph_key_clear(uint8_t key, kb_state_t *state)
-{
-	uint8_t ctrl_mask = button_ctrl_code(key);
-
-	if(state == NULL) {
-		return -EINVAL;
-	}
-
-	if (ctrl_mask) {
-		state->ctrl_keys_state &= ~ctrl_mask;
-		return 0;
-	}
-	for (size_t i = 0; i < KEY_PRESS_MAX; ++i) {
-		if (state->keys_state[i] == key) {
-			state->keys_state[i] = 0;
-			return 0;
-		}
-	}
-	/* Key not found */
-	return -EINVAL;
-}
-
-/** @brief Press a button and send report
- *
- *  @note Functions to manipulate hid state are not reentrant
- *  @param keys
- *  @param cnt
- *
- *  @return 0 on success or negative error code.
- */
-// static int hid_buttons_press(uint8_t key, size_t cnt)
-// {
-// 	while (cnt--) {
-// 		int err;
-
-// 		// err = kb_periph_key_set(key);
-// 		if (err) {
-// 			printk("Cannot set selected key.\n");
-// 			return err;
-// 		}
-// 	}
-
-// 	return key_report_send();
-// }
-
-/** @brief Release the button and send report
- *
- *  @note Functions to manipulate hid state are not reentrant
- *  @param keys
- *  @param cnt
- *
- *  @return 0 on success or negative error code.
- */
-static int hid_buttons_release(const uint8_t *keys, size_t cnt)
-{
-	while (cnt--) {
-		int err;
-
-		// err = kb_periph_key_clear(*keys++);
-		if (err) {
-			printk("Cannot clear selected key.\n");
-			return err;
-		}
-	}
-
-	key_report_send(NULL);
-	return 0; 
 }
 
 
@@ -614,14 +522,6 @@ static void num_comp_reply(bool accept)
 }
 
 
-void kb_periph_key_event(uint8_t scan_code, kb_state_t *state, bool is_pressed) {
-	printk("kb_periph_key_event\n");
-	if (is_pressed) {
- 		kb_periph_key_set(scan_code, state);
-	} else {
-		kb_periph_key_clear(scan_code, state);
-	}
-}
 
 // move to 
 void kb_periph_bas_notify(void)
@@ -635,10 +535,6 @@ void kb_periph_bas_notify(void)
 	}
 
 	bt_bas_set_battery_level(battery_level);
-}
-
-bool kb_periph_is_adv() {
-	return is_adv;
 }
 
 
