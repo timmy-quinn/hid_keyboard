@@ -13,12 +13,6 @@
 #define ADV_LED_BLINK_INTERVAL  1000
 
 static const struct gpio_dt_spec adv_status_led = GPIO_DT_SPEC_GET(DT_NODELABEL(led1), gpios);
-static btn_callbacks btn_cb =  {
-								.btn_0 = kb_periph_accept_pairing,
-								.btn_1 = advertising_start,
-								.btn_2 = kb_cent_scan_start,
-								.btn_3 = cent_pairing_accept,
-								};
 
 int main(void)
 {
@@ -41,7 +35,7 @@ int main(void)
 	printk("Initialize HOGP\n");
 
 	printk("Bluetooth initialized\n");
-	btns_init(&btn_cb); 
+	btns_init(); 
 
 	for (;;) {
 		if (kb_periph_is_adv()) {

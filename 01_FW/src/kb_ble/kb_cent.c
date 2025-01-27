@@ -259,17 +259,13 @@ static void scan_init(void)
 }
 
 
-// uint8_t kb_msgq_buff[16 * sizeof(kb_state_t)];
-// struct k_msgq kb_key_press_queue;
-//  
 static uint8_t hogp_notify_cb(struct bt_hogp *hogp,
 			     struct bt_hogp_rep_info *rep,
 			     uint8_t err,
 			     const uint8_t *data)
 {
-	kb_state_t kb; 
+	static kb_state_t kb; 
 	uint8_t size = bt_hogp_rep_size(rep);
-	uint8_t i;
 
 	if (!data) {
 		return BT_GATT_ITER_STOP;
@@ -280,34 +276,24 @@ static uint8_t hogp_notify_cb(struct bt_hogp *hogp,
 		return BT_GATT_ITER_STOP;
 	}
 
-	kb.ctrl_keys_state = data[0];
-	kb.pad = data[1];
-	for(i = 0; i < KEY_PRESS_MAX; i++) {
+
+	for(uint8_t i = 0; i < KEY_PRESS_MAX; i++) {
+		kb_hid_key_change(kb.keys_state[i], data[i + KEY_OFFSET_IN_REPORT]);
 		kb.keys_state[i] = data[i + KEY_OFFSET_IN_REPORT]; 
 	}
 	
-    kb_periph_submit_key_notify(&kb);
+	if(kb.ctrl_keys != data[0]) {
+		for(uint8_t i = 0; i < 8; i++) {
+			kb_hid_key_change(get_ctrl_scan_code(kb.ctrl_keys, i), 
+								get_ctrl_scan_code(data[0], i));
+		}
+	}
+	kb.ctrl_keys = data[0];
+	
+    kb_periph_hid_notify();
 	return BT_GATT_ITER_CONTINUE;
 }
 
-// static uint8_t hogp_boot_mouse_report(struct bt_hogp *hogp,
-// 				     struct bt_hogp_rep_info *rep,
-// 				     uint8_t err,
-// 				     const uint8_t *data)
-// {
-// 	uint8_t size = bt_hogp_rep_size(rep);
-// 	uint8_t i;
-
-// 	if (!data) {
-// 		return BT_GATT_ITER_STOP;
-// 	}
-// 	printk("Notification, mouse boot, size: %u, data:", size);
-// 	for (i = 0; i < size; ++i) {
-// 		printk(" 0x%x", data[i]);
-// 	}
-// 	printk("\n");
-// 	return BT_GATT_ITER_CONTINUE;
-// }
 
 static uint8_t hogp_boot_kbd_report(struct bt_hogp *hogp,
 				   struct bt_hogp_rep_info *rep,
@@ -465,11 +451,7 @@ void kb_cent_scan_start() {
 }
 
 
-K_FIFO_DEFINE(external_key_presses_fifo); 
-
 void kb_cent_init(void) {
 	bt_hogp_init(&hogp, &hogp_init_params);
 	scan_init();
-// uint8_t kb_msgq_buff[10 * sizeof(kb_state_t)];
-// struct k_msgq kb_key_press_queue;
 }

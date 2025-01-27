@@ -101,7 +101,7 @@ bool kb_periph_is_adv() {
 	return rtn;
 }
 
-void advertising_start(void)
+void kb_periph_adv_start(void)
 {
 	int err;
 	struct bt_le_adv_param *adv_param = BT_LE_ADV_PARAM(
@@ -211,9 +211,8 @@ void periph_disconnected(struct bt_conn *conn, uint8_t reason)
 		}
 	}
 
-	advertising_start();
+	kb_periph_adv_start();
 }
-
 
 
 static void hids_outp_rep_handler(struct bt_hids_rep *rep,
@@ -423,11 +422,6 @@ static K_THREAD_STACK_DEFINE(key_report_stack, 1024);
 static struct k_work_q key_report_work_q = {0};
 struct k_work key_report_work = {0};
 
-void offload(struct k_work * work_item) {
-	printk("work item"); 
-}
-
-
 /** @brief Function process keyboard state and sends it
  *
  *  @param pstate     The state to be sent
@@ -446,7 +440,7 @@ static int key_report_con_send(const kb_state_t *state,
 	const uint8_t *key_state;
 	size_t n;
 
-	data[0] = state->ctrl_keys_state;
+	data[0] = state->ctrl_keys;
 	data[1] = 0;
 	key_data = &data[2];
 	key_state = state->keys_state;
@@ -469,9 +463,8 @@ static int key_report_con_send(const kb_state_t *state,
 static void key_report_send(struct k_work *work)
 {
 	int err; 
-	printk("Key report send\n");
-	kb_state_t state;  
-	err = kb_hid_get_kb_state(&state);
+	static kb_state_t state = {0};  
+	err = kb_hid_get_state(&state);
 	if(!err) {
 		printk("key report send: ");
 		print_kb_state(&state);
@@ -522,7 +515,6 @@ static void num_comp_reply(bool accept)
 }
 
 
-
 // move to 
 void kb_periph_bas_notify(void)
 {
@@ -544,8 +536,7 @@ void kb_periph_accept_pairing() {
 	}
 }
 
-void kb_periph_submit_key_notify(kb_state_t *state) {
-	kb_hid_put_kb_state(state); 
+void kb_periph_hid_notify() {
 	k_work_submit_to_queue(&key_report_work_q, &key_report_work);
 }
 
