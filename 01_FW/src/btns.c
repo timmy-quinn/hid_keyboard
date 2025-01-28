@@ -115,7 +115,7 @@ static void btn_scan() {
             key_mtrx[j][scan_col].is_pressed = btn_pressed;    
 
             if(key_mtrx[j][scan_col].scan_code >= ADV_ACC &&
-                key_mtrx[j][scan_col].scan_code == SCAN_ACCEPT) {
+                key_mtrx[j][scan_col].scan_code <= SCAN_ACCEPT) {
 
                 special_key_handler(&key_mtrx[j][scan_col]);
             }
