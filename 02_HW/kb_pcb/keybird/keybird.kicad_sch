@@ -1909,12 +1909,6 @@
 		)
 	)
 	(junction
-		(at 111.76 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "051346c8-0bd0-45d5-bfb3-c844cd0d9a5c")
-	)
-	(junction
 		(at 194.31 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1927,40 +1921,28 @@
 		(uuid "07b3b8da-9ac7-4391-b6f8-b040c0e7b4e1")
 	)
 	(junction
-		(at 129.54 111.76)
+		(at 182.88 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "182c2544-6092-4b86-9cfb-bc0c64aaedff")
+		(uuid "0faa74f5-8d93-47a4-8a7d-e776c83d0e4c")
 	)
 	(junction
-		(at 165.1 76.2)
+		(at 182.88 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "187bbf62-361d-4ee7-a2b1-093d719b7ac7")
+		(uuid "10a65edd-e85f-4d10-949e-23432eb06bc8")
 	)
 	(junction
-		(at 147.32 111.76)
+		(at 129.54 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "216ff9fb-26ed-4acf-8946-d5f88ff5a9e8")
-	)
-	(junction
-		(at 147.32 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "23839668-25b2-49c2-a808-0dcd41dca128")
+		(uuid "16cc676a-7cc9-4d16-8c74-9f50ea56724e")
 	)
 	(junction
 		(at 182.88 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "23bab9f5-347e-4e18-973f-f2f70808f4ec")
-	)
-	(junction
-		(at 182.88 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "24ca3327-c384-490d-b3a5-785574141b73")
+		(uuid "1e33e7a8-544d-4db3-ba95-1a01b729b1f3")
 	)
 	(junction
 		(at 194.31 76.2)
@@ -1969,22 +1951,10 @@
 		(uuid "25f65520-0885-467f-af78-ee0d8ae6f592")
 	)
 	(junction
-		(at 182.88 93.98)
+		(at 165.1 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2b867bda-7212-409a-9418-26122f225953")
-	)
-	(junction
-		(at 182.88 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2cd33702-ed6a-4a0f-992d-53a525c06d7a")
-	)
-	(junction
-		(at 165.1 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2d0f6dcf-1332-4aec-be6c-975d35f9e609")
+		(uuid "2b657935-88ae-476e-81a2-283dec3d3839")
 	)
 	(junction
 		(at 154.94 50.8)
@@ -1993,10 +1963,10 @@
 		(uuid "2d702603-ad0f-4ee6-9e75-37ea4623cf84")
 	)
 	(junction
-		(at 147.32 129.54)
+		(at 147.32 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2d7d5c2f-164c-4481-bc6a-3a7873019668")
+		(uuid "2e415fc5-f03f-4eab-9c5e-e3fc0937fd62")
 	)
 	(junction
 		(at 101.6 104.14)
@@ -2005,16 +1975,10 @@
 		(uuid "3361f021-900d-4c30-b2be-c7cdfe9446b9")
 	)
 	(junction
-		(at 111.76 76.2)
+		(at 182.88 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "34f6c714-69d6-4966-89ae-2bca59ffbf0d")
-	)
-	(junction
-		(at 129.54 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "389e68c7-e736-4bbf-af15-1b080b0e32da")
+		(uuid "33e42b04-a723-4f6c-b4a8-6f8692f7cd86")
 	)
 	(junction
 		(at 83.82 50.8)
@@ -2023,10 +1987,22 @@
 		(uuid "38b2ec18-5822-4527-ab49-d6f9570b5c3c")
 	)
 	(junction
+		(at 111.76 58.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "39a62809-128e-4e51-970d-8f3e67ce2f55")
+	)
+	(junction
 		(at 101.6 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3cee14e6-2f02-4ec1-be10-797d2a848a38")
+	)
+	(junction
+		(at 129.54 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3d1e0a1a-dcde-4f39-8996-8dd6794340ec")
 	)
 	(junction
 		(at 101.6 68.58)
@@ -2041,16 +2017,22 @@
 		(uuid "41d019bf-8669-4cc5-bca6-40f9c3ab7062")
 	)
 	(junction
-		(at 147.32 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "478000a3-04ca-4418-9747-dc4bf7381a39")
-	)
-	(junction
 		(at 119.38 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4d6eb6d6-44c8-416f-8810-f8d89e898a80")
+	)
+	(junction
+		(at 147.32 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4ee528cc-eaa1-4f9c-8b50-0435d46fb97d")
+	)
+	(junction
+		(at 165.1 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4fd935e8-8052-4339-8ea6-b2a52c6a172d")
 	)
 	(junction
 		(at 137.16 104.14)
@@ -2077,22 +2059,34 @@
 		(uuid "679a5b5d-8818-4687-92fa-758d2f25275f")
 	)
 	(junction
-		(at 129.54 76.2)
+		(at 129.54 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "68ec429f-9aae-421f-9c64-1f57ab71cbc3")
-	)
-	(junction
-		(at 165.1 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "75c779ef-1116-446c-941b-303ebee377de")
+		(uuid "6939365f-2ae6-458d-9047-cd6e5f302480")
 	)
 	(junction
 		(at 172.72 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8001aa5c-cb39-4301-b5d5-fc15cb59ae37")
+	)
+	(junction
+		(at 182.88 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "859ec20c-6632-4241-986a-be4ca103d5a3")
+	)
+	(junction
+		(at 165.1 129.54)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "880fb2b0-685d-453f-a069-7314026a5f2f")
+	)
+	(junction
+		(at 147.32 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8de79bfb-8d3d-4ebb-9a4c-89623b4fd84d")
 	)
 	(junction
 		(at 119.38 104.14)
@@ -2113,16 +2107,22 @@
 		(uuid "9bde5e6f-bd8f-492a-9f97-29b2a55e7a71")
 	)
 	(junction
-		(at 111.76 58.42)
+		(at 147.32 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a9481d9d-0b96-47b3-8d73-cf2016540d73")
+		(uuid "a0de5f0e-90e8-4165-b11d-e412972618a9")
 	)
 	(junction
 		(at 129.54 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ad0faddd-f8ad-4c5f-ba7d-8db3ddbd3968")
+		(uuid "ad9634a1-f345-4d5d-928e-6bb2983ad4b0")
+	)
+	(junction
+		(at 111.76 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "af717ccc-a4f6-4e72-8b16-f78cc19b4e1d")
 	)
 	(junction
 		(at 154.94 104.14)
@@ -2131,16 +2131,16 @@
 		(uuid "b4c0cf72-441a-438a-8f34-b33977a05cd6")
 	)
 	(junction
-		(at 129.54 93.98)
+		(at 129.54 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bb0bfb44-2374-4225-addb-8a73122e74ee")
+		(uuid "b55fad27-21c7-47e9-a91c-fd07abfeb377")
 	)
 	(junction
-		(at 111.76 111.76)
+		(at 165.1 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c2a8c8cb-2e46-43ad-8019-189eb6534368")
+		(uuid "c752fe96-dd89-4c07-a0ea-34dc0a127ec0")
 	)
 	(junction
 		(at 172.72 86.36)
@@ -2149,22 +2149,22 @@
 		(uuid "c9652783-3452-4c1e-847b-cc3e4647bc54")
 	)
 	(junction
-		(at 147.32 93.98)
+		(at 147.32 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ceda96de-aa51-4f86-a53f-c29f6a90cf1c")
+		(uuid "caf08b17-7782-4564-9cdf-404f16293ba4")
+	)
+	(junction
+		(at 111.76 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d116a749-04bc-4411-b1e9-43b7941ba477")
 	)
 	(junction
 		(at 194.31 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d321814d-2936-4654-9f75-6ff51ab0e6d6")
-	)
-	(junction
-		(at 165.1 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dc3d1183-4f1c-4a4c-84e9-cc055f5d6b51")
 	)
 	(junction
 		(at 172.72 50.8)
@@ -2191,22 +2191,16 @@
 		(uuid "e99d0acd-5274-4a11-8bbc-7a2d667ef115")
 	)
 	(junction
-		(at 182.88 111.76)
+		(at 111.76 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ebaac32b-af4b-40d0-ae99-ca7a4cb9e21b")
+		(uuid "eb261cfa-7e65-41ae-8a67-f862be4bf17c")
 	)
 	(junction
 		(at 137.16 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "efe89826-729d-4096-846e-af67525d7d15")
-	)
-	(junction
-		(at 165.1 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f1d3b041-06f9-4aca-a611-03fb5fbd2641")
 	)
 	(junction
 		(at 194.31 129.54)
@@ -2219,6 +2213,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f874a1dd-ba14-4b58-922f-9698668e7c3d")
+	)
+	(junction
+		(at 165.1 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fba60a7a-e3f2-46ed-97fd-2fe6075c016b")
 	)
 	(no_connect
 		(at 46.99 50.8)
@@ -2290,6 +2290,26 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 93.98) (xy 182.88 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03c5cffb-3326-452f-a5b6-b091510adb9d")
+	)
+	(wire
+		(pts
+			(xy 165.1 76.2) (xy 182.88 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0482848d-e80c-459c-8d5a-f90bfe1bb8bd")
+	)
+	(wire
+		(pts
 			(xy 20.32 50.8) (xy 24.13 50.8)
 		)
 		(stroke
@@ -2310,13 +2330,13 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 93.98) (xy 165.1 93.98)
+			(xy 182.88 76.2) (xy 194.31 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "09ee0464-2c1e-436e-947a-5f614b945b5c")
+		(uuid "0a547205-fea1-416f-804f-8b2236fa7534")
 	)
 	(wire
 		(pts
@@ -2330,13 +2350,13 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 93.98) (xy 129.54 93.98)
+			(xy 182.88 129.54) (xy 194.31 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0b81f422-7703-44c8-97a5-de400bd10048")
+		(uuid "1237e208-9ecc-451b-aa9b-f51360caa330")
 	)
 	(wire
 		(pts
@@ -2370,23 +2390,13 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 129.54) (xy 182.88 129.54)
+			(xy 154.94 86.36) (xy 154.94 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1ab87e5f-2099-49a7-bc89-ef965c9b858a")
-	)
-	(wire
-		(pts
-			(xy 165.1 76.2) (xy 182.88 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2248375d-f03d-4bc0-bd0c-f1494e394e90")
+		(uuid "228be2d5-fe85-4fce-9e24-6122a180ef7d")
 	)
 	(wire
 		(pts
@@ -2396,17 +2406,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "226bcb0f-585a-42f7-b141-adafd4b1bffe")
-	)
-	(wire
-		(pts
-			(xy 154.94 86.36) (xy 154.94 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "228be2d5-fe85-4fce-9e24-6122a180ef7d")
+		(uuid "246c889f-6a04-41ef-9180-01462d682c2d")
 	)
 	(wire
 		(pts
@@ -2420,6 +2420,26 @@
 	)
 	(wire
 		(pts
+			(xy 147.32 93.98) (xy 165.1 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ed119f0-56a9-4336-ab1d-1ed7d94c0406")
+	)
+	(wire
+		(pts
+			(xy 147.32 129.54) (xy 165.1 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36adcfc0-da32-4051-856b-d718f8e91aff")
+	)
+	(wire
+		(pts
 			(xy 111.76 129.54) (xy 129.54 129.54)
 		)
 		(stroke
@@ -2427,6 +2447,16 @@
 			(type default)
 		)
 		(uuid "377a040d-0fc2-4e9c-822e-5562480179f2")
+	)
+	(wire
+		(pts
+			(xy 111.76 93.98) (xy 129.54 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37ae579b-9a05-4864-bfd2-e8274aaffad6")
 	)
 	(wire
 		(pts
@@ -2457,16 +2487,6 @@
 			(type default)
 		)
 		(uuid "3e49b2ab-6c7d-421e-aa37-b6ec80d33629")
-	)
-	(wire
-		(pts
-			(xy 129.54 93.98) (xy 147.32 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3ec74634-ca74-42a5-a7c7-42f06104e6a0")
 	)
 	(wire
 		(pts
@@ -2520,23 +2540,33 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 93.98) (xy 182.88 93.98)
+			(xy 129.54 111.76) (xy 147.32 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4e43ca89-af64-4552-8b2a-c9d62db92a39")
+		(uuid "47d4171f-2dfb-4472-9953-87b4fec1a22f")
 	)
 	(wire
 		(pts
-			(xy 194.31 111.76) (xy 182.88 111.76)
+			(xy 165.1 129.54) (xy 182.88 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "53c473da-757b-4614-b033-8fdfd43ff96e")
+		(uuid "4bc328b2-eff9-47d1-9e1d-16fbbe86eb27")
+	)
+	(wire
+		(pts
+			(xy 111.76 58.42) (xy 129.54 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5493a44b-dbac-453e-8c83-3092c72407e9")
 	)
 	(wire
 		(pts
@@ -2550,6 +2580,16 @@
 	)
 	(wire
 		(pts
+			(xy 182.88 58.42) (xy 194.31 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57f1c826-97b7-41c9-948f-17f261e1bd2c")
+	)
+	(wire
+		(pts
 			(xy 20.32 58.42) (xy 24.13 58.42)
 		)
 		(stroke
@@ -2560,23 +2600,13 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 76.2) (xy 165.1 76.2)
+			(xy 129.54 93.98) (xy 147.32 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "601af551-17d2-4e41-8892-f4c8f830eef0")
-	)
-	(wire
-		(pts
-			(xy 129.54 111.76) (xy 147.32 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67ad317e-4332-4455-bb18-4fd30c479ef0")
+		(uuid "6342f42f-1027-4ea5-9c94-4a8928346926")
 	)
 	(wire
 		(pts
@@ -2600,16 +2630,6 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 111.76) (xy 165.1 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6b85cf23-702e-4762-855b-2b2e575c5d0e")
-	)
-	(wire
-		(pts
 			(xy 119.38 50.8) (xy 119.38 68.58)
 		)
 		(stroke
@@ -2630,13 +2650,13 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 58.42) (xy 129.54 58.42)
+			(xy 111.76 76.2) (xy 129.54 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "80a268db-690c-48de-966a-1ccea00c6d95")
+		(uuid "82c35010-2fe2-460f-9e7d-1373a718b7ca")
 	)
 	(wire
 		(pts
@@ -2656,7 +2676,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "844000bc-b68e-44d9-bc84-ca9f406f82bb")
+		(uuid "8a6dafe6-3fc3-4b7c-9073-3037cb6735b5")
 	)
 	(wire
 		(pts
@@ -2667,16 +2687,6 @@
 			(type default)
 		)
 		(uuid "8d929740-8a4d-4b14-8995-7de44e374181")
-	)
-	(wire
-		(pts
-			(xy 111.76 76.2) (xy 129.54 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d9f4ccb-ad59-4eec-bb65-3c2db5e0d924")
 	)
 	(wire
 		(pts
@@ -2700,26 +2710,6 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 58.42) (xy 182.88 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "91e31d24-9f47-4ee9-b1cc-f2c07f8a605f")
-	)
-	(wire
-		(pts
-			(xy 165.1 111.76) (xy 182.88 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9254b3f9-ae8b-4bbd-8a22-99a639d301ca")
-	)
-	(wire
-		(pts
 			(xy 101.6 38.1) (xy 101.6 50.8)
 		)
 		(stroke
@@ -2727,16 +2717,6 @@
 			(type default)
 		)
 		(uuid "9547b9a4-a805-4c74-90dc-c35180ed5fa8")
-	)
-	(wire
-		(pts
-			(xy 147.32 58.42) (xy 165.1 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "984ea0ad-c644-42d5-8569-49a304356dca")
 	)
 	(wire
 		(pts
@@ -2760,6 +2740,16 @@
 	)
 	(wire
 		(pts
+			(xy 147.32 76.2) (xy 165.1 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a23b30b6-6c55-490d-8a8b-0a294c8dde32")
+	)
+	(wire
+		(pts
 			(xy 50.8 60.96) (xy 46.99 60.96)
 		)
 		(stroke
@@ -2777,16 +2767,6 @@
 			(type default)
 		)
 		(uuid "b8a5bd5b-3bd4-4f1f-b30e-0707e25ac405")
-	)
-	(wire
-		(pts
-			(xy 111.76 111.76) (xy 129.54 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bab03c07-c0e8-4594-9172-8447765dd3e3")
 	)
 	(wire
 		(pts
@@ -2810,13 +2790,33 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 129.54) (xy 182.88 129.54)
+			(xy 129.54 58.42) (xy 147.32 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c5a7d513-bff2-4fc1-b35f-6aee341969f9")
+		(uuid "c1e65587-9578-4b36-a3a0-f82c38c2d109")
+	)
+	(wire
+		(pts
+			(xy 111.76 111.76) (xy 129.54 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2f2c688-3d21-4180-b1ee-889df48958be")
+	)
+	(wire
+		(pts
+			(xy 147.32 111.76) (xy 165.1 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c354a29d-6ba3-4ce8-9b2a-ef7a71fe8b03")
 	)
 	(wire
 		(pts
@@ -2830,6 +2830,16 @@
 	)
 	(wire
 		(pts
+			(xy 182.88 93.98) (xy 194.31 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd49f5b4-d10f-460d-9231-bc44553463e5")
+	)
+	(wire
+		(pts
 			(xy 137.16 104.14) (xy 137.16 121.92)
 		)
 		(stroke
@@ -2840,13 +2850,13 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 76.2) (xy 182.88 76.2)
+			(xy 182.88 111.76) (xy 194.31 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d54a256d-7c9b-403f-abd1-12683c507149")
+		(uuid "d03b2392-d450-4a24-bcb7-61134de8670c")
 	)
 	(wire
 		(pts
@@ -2920,16 +2930,6 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 129.54) (xy 165.1 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7f40a0e-7923-4bfa-b2f5-04505eaf389c")
-	)
-	(wire
-		(pts
 			(xy 50.8 71.12) (xy 46.99 71.12)
 		)
 		(stroke
@@ -2940,16 +2940,6 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 93.98) (xy 182.88 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb711371-4b09-4550-9a4b-8d6e69c6c533")
-	)
-	(wire
-		(pts
 			(xy 83.82 68.58) (xy 83.82 86.36)
 		)
 		(stroke
@@ -2957,6 +2947,26 @@
 			(type default)
 		)
 		(uuid "ed65c052-72a5-41f8-a441-6879cf68854c")
+	)
+	(wire
+		(pts
+			(xy 165.1 58.42) (xy 182.88 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee26ca9d-e9f7-459c-9e6c-30c1126325b4")
+	)
+	(wire
+		(pts
+			(xy 147.32 58.42) (xy 165.1 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee6a5b34-44d3-4a93-b385-4b9674bc4e3d")
 	)
 	(wire
 		(pts
@@ -2980,16 +2990,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 58.42) (xy 147.32 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f22da395-c29f-4099-982f-a27c4b83c40c")
-	)
-	(wire
-		(pts
 			(xy 50.8 63.5) (xy 46.99 63.5)
 		)
 		(stroke
@@ -2997,16 +2997,6 @@
 			(type default)
 		)
 		(uuid "f26f1b99-e53b-4bed-bc4f-a9998ece73e7")
-	)
-	(wire
-		(pts
-			(xy 182.88 58.42) (xy 194.31 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f422f969-cf18-485e-9a0a-6e99e9f48bbf")
 	)
 	(wire
 		(pts
@@ -3027,6 +3017,16 @@
 			(type default)
 		)
 		(uuid "fe3e91b0-9799-4cf5-95f3-e90d93c34ab8")
+	)
+	(wire
+		(pts
+			(xy 165.1 111.76) (xy 182.88 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff8f4287-127d-48c6-ae0a-8b48080191d5")
 	)
 	(text "0.800\" apart"
 		(exclude_from_sim no)
@@ -3292,7 +3292,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 182.88 107.95 90)
+		(at 182.88 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3306,7 +3306,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -3315,7 +3315,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -3516,7 +3516,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 111.76 90.17 90)
+		(at 111.76 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3530,7 +3530,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -3539,7 +3539,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -3675,7 +3675,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 147.32 54.61 90)
+		(at 147.32 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3689,7 +3689,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -3698,7 +3698,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -3763,7 +3763,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 93.98 90.17 90)
+		(at 93.98 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3777,7 +3777,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -3786,7 +3786,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -3851,7 +3851,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 111.76 125.73 90)
+		(at 111.76 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3865,7 +3865,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -3874,7 +3874,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4121,7 +4121,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 182.88 90.17 90)
+		(at 182.88 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4135,7 +4135,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4144,7 +4144,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4209,7 +4209,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 165.1 125.73 90)
+		(at 165.1 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4223,7 +4223,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4232,7 +4232,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4569,7 +4569,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 165.1 107.95 90)
+		(at 165.1 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4583,7 +4583,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4592,7 +4592,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4657,7 +4657,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 111.76 54.61 90)
+		(at 111.76 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4671,7 +4671,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4680,7 +4680,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4813,7 +4813,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 93.98 107.95 90)
+		(at 93.98 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4827,7 +4827,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4836,7 +4836,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -4969,7 +4969,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 165.1 72.39 90)
+		(at 165.1 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4983,7 +4983,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -4992,7 +4992,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -5498,7 +5498,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 129.54 125.73 90)
+		(at 129.54 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5512,7 +5512,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -5521,7 +5521,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -5586,7 +5586,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 165.1 90.17 90)
+		(at 165.1 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5600,7 +5600,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -5609,7 +5609,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -5881,7 +5881,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 165.1 54.61 90)
+		(at 165.1 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5895,7 +5895,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -5904,7 +5904,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -6375,7 +6375,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 147.32 107.95 90)
+		(at 147.32 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6389,7 +6389,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -6398,7 +6398,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -6597,7 +6597,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 182.88 54.61 90)
+		(at 182.88 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6611,7 +6611,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -6620,7 +6620,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -6685,7 +6685,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 129.54 90.17 90)
+		(at 129.54 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6699,7 +6699,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -6708,7 +6708,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -6773,7 +6773,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 111.76 107.95 90)
+		(at 111.76 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6787,7 +6787,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -6796,7 +6796,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -6929,7 +6929,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 182.88 125.73 90)
+		(at 182.88 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6943,7 +6943,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -6952,7 +6952,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -7156,7 +7156,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 182.88 72.39 90)
+		(at 182.88 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7170,7 +7170,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -7179,7 +7179,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -7244,7 +7244,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 147.32 72.39 90)
+		(at 147.32 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7258,7 +7258,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -7267,7 +7267,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -7468,7 +7468,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 93.98 72.39 90)
+		(at 93.98 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7482,7 +7482,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -7491,7 +7491,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -7758,7 +7758,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 129.54 72.39 90)
+		(at 129.54 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7772,7 +7772,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -7781,7 +7781,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -7914,7 +7914,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 111.76 72.39 90)
+		(at 111.76 72.39 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7928,7 +7928,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -7937,7 +7937,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -8138,7 +8138,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 93.98 54.61 90)
+		(at 93.98 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8152,7 +8152,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -8161,7 +8161,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -8226,7 +8226,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 129.54 54.61 90)
+		(at 129.54 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8240,7 +8240,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -8249,7 +8249,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -8380,7 +8380,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 147.32 125.73 90)
+		(at 147.32 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8394,7 +8394,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -8403,7 +8403,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -8536,7 +8536,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 129.54 107.95 90)
+		(at 129.54 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8550,7 +8550,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -8559,7 +8559,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
@@ -8624,7 +8624,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 147.32 90.17 90)
+		(at 147.32 90.17 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8638,7 +8638,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "D"
@@ -8647,7 +8647,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
