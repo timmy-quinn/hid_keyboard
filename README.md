@@ -1,23 +1,62 @@
 # The KeyBird
+The KeyBird is a BLE split keyboard with a vertical stagger and 5 thumb keys. It features hot-swap sockets compatible with any MX switches. The design is inspired by other popular split keyboards such as the [Corne](https://github.com/foostan/crkbd) or [Kinesis keyboards](https://kinesis-ergo.com/?gad_source=1&gclid=CjwKCAiAwaG9BhAREiwAdhv6Y5c0aeCQfguv5zLsIx9gEMnvGuGCnlFAN4PNxmo4kbpMpXuSq_xYTRoC38cQAvD_BwE).
 
-A split, ortholinear keyboard that addresses the limitations and inefficiencies of standard keyboards.
+A split, ortholinear keyboard that addresses the limitations and inefficiencies of standard keyboards. 
 
-The initial build will support BLE only, but I plan to support both in the future, allowing the user (presumably just me), to choose between the convenience of wireless, or the almost imperceptible performance improvements offered by USB.
+Built on Zephyr RTOS using an Adafruit NRF52840 Feather. 
 
-Built on Zephyr RTOS using NRF series microcontrollers. 
 
-## Protoypes
-### KeyBird P1
-Used an NRF53 development board connected to a little breadboard ciruit to test the functionality of the key matrix. The LEDs were a visual representation of the keyboard scanning across the rows in the key matrix. The prototype functioned as a BLE peripheral, sending notifications to a computer when the button on the breadboard was pressed. 
+## Project Status
+### Firmware 
+- [x] Proof of concept: Single board BLE HID over GATT
+- [x] Key matrix
+- [x] Multi-role functionality
+- [x] Process keypresses from secondary keyboard
+- [ ] Improvements based on user experience
+### Electronics 
+- [x] Proof of concept: Perf board
+- [x] Design and order PCBs
+- [ ] Assemble PCBs
+- [ ] Improvements based on user experience 
+### Case
+- [ ] Design plate
+- [ ] Design and 3D print case
+- [ ] Create a wooden case
+### Stretch goals
+- [ ] Design 
+- [ ] Add NFC pairing capability
+- [ ] Add USB option
+- [ ] Add RGB LEDs
+- [ ] OTA update
+- [ ] Keyboard configuration via file upload
 
-![](04_Notes/KeyBird_P1.jpg)
+## Hardware
+### KeyBird V1
+![](04_Pictures/kb_left.png)  
+Left hand PCB 
+  
+  
+![](04_Pictures/kb_right.png)  
+Right hand PCB
 
-### KeyBird P2
-The KeyBird P2 refined the design from P1. It implemented a 4 by 4 key matrix on a perfboard, which could be read by an Adafruit NRF52840 Feather. Additionally, it acted as both a BLE peripheral and central, capable of reading key ppresses from a second keyboard, and relaying them to a computer. This is a key function in a split keyboard, since both halves must be synchronized when communicating with a computer. 
 
-![](04_Notes/KeyBird_P2.jpg)
+## Proof of Concept 
+This early design enabled me to develop the firmware and test to make sure the switch matrix worked as expected. I made the proof of concept on a small piece of perf board, with a 4x4 button matrix and an Adafruit NRF52840 Feather. 
 
-### KeyBird P3
+![](04_Pictures/KeyBird_P2.jpg)
+## Development requirements  
+For hardware development KiCad 8 is used. 
 
-The KeyBird P3 will feature two custom PCBs with a split ortholinear layout, horizontally staggered keys, and 5 key thumb pads.
+For firmware Development nRF Connect SDK v2.6.1 is required. It can be conveniently used with the NRF Visual Studio Code Extension. More information can be found [here](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html). 
+
+#### Generating first build. 
+1. Navigate to the NRF Connect Tab in VS Code. 
+![](04_Pictures/NRF_Conn_tab.png)  
+
+2. Select Add Build Configuration. 
+![](04_Pictures/Add_build_config.png)
+
+3. Choose one of the presets. The presets are determined by the CMakePresets.json, but they can be simply be selected in the GUI.  
+![](04_Pictures/Select_cmake_preset.png)
+
 
