@@ -5,8 +5,6 @@ A split, ortholinear keyboard that addresses the limitations and inefficiencies 
 
 Built on Zephyr RTOS using an Adafruit NRF52840 Feather. 
 
-## Development requirements  
-For firmware Development nRF Connect SDK v2.6.1 is required. It can be conveniently used with the NRF Visual Studio Code Extension. More information can be found [here](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html). 
 
 ## Project Status
 ### Firmware 
@@ -46,3 +44,19 @@ Right hand PCB
 This early design enabled me to develop the firmware and test to make sure the switch matrix worked as expected. I made the proof of concept on a small piece of perf board, with a 4x4 button matrix and an Adafruit NRF52840 Feather. 
 
 ![](04_Pictures/KeyBird_P2.jpg)
+## Development requirements  
+For hardware development KiCad 8 is used. 
+
+For firmware Development nRF Connect SDK v2.6.1 is required. It can be conveniently used with the NRF Visual Studio Code Extension. More information can be found [here](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html). 
+
+#### Generating first build. 
+1. Navigate to the NRF Connect Tab in VS Code. 
+![](04_Pictures/NRF_Conn_tab.png)  
+
+2. Select Add Build Configuration. 
+![](04_Pictures/Add_build_config.png)
+
+3. Choose one of the presets. The presets are determined by the CMakePresets.json, but they can be simply be selected in the GUI.  
+![](04_Pictures/Select_cmake_preset.png)
+
+
