@@ -4,6 +4,16 @@ The KeyBird is a BLE split keyboard with a vertical stagger and 5 thumb keys. It
 A split, ortholinear keyboard that addresses the limitations and inefficiencies of standard keyboards. 
 
 Built on Zephyr RTOS using an Adafruit NRF52840 Feather. 
+
+## Project Status
+- [ ] Checkbox  
+- [X] 
+  
+
+### TODO 
+- Assemble and test keyboards
+- 
+
 ## Hardware
 ### KeyBird V1
 ![](04_Pictures/kb_left.png) 
@@ -17,4 +27,4 @@ Right hand PCB
 ## Proof of Concept 
 This early proof of concept designs enabled me to develop the firmware and test to make sure the switch matrix worked as expected. I made the proof of concept on a small piece of perf board, with a 4x4 button matrix and an Adafruit NRF52840 Feather. 
 
-![](04_Notes/KeyBird_P2.jpg)
+![](04_Pictures/KeyBird_P2.jpg)
