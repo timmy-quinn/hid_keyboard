@@ -20,8 +20,8 @@ Built on Zephyr RTOS using an Adafruit NRF52840 Feather.
 - [ ] Improvements based on user experience 
 ### Case
 - [ ] Design plate
-- [ ] Design and 3D print case
-- [ ] Create a wooden case
+- [ ] Design and 3D-print case
+- [ ] Build a wooden case
 ### Stretch goals
 - [ ] Design 
 - [ ] Add NFC pairing capability
@@ -49,14 +49,14 @@ For hardware development KiCad 8 is used.
 
 For firmware Development nRF Connect SDK v2.6.1 is required. It can be conveniently used with the NRF Visual Studio Code Extension. More information can be found [here](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html). 
 
-#### Generating first build. 
-1. Navigate to the NRF Connect Tab in VS Code. 
+#### Generating first build.  
+1. Navigate to the NRF Connect Tab in VS Code.  
 ![](04_Pictures/NRF_Conn_tab.png)  
-
-2. Select Add Build Configuration. 
-![](04_Pictures/Add_build_config.png)
-
-3. Choose one of the presets. The presets are determined by the CMakePresets.json, but they can be simply be selected in the GUI.  
-![](04_Pictures/Select_cmake_preset.png)
+  
+2. Select Add Build Configuration.  
+![](04_Pictures/Add_build_config.png)  
+  
+3. Choose one of the presets. The presets are determined by the CMakePresets.json, but they can be simply be selected in the GUI.    
+![](04_Pictures/Select_cmake_preset.png)  
 
 
