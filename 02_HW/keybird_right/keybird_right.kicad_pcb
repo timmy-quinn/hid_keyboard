@@ -34461,8 +34461,8 @@
 		(uuid "c4891d47-7a23-4e21-b58b-0ca48d1acea5")
 	)
 	(gr_line
-		(start 186.65 115.5625)
-		(end 178.6 115.5625)
+		(start 178.6 115.5625)
+		(end 186.65 115.5625)
 		(stroke
 			(width 0.05)
 			(type default)
