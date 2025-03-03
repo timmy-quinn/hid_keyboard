@@ -18,6 +18,7 @@ despite the fact that a 4mm gasket is being used. This allows for the gasket to 
 - From the top of the plate to the top of the PCBs is 5.0mm <br>
 - The PCB and plate (when using an FR-4 plate will both be 1.6mm) <br>
 - The thickness of the hot swappable socket is 1.85mm <br>
+- The switch cutout holes should be 14mm by 14mm squares
 <br>
 #### Total distances from top of plate to bottom of case: <br>
 10.45mm = 5 (top of plate to pcb) + 1.6 (pcb) + 1.85mm (hot swap socket) + 3mm (tolerance) <br>
