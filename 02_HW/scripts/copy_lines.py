@@ -1,5 +1,6 @@
 import pcbnew 
 import sys
+import os
 
 source_layer_names = ["User.Drawings", "User.Eco1", "User.Edge_Cuts"]
 target_layer_name = "User.9"
@@ -13,12 +14,10 @@ def get_board(path =""):
         board = pcbnew.GetBoard()
         if(board is None):
             raise ValueError("board not found")
-
     else: 
         print(f"loading board from path {path}") 
         board = pcbnew.LoadBoard(path)
     return board
-
 
 def copy_lines(board): 
     # Define source layers (you can add or change layers)
@@ -63,7 +62,6 @@ def copy_footprint_graphics(board, source_layer_names, target_layer_name):
     # Convert layer names to layer IDs
     source_layers = [get_layer_id(board, name) for name in source_layer_names]
     target_layer = get_layer_id(board, target_layer_name)
-
     copied_count = 0
 
     # Iterate over all footprints
@@ -73,45 +71,45 @@ def copy_footprint_graphics(board, source_layer_names, target_layer_name):
         # Iterate over footprint graphic elements (lines, arcs, circles, polygons)
         for drawing in footprint.GraphicalItems():
             if isinstance(drawing, pcbnew.PCB_SHAPE) and drawing.GetLayer() in source_layers:
-                print(f"Copying shape from footprint on layer {drawing.GetLayer()}")
-
                 # Create a new independent shape
                 new_shape = pcbnew.PCB_SHAPE(board)
                 new_shape.SetShape(drawing.GetShape())
                 new_shape.SetLayer(target_layer)
                 new_shape.SetWidth(drawing.GetWidth())
 
-                # Preserve position (coordinates are relative to footprint origin)
-                new_shape.SetStart(footprint.GetPosition() + drawing.GetStart())
-                new_shape.SetEnd(footprint.GetPosition() + drawing.GetEnd())
-
-                # Add to board as an independent graphical element
+                new_shape.SetStart(drawing.GetStart())
+                new_shape.SetEnd(drawing.GetStart())
                 board.Add(new_shape)
                 copied_count += 1
 
     # Refresh PCB view
     print(f"✅ Copied {copied_count} graphical elements from footprints to {board.GetLayerName(target_layer)} layer.")
 
+def set_line_width(board, target_layer_name, width):
+    for drawing in board.GetDrawings(): 
+        if isinstance(drawing, pcbnew.PCB_SHAPE):
+            print("is instance of a drawing")
+            print(f"drawing layer: {drawing.GetLayer()}")
+            if drawing.GetLayer() == get_layer_id(board, target_layer_name):
+                drawing.SetWidth(width)                
 
-
-def test_layers(board):
-    for drawing in board.GetDrawings():
-        print("got drawing")
-        print(f"Found drawing fo type:{type(drawing)} on layer ID: {drawing.GetLayer()}")
 
 def main(): 
     if len(sys.argv) < 3:
-        raise ValueError("Please provide the path to the board file as an argument")   
+        raise ValueError("Please provide the path to the board and the the name of the new file")   
     board_file = sys.argv[1]
     new_file_name = sys.argv[2]
-    new_file = new_file_name + ".kicad_pcb"
+    new_file_path = new_file_name + ".kicad_pcb"
+    if os.path.exists(new_file_path):
+        os.remove(new_file_path)
+        print("Removed pre-existing file")    
+    
     board = get_board(board_file) 
     copy_footprint_graphics(board, source_layer_names, target_layer_name)
+    set_line_width(board, "User.9", 0)
     board.SetModified()
-    pcbnew.SaveBoard(new_file, board)
+    pcbnew.SaveBoard(new_file_path, board)
     pcbnew.Refresh()
-
-#    copy_lines(board)
 
 if __name__ == "__main__":
     main()
