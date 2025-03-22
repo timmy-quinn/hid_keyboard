@@ -4,7 +4,8 @@
 /.vscode/
 
 # build
-/build*/
-/child_image/
+/release_*/
+/debug_*/
+
 
 /uart_logs/

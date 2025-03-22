@@ -88,7 +88,7 @@ static void set_adv_state(bool adv) {
 }
 
 bool kb_periph_is_adv() {
-    bool rtn;
+    bool rtn = false;
     K_SPINLOCK(&adv_spinlock) {
         rtn = is_adv;
     }
