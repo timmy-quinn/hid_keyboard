@@ -14,15 +14,15 @@
 &pinctrl {
 	uart0_default: uart0_default {
 		group1 {
-			psels = <NRF_PSEL(UART_TX, 0, 7)>,
-				<NRF_PSEL(UART_RX, 1, 8)>;
+			psels = <NRF_PSEL(UART_TX, 1, 9)>,
+				<NRF_PSEL(UART_RX, 0, 8)>;
 		};
 	};
 
 	uart0_sleep: uart0_sleep {
 		group1 {
-			psels = <NRF_PSEL(UART_TX, 0, 7)>,
-				<NRF_PSEL(UART_RX, 1, 8)>;
+			psels = <NRF_PSEL(UART_TX, 1, 9)>,
+				<NRF_PSEL(UART_RX, 0, 8)>;
 			low-power-enable;
 		};
 	};
@@ -31,21 +31,29 @@
 / {
 	mtrxout {
         compatible = "kb-mtrx-out";
-        swout3: sw_out_3{
-            gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-            label = "switch matrix output 1"; 
+        swout0: sw_out_5{
+            gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
+            label = "switch matrix output 5"; 
         };
-        swout2: sw_out_2{
-            gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-            label = "switch matrix output 2"; 
+        swout1: sw_out_4{
+            gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+            label = "switch matrix output 4"; 
         };
-        swout0: sw_out_0{
-            gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
+        swout2: sw_out_3{
+            gpios = <&gpio0 7 GPIO_ACTIVE_LOW>;
             label = "switch matrix output 3"; 
         };
-        swout1: sw_out_1{
-            gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
-            label = "switch matrix output 4"; 
+        swout3: sw_out_2{
+            gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
+            label = "switch matrix output 2"; 
+        };
+        swout4: sw_out_1{
+            gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+            label = "switch matrix output 1"; 
+        };
+        swout5: sw_out_0{
+            gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+            label = "switch matrix output 0"; 
         };
 		pwr: pwr {
             gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
@@ -60,21 +68,25 @@
 			label = "Push button switch";
 			zephyr,code = <INPUT_KEY_0>;
 		};
-        swin0: sw_in_0 {
-            gpios = <&gpio0 5 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
-            label = "switch matrix input 0"; 
+        swin0: sw_in_4 {
+            gpios = <&gpio0 13 (GPIO_PULL_UP| GPIO_ACTIVE_LOW)>; 
+            label = "switch matrix input 4"; 
         };
-        swin1: sw_in_1 {
-            gpios = <&gpio0 30 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
-            label = "switch matrix input 1"; 
+        swin1: sw_in_3 {
+            gpios = <&gpio0 15 (GPIO_PULL_UP| GPIO_ACTIVE_LOW)>; 
+            label = "switch matrix input 3"; 
         };
         swin2: sw_in_2 {
-            gpios = <&gpio0 28 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
+            gpios = <&gpio0 24 (GPIO_PULL_UP| GPIO_ACTIVE_LOW)>; 
             label = "switch matrix input 2"; 
         };
-        swin3: sw_in_3 {
-            gpios = <&gpio0 2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>; 
-            label = "switch matrix input 3"; 
+        swin3: sw_in_1 {
+            gpios = <&gpio0 25 (GPIO_PULL_UP| GPIO_ACTIVE_LOW)>; 
+            label = "switch matrix input 1"; 
+        };
+        swin4: sw_in_0 {
+            gpios = <&gpio0 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; 
+            label = "switch matrix input 0"; 
         };
 	};
 };
