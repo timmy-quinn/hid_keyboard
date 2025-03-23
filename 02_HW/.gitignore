@@ -1,3 +1,6 @@
 **/*backups*/**
 *.lck
 *.kicad_prl
+*.kicad_sch-bak
+**/report.txt
+**/fp-info-cache
