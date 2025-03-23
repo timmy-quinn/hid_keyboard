@@ -1,7 +1,7 @@
 # The KeyBird
 The KeyBird is a BLE split keyboard with a vertical stagger and 5 thumb keys. It features hot-swap sockets compatible with any MX switches. The design is inspired by other popular split keyboards such as the [Corne](https://github.com/foostan/crkbd) or [Kinesis keyboards](https://kinesis-ergo.com/?gad_source=1&gclid=CjwKCAiAwaG9BhAREiwAdhv6Y5c0aeCQfguv5zLsIx9gEMnvGuGCnlFAN4PNxmo4kbpMpXuSq_xYTRoC38cQAvD_BwE).
-
-Built on Zephyr RTOS using an Adafruit NRF52840 Feather.
+  
+![](05_Pictures/Prototype.jpg)  
 
 ## Project Status
 ### Firmware 
@@ -13,11 +13,11 @@ Built on Zephyr RTOS using an Adafruit NRF52840 Feather.
 ### Electronics 
 - [x] Proof of concept: Perf board
 - [x] Design and order PCBs
-- [ ] Assemble PCBs
+- [x] Assemble PCBs
 - [ ] Improvements based on user experience 
 ### Case
-- [ ] Design plate
-- [ ] Design and 3D-print case
+- [x] Design case and plate
+- [ ] 3D-print case and plate
 - [ ] Build a wooden case
 ### Stretch goals
 - [ ] Enable tenting
@@ -27,35 +27,21 @@ Built on Zephyr RTOS using an Adafruit NRF52840 Feather.
 - [ ] OTA update
 - [ ] Keyboard configuration via file upload
 
-## Hardware
-### KeyBird V1
-![](05_Pictures/kb_left.png)  
-Left hand PCB 
-  
-  
-![](05_Pictures/kb_right.png)  
-Right hand PCB
 
-These PCBs are shields for Adafruit NRF52840 Feather development boards. In the future I may design a PCB with the MCU built in, but for now, I wanted to speed up the development process, and focus on the actual key layout.  
-
-### Why does it look so weird? 
+### Design Notes (AKA why does it look like that?) 
 If you've never plunged down the ergonomic keyboard rabbit hole before, I'll give you a quick breakdown explaining some of the design decisions that went into my keyboard.  
   
-1. Split  
-Splitting a keyboard in half allows your hands and wrists to rest at a more natural and comfortable position
-2. Ortholinear  
+**1. Split**  
+Splitting a keyboard in half allows your hands and wrists to rest at a more natural and comfortable position  
+**2. Ortholinear**   
 This is just a fancy way to say that the keys are layed out in vertical columns, unlike typical keyboards, where the keys form horizontal rows, but are vertically staggered. Using vertical columns, especially when those columns are staggered to conform with the length of each finger, provides a more ergnomic typing experience.
-3. Reduced key count  
+**3. Reduced key count**  
 Reducing the number of keys enables you to type faster and more efficiently since you do not have to stretch your fingers for hard to reach keys. This is especially helpful for coding, where you have to use symbols like ~ and | more often than most typers. But you might wonder, if you reduce the number of keys, don't you reduct the number of characters you can type? That is where the next design principle comes into play.
-4. Layers  
+**4. Layers**  
 A reduced keyboard makes up for its lack of keys by using layers. Layers are changed with the press of a button. When pressing the layer button, the same physical keys will transmit a different character to your PC. The shift key on a normal keyboard functions like this. On a reduced size keyboard, there will be at least one other layer key besides the shift key, enabling the same number of characters to be typed with fewer keys.  
-5. Thumb cluster  
+**5. Thumb cluster**  
 The thumb cluster solves one of the inefficiences of a standard keyboard, where both of your thumbs are dedicated to a single key. Adding a thumb cluster enables you to press far more keys without increasing how much you have to move your hand. This helps counter balance the reduced key size, while still preventing you from have to stretch and reach to use necessary keys.  
-
-## Proof of Concept 
-This early design enabled me to develop the firmware and test to make sure the switch matrix worked as expected. I made the proof of concept on a small piece of perf board, with a 4x4 button matrix and an Adafruit NRF52840 Feather. 
-
-![](05_Pictures/KeyBird_P2.jpg)
+  
 ## Development requirements  
 For hardware development KiCad 8 is used. 
 
