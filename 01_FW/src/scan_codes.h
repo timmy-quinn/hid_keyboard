@@ -25,5 +25,16 @@
 #define KEY_Y 0x1c
 #define KEY_Z 0x1d
 
+#define KEY_RET 0x28
+#define KEY_ESC 0x29
+#define KEY_DEL 0x29
+#define KEY_SPACE 0x2C
+
+#define KEY_LCTRL 0xE0
 #define KEY_LSHIFT 0xE1
+#define KEY_LALT 0xE2
+#define KEY_LGUI 0xE3
+#define KEY_RCTRL 0xE4
 #define KEY_RSHIFT 0xE5
+#define KEY_RALT 0xE6
+#define KEY_RGUI 0xE7
