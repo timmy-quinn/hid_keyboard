@@ -1,6 +1,7 @@
 #ifndef KB_HID_COMMON
 #define KB_HID_COMMON
 
+#include "../scan_codes.h"
 #include <stdbool.h>
 #include <stdint.h>
 

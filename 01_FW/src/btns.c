@@ -45,9 +45,14 @@ static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
 #define ADV_BEGIN SCN_CD_RESERVED4 
 #define ADV_ACCEPT SCN_CD_RESERVED5
 
+#define IS_BLE_SCN_CD(scn_cd) (((scn_cd) == SCAN_BEGIN) || \
+                            ((scn_cd) == SCAN_ACCEPT) || \
+                            ((scn_cd) == ADV_BEGIN) || \
+                            ((scn_cd) == ADV_ACCEPT) )
+
 #ifdef CONFIG_KB_RIGHT 
 // This is because SOMEBODY designed the hardware stupidly. 
-// On right board the cols go from left to right, on left board the cols go from right to left
+// On right board the cols go from left #define SCN_CD_ERR_ROLL_OVER 0x01Uto right, on left board the cols go from right to left
 static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
     GPIO_DT_SPEC_GET(DT_NODELABEL(swout0), gpios),
     GPIO_DT_SPEC_GET(DT_NODELABEL(swout1), gpios),
@@ -145,8 +150,7 @@ static void btn_scan() {
         if (key_mtrx[row][scan_col].is_pressed != btn_pressed) {
             key_mtrx[row][scan_col].is_pressed = btn_pressed;
 
-            if (key_mtrx[row][scan_col].scan_code >= ADV_ACCEPT &&
-                key_mtrx[row][scan_col].scan_code <= SCAN_ACCEPT) {
+            if (IS_BLE_SCN_CD(key_mtrx[row][scan_col].scan_code)) {
                 special_key_handler(&key_mtrx[row][scan_col]);
             } else {
                 kb_hid_set_key_evt(&(key_mtrx[row][scan_col]));

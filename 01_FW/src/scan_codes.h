@@ -80,7 +80,7 @@ typedef uint8_t scan_code_t;
 #define SCN_CD_INSERT 0x49U
 #define SCN_CD_HOME 0x4aU
 #define SCN_CD_PG_UP 0x4bU
-#define SCN_CD_PG_DWN 0x4cU
+#define SCN_CD_DEL_FWD 0x4cU
 #define SCN_CD_END 0x4dU
 #define SCN_CD_PG_DWN 0x4eU
 #define SCN_CD_R_ARROW 0x4fU
@@ -138,7 +138,7 @@ typedef uint8_t scan_code_t;
 #define SCN_CD_LOCKING_NUM_LCK 0x83U
 #define SCN_CD_LOCKING_SCRL_LCK 0x84U
 #define SCN_CD_KP_COMMA 0x85U
-#define SCN_CD_KP_EQUAL 0x86U
+#define SCN_CD_KP_EQUAL_SIGN 0x86U
 #define SCN_CD_INTERNATIONAL1 0x87U
 #define SCN_CD_INTERNATIONAL2 0x88U
 #define SCN_CD_INTERNATIONAL3 0x89U
@@ -214,11 +214,11 @@ typedef uint8_t scan_code_t;
 #define SCN_CD_KP_EXCLAMATION 0xcfU
 #define SCN_CD_KP_MEM_STORE 0xd0U
 #define SCN_CD_KP_MEM_RECALL 0xd1U
-#define SCN_CD_KP_CLR 0xd2U
-#define SCN_CD_KP_ADD 0xd3U
-#define SCN_CD_KP_SUB 0xd4U
-#define SCN_CD_KP_MULT 0xd5U
-#define SCN_CD_KP_DIV 0xd6U
+#define SCN_CD_KP_MEM_CLR 0xd2U
+#define SCN_CD_KP_MEM_ADD 0xd3U
+#define SCN_CD_KP_MEM_SUB 0xd4U
+#define SCN_CD_KP_MEM_MULT 0xd5U
+#define SCN_CD_KP_MEM_DIV 0xd6U
 #define SCN_CD_KP_PLUS_MINUS 0xd7U
 #define SCN_CD_KP_CLR 0xd8U
 #define SCN_CD_KP_CLR_ENT 0xd9U
