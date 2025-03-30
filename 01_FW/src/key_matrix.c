@@ -1,4 +1,4 @@
-#include "btns.h"
+#include "key_matrix.h"
 
 #include <hal/nrf_gpio.h>
 #include <zephyr/drivers/gpio.h>
@@ -21,10 +21,6 @@
 #define KEY_MATRIX_IN_COUNT 5
 #define SLEEP_TIME_MS 2
 
-#define ADV_ACC 0xF0
-#define ADV_BEGIN 0xF1
-#define SCAN_BEGIN 0xF2
-#define SCAN_ACCEPT 0xF3
 
 static struct k_work_delayable btn_scan_work;
 
@@ -44,10 +40,19 @@ static const struct gpio_dt_spec key_mtrx_in[KEY_MATRIX_IN_COUNT] = {
     GPIO_DT_SPEC_GET(DT_NODELABEL(swin4), gpios),
     };
 
+#define SCAN_BEGIN SCN_CD_RESERVED2 
+#define SCAN_ACCEPT SCN_CD_RESERVED3 
+#define ADV_BEGIN SCN_CD_RESERVED4 
+#define ADV_ACCEPT SCN_CD_RESERVED5
+
+#define IS_BLE_SCN_CD(scn_cd) (((scn_cd) == SCAN_BEGIN) || \
+                            ((scn_cd) == SCAN_ACCEPT) || \
+                            ((scn_cd) == ADV_BEGIN) || \
+                            ((scn_cd) == ADV_ACCEPT) )
 
 #ifdef CONFIG_KB_RIGHT 
 // This is because SOMEBODY designed the hardware stupidly. 
-// On right board the cols go from left to right, on left board the cols go from right to left
+// On right board the cols go from left #define SCN_CD_ERR_ROLL_OVER 0x01Uto right, on left board the cols go from right to left
 static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
     GPIO_DT_SPEC_GET(DT_NODELABEL(swout0), gpios),
     GPIO_DT_SPEC_GET(DT_NODELABEL(swout1), gpios),
@@ -58,7 +63,7 @@ static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
     };
 
 static kb_key_t key_mtrx[KEY_MATRIX_IN_COUNT][KEY_MATRIX_OUT_COUNT] = {
-    {{ADV_ACC, 0}, {ADV_BEGIN, 0}, {SCAN_BEGIN, 0}, {SCAN_ACCEPT, 0}, {KEY_H, 0}, {KEY_H, 0}},
+    {{ADV_ACCEPT, 0}, {ADV_BEGIN, 0}, {SCAN_BEGIN, 0}, {SCAN_ACCEPT, 0}, {KEY_H, 0}, {KEY_H, 0}},
     {{KEY_Y, 0}, {KEY_U, 0}, {KEY_I, 0}, {KEY_O, 0}, {KEY_P, 0}, {KEY_H, 0}},
     {{KEY_H, 0}, {KEY_J, 0}, {KEY_K, 0}, {KEY_L, 0}, {KEY_H, 0}, {KEY_H, 0}},
     {{KEY_N, 0}, {KEY_M, 0}, {KEY_H, 0}, {KEY_LSHIFT, 0}, {KEY_H, 0}, {KEY_H, 0}},
@@ -77,11 +82,11 @@ static const struct gpio_dt_spec key_mtrx_out[KEY_MATRIX_OUT_COUNT] = {
     };
 
 static kb_key_t key_mtrx[KEY_MATRIX_IN_COUNT][KEY_MATRIX_OUT_COUNT] = {
-    {{KEY_H, 0}, {KEY_H, 0}, {SCAN_ACCEPT, 0}, {SCAN_BEGIN, 0}, {ADV_BEGIN, 0}, {ADV_ACC, 0}},
-    {{KEY_H, 0}, {KEY_Q, 0}, {KEY_W, 0}, {KEY_E, 0}, {KEY_R, 0}, {KEY_T, 0}},
-    {{KEY_H, 0}, {KEY_A, 0}, {KEY_S, 0}, {KEY_D, 0}, {KEY_F, 0}, {KEY_G, 0}},
-    {{KEY_H, 0}, {KEY_Z, 0}, {KEY_X, 0}, {KEY_V, 0}, {KEY_B, 0}, {KEY_C, 0}},
-    {{KEY_I, 0}, {KEY_J, 0}, {KEY_K, 0}, {KEY_RET, 0}, {KEY_SPACE, 0}, {KEY_H, 0}},
+    {{SCN_CD_H, 0}, {SCN_CD_H, 0}, {SCAN_ACCEPT, 0}, {SCAN_BEGIN, 0}, {ADV_BEGIN, 0}, {ADV_ACCEPT, 0}},
+    {{SCN_CD_H, 0}, {SCN_CD_Q, 0}, {SCN_CD_W, 0}, {SCN_CD_E, 0}, {SCN_CD_R, 0}, {SCN_CD_T, 0}},
+    {{SCN_CD_H, 0}, {SCN_CD_A, 0}, {SCN_CD_S, 0}, {SCN_CD_D, 0}, {SCN_CD_F, 0}, {SCN_CD_G, 0}},
+    {{SCN_CD_H, 0}, {SCN_CD_Z, 0}, {SCN_CD_X, 0}, {SCN_CD_V, 0}, {SCN_CD_B, 0}, {SCN_CD_C, 0}},
+    {{SCN_CD_I, 0}, {SCN_CD_J, 0}, {SCN_CD_K, 0}, {SCN_CD_RET, 0}, {SCN_CD_SPACE, 0}, {SCN_CD_H, 0}},
     };
 #endif
 
@@ -108,7 +113,7 @@ static void special_key_handler(kb_key_t *key) {
         return;
     }
     switch (key->scan_code) {
-        case (ADV_ACC):
+        case (ADV_ACCEPT):
             kb_periph_accept_pairing();
             break;
         case (ADV_BEGIN):
@@ -145,8 +150,7 @@ static void btn_scan() {
         if (key_mtrx[row][scan_col].is_pressed != btn_pressed) {
             key_mtrx[row][scan_col].is_pressed = btn_pressed;
 
-            if (key_mtrx[row][scan_col].scan_code >= ADV_ACC &&
-                key_mtrx[row][scan_col].scan_code <= SCAN_ACCEPT) {
+            if (IS_BLE_SCN_CD(key_mtrx[row][scan_col].scan_code)) {
                 special_key_handler(&key_mtrx[row][scan_col]);
             } else {
                 kb_hid_set_key_evt(&(key_mtrx[row][scan_col]));
