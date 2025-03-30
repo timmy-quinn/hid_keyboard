@@ -1,6 +1,7 @@
 #ifndef KB_HID_COMMON
 #define KB_HID_COMMON
 
+#include "../scan_codes.h"
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -47,7 +48,7 @@
 #define INPUT_REPORT_KEYS_MAX_LEN (1 + 1 + KEY_PRESS_MAX)
 
 typedef struct {
-    uint8_t scan_code;
+    scan_code_t scan_code;
     bool is_pressed;
 } kb_key_t;
 
